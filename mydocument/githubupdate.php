@@ -34,11 +34,12 @@
     <title>GIT DEPLOYMENT SCRIPT</title>
 </head>
 <body style="background-color: #000000; color: #FFFFFF; font-weight: bold; padding: 0 10px;">
+    a
 <div style="width:700px">
     <div style="float:left;width:350px;">
     <p style="color:white;">Git Deployment Script</p>
     <?php echo $output; ?>
-     </div>
+    </div>
 </div>
 </body>
 </html>
