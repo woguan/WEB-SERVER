@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Simple HTML document</title>
+<meta charset="UTF-8">
+<title>HTML5 Canvas</title>
+<script type="text/javascript">
+    window.onload = function(){
+        var canvas = document.getElementById("myCanvas");
+        var context = canvas.getContext("2d");
+        // draw stuff here
+    };
+</script>
 </head>
 <body>
-  <h1>Hello World!</h1>
+    <canvas id="myCanvas" width="300" height="200"></canvas>
 </body>
-</html>                                  		
+</html>                                		
