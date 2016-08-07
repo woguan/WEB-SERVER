@@ -38,7 +38,7 @@
     <div style="float:left;width:350px;">
     <p style="color:white;">Git Deployment Script</p>
     <?php echo $output; ?>
-    </div>
+     </div>
 </div>
 </body>
 </html>
