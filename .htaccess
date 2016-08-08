@@ -3,5 +3,5 @@ AuthType Basic
 AuthName "Restricted Content"
 AuthUserFile /etc/apache2/.htpasswd
 Require valid-user
-ErrorDocument 404 /error/404.html
-ErrorDocument 403 /error/403.html
+ErrorDocument 404 /var/www/CSE135SUMMER/error/404.html
+ErrorDocument 403 /var/www/CSE135SUMMER/error/403.html
