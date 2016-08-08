@@ -1,1 +1,7 @@
-RedirectMatch 404 /\.git
+
+RewriteEngine on
+RewriteRule ^index$ index.html [NC]
+
+RedirectMatch 403 /\.git
+
+

@@ -1,0 +1,6 @@
+RewriteEngine on
+
+RewriteRule ^(401|403|404) $1.html
+#RewriteRule ^401 401.html
+#RewriteRule ^403 403.html
+#RewriteRule ^404 404.html
