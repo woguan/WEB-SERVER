@@ -1,1 +1,5 @@
 RedirectMatch 404 /\.git
+AuthType Basic
+AuthName "Restricted Content"
+AuthUserFile /etc/apache2/.htpasswd
+Require valid-user
