@@ -29,6 +29,14 @@ font-size: 45px;
   }
 }
 
+.titleFix{
+  font-size: 45px;
+}
+
+@media screen and (max-width:600px){
+  .titleFix{font-size: 30px;
+  }
+}
 
 .video-container {
     position: relative;
