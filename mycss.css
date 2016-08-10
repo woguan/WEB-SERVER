@@ -9,3 +9,8 @@
 .darkestBG {
   background: #333;
 }
+
+.addSpace {
+  margin-right: 150px;
+  margin-left: 100px;
+}
