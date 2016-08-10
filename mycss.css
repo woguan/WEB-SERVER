@@ -25,7 +25,7 @@ font-size: 45px;
 }
 
 @media screen and (max-width:400px){
-  .fontFix{font-size: 15px;
+  .fontFix{font-size: 20px;
   }
 }
 
