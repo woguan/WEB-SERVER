@@ -16,6 +16,7 @@
 
 .fontFix {
 font-size: 45px;
+
 }
 
 
@@ -31,6 +32,7 @@ font-size: 45px;
 
 .titleFix{
   font-size: 45px;
+  text-align: center;
 }
 
 @media screen and (max-width:600px){
