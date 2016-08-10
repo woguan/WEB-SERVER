@@ -19,8 +19,13 @@ font-size: 45px;
 }
 
 
-@media screen and (max-width:500px){
+@media screen and (max-width:600px){
   .fontFix{font-size: 30px;
+  }
+}
+
+@media screen and (max-width:200px){
+  .fontFix{font-size: 20px;
   }
 }
 
