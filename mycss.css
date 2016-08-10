@@ -24,8 +24,8 @@ font-size: 45px;
   }
 }
 
-@media screen and (max-width:300px){
-  .fontFix{font-size: 20px;
+@media screen and (max-width:400px){
+  .fontFix{font-size: 10px;
   }
 }
 
