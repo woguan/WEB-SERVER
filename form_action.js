@@ -22,10 +22,13 @@ document.getElementById("form_id").submit();
 var textToFind = 'POST';
 
 var dd = document.getElementById('method');
+dd.option[1].text = 'CHANGING';
+
+/*
 for (var i = 0; i < dd.length; i++) {
     if (dd[i].options[0].text === textToFind) {
         dd[i].options[0].text = 'CHANGED POST';
         break;
-    }
-}
+    }x
+}v
 
