@@ -18,9 +18,9 @@ document.getElementById("form_id").submit();
 var textToFind = 'POST';
 
 var dd = document.getElementById('method');
-for (var i = 0; i < dd.options.length; i++) {
-    if (dd.options[i].text === textToFind) {
-        dd.options[i].text = 'CHANGED POST';
+for (var i = 0; i < dd.length; i++) {
+    if (dd[i].options[0].text === textToFind) {
+        dd[i].options[0].text = 'CHANGED POST';
         break;
     }
 }
