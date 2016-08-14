@@ -30,5 +30,5 @@ for (var i = 0; i < dd.length; i++) {
         dd[i].options[0].text = 'CHANGED POST';
         break;
     }x
-}v
+}*/
 
