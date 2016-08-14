@@ -1,6 +1,7 @@
 
 RewriteEngine on
 RewriteRule ^index$ index.html [NC]
+RewriteRule cgi-bin/hello.cgi hello [L,R=301]
 RedirectMatch 403 /\.git
 
 
