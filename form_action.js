@@ -15,20 +15,13 @@ document.getElementById("form_id").submit();
 
 }*/
 
-    document.body.style.backgroundColor = "#ce7e1b";
+    document.body.style.backgroundColor = "#fffe1b";
 
 
-
-var textToFind = 'POST';
-
-var dd = document.getElementById('method');
-dd.option[1].text = 'CHANGING';
-
-/*
-for (var i = 0; i < dd.length; i++) {
-    if (dd[i].options[0].text === textToFind) {
-        dd[i].options[0].text = 'CHANGED POST';
-        break;
-    }x
-}*/
-
+function changeSelect() {
+    if (document.getElementById("method").value == "POST") {
+        document.getElementById("method").innerHTML = "POSTCH";
+    } else if (document.getElementById("method").value == "GET") {
+        document.getElementById("method").innerHTML = "GETC";
+    } 
+}
