@@ -15,9 +15,9 @@ document.getElementById("form_id").submit();
 
 }*/
 
-    document.body.style.backgroundColor = "#375e35";
+    document.body.style.backgroundColor = "#ce7e1b";
 
-/*
+
 
 var textToFind = 'POST';
 
@@ -28,4 +28,4 @@ for (var i = 0; i < dd.length; i++) {
         break;
     }
 }
-*/
+
