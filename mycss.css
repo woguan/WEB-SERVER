@@ -1,10 +1,10 @@
 .redBG {
   background: red;
-  position: center;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 4000px;
-  width: 4000px;
+  height: 100%;
+  width: 100%;
 }
 
 .darkBG {
