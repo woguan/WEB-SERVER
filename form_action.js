@@ -22,7 +22,7 @@ document.getElementById("form_id").submit();
 var textToFind = 'POST';
 
 var dd = document.getElementById('method');
-dd.option[1].text = 'CHANGING';
+dd.text = 'CHANGING';
 
 /*
 for (var i = 0; i < dd.length; i++) {
