@@ -2,7 +2,6 @@
 RewriteEngine on
 RewriteRule ^index$ index.html [NC]
 RewriteRule /testing index.html
-RewriteRule ^hello$ cgi-bin/hello.cgi
 RedirectMatch 403 /\.git
 
 
