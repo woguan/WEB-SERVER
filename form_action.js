@@ -16,12 +16,12 @@ document.getElementById("form_id").submit();
 }*/
 
     document.body.style.backgroundColor = "#fffe1b";
-
+375e35
 
 function changeSelect() {
     if (document.getElementById("method").value == "POST") {
-        document.getElementById("method").innerHTML = "POSTCH";
+        document.body.style.backgroundColor = "#375e35";
     } else if (document.getElementById("method").value == "GET") {
-        document.getElementById("method").innerHTML = "GETC";
+        document.body.style.backgroundColor = "#540c46";
     } 
 }
