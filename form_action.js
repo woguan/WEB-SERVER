@@ -16,7 +16,6 @@ document.getElementById("form_id").submit();
 }*/
 
     document.body.style.backgroundColor = "#fffe1b";
-375e35
 /*
 function changeSelect() {
     if (document.getElementById("method").value == "POST") {
