@@ -15,7 +15,7 @@ document.getElementById("form_id").submit();
 
 }*/
 
-    document.body.style.backgroundColor = "#fff233";
+    document.body.style.backgroundColor = "#375e35";
 
 /*
 
