@@ -17,7 +17,7 @@ document.getElementById("form_id").submit();
 
     document.body.style.backgroundColor = "#fffe1b";
 375e35
-
+/*
 function changeSelect() {
     if (document.getElementById("method").value == "POST") {
         document.body.style.backgroundColor = "#375e35";
@@ -26,4 +26,13 @@ function changeSelect() {
         document.body.style.backgroundColor = "#540c46";
         document.getElementById("hurl").method = "GET";
     } 
+}*/
+
+function myfunction(){
+    if (document.getElementById("method").value == "POST") {
+        document.getElementById("hurl").method = "POST";
+    }else if (document.getElementById("method").value == "GET") {
+        document.getElementById("hurl").method = "GET";
+    }  
+  
 }
