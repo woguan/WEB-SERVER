@@ -3,8 +3,8 @@
   position: center;
   top: 0;
   left: 0;
-  min-width: 4000px;
-  max-height: 4000px;
+  height: 4000px;
+  width: 4000px;
 }
 
 .darkBG {
