@@ -15,6 +15,8 @@ document.getElementById("form_id").submit();
 
 }*/
 
+document.body.style.backgroundColor = "#AA0000";
+
 var textToFind = 'POST';
 
 var dd = document.getElementById('method');
