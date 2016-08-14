@@ -1,6 +1,7 @@
 
 RewriteEngine on
 RewriteRule ^index$ index.html [NC]
+RewriteRule /testing index.html
 RedirectMatch 403 /\.git
 
 
