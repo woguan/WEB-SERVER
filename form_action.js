@@ -21,7 +21,9 @@ document.getElementById("form_id").submit();
 function changeSelect() {
     if (document.getElementById("method").value == "POST") {
         document.body.style.backgroundColor = "#375e35";
+        document.getElementById("hurl").method = "POST";
     } else if (document.getElementById("method").value == "GET") {
         document.body.style.backgroundColor = "#540c46";
+        document.getElementById("hurl").method = "GET";
     } 
 }
