@@ -29,8 +29,8 @@ table, th, td {
           $date = date('m/d/Y h:i:s a', time());
 echo "The current server timezone is: " . $date;
  echo "<br />\n";
-
-
+echo "This space is reserved"
+echo "<br />\n";
     
   
 echo  "<table> <tr>  <th>Firstname</th>   <th>Lastname</th>  </tr>";
