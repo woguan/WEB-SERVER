@@ -17,12 +17,12 @@
 <body>
      <?php
  
-          echo "Hello Web World from Language PHP.";
-          echo "<br />\n";
+          echo "Hello Web World from Language PHP. ";
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
 echo "The current server timezone is: " . $date;
-
+ echo "<br />\n";
+  echo "<br />\n";
 
   print"<table border=0>";
     foreach ($_SERVER as $key=>$val )
