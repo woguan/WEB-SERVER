@@ -53,7 +53,7 @@ var randNumber = getRandomInt(0,10);
 if(randNumber > 7){
 document.body.style.backgroundColor = "#f6f6f3";
 }
-else if (randNumber < 3{
+else if (randNumber < 3){
 document.body.style.backgroundColor = "#ec2a07";
 }
 else{
