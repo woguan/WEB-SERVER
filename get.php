@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $first = test_input($_POST["first_name"]);
   $method = test_input($_POST["method"]);
   $color = test_input($_POST["colordropdown"]);
+  echo "ITS POST";
 }
 
 function test_input($data) {
