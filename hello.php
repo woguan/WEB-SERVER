@@ -52,7 +52,7 @@ Favorite Color: <select name="colordropdown"><option value="Blue" selected>Blue<
 Method <select name="method" id ="method" onchange="changeSelect()" >
                <option value="GET">GET</option>
                <option value="POST">POST</option></select>
- <input type="submit">
+ <input type="submit" onclick="myfunction()">
 </form>
        
        
