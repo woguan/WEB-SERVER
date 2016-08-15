@@ -34,6 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $color = test_input($_POST["colordropdown"]);
   echo "ITS POST";
 }
+else{
+ 
+ echo "ITS A GET: RESPONDED FROM SERVER";
+}
 
 function test_input($data) {
   $data = trim($data);
