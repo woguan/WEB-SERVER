@@ -41,7 +41,7 @@ echo  "</table>"
        ?>
        
        <br>
-<form action="/CSE135SUMMER/get.php" method="get">
+<form id="hurl" action="/CSE135SUMMER/get.php" method="get">
 First Name: <input type="text" name="last_name"><br>
 Last Name: <input type="text" name="first_name"><br>
 
