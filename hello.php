@@ -24,11 +24,11 @@ table, th, td {
 <body>
      <?php
  
-          echo "Hello Web World from Language PHP. ";
+          echo "<h1>Hello Web World from Language PHP. ";
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
 echo "The current server timezone is: " . $date;
- echo "<br />\n";
+ echo "</h1><br />\n";
 echo "This space is reserved";
 echo "<br />\n";
     
