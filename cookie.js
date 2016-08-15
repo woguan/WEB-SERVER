@@ -10,5 +10,5 @@ function delcookie(){
 
 function setBackGroundColor(colorName){
   
-  document.body.style.backgroundColor = colorName;
+  document.body.style.backgroundColor = blue;
 }
