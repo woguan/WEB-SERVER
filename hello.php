@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +10,16 @@
 
 <!-- Set the page to the width of the device and set the zoon level -->
 <meta name="viewport" content="width = device-width, initial-scale = 1">
-<head></head>
-    <body>
-       <?php
+<title>PHP</title>
+ 
+</head>
+
+<body>
+     <?php
           echo "Hello World";
        ?>
-    </body>
+</body>
+ 
+
+
 </html>
