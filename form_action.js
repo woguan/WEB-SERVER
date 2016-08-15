@@ -27,6 +27,11 @@ function changeSelect() {
     } 
 }*/
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
 function myfunction(){
     if (document.getElementById("method").value == "POST") {
         document.getElementById("hurl").method = "POST";
@@ -42,3 +47,16 @@ function delcookie(){
   document.cookie = "Cookie_Last_Name=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
   document.cookie = "Cookie_Favorite_Color=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 }
+
+var randNumber = getRandomInt(0,10);
+
+if(randNumber > 7){
+document.body.style.backgroundColor = "#f6f6f3";
+}
+else if (randNumber < 3{
+document.body.style.backgroundColor = "#ec2a07";
+}
+else{
+  document.body.style.backgroundColor = "#4807ec";
+}
+
