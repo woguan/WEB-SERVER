@@ -40,5 +40,5 @@ function delcookie(){
   document.body.style.backgroundColor = "#fffe1b";
   document.cookie = "Cookie_First_Name=";
   document.cookie = "Cookie_Last_Name=";
-  document.cookie = "cookieSet=NO";
+  document.cookie = "CookieSet=NO";
 }
