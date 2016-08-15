@@ -1,0 +1,5 @@
+ sudo chown -R yourname:www-data fileName+Directory
+ 
+ sudo chmod 777.... 
+ 
+ sudo chmod a+x... ?
