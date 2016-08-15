@@ -39,6 +39,6 @@ function myfunction(){
 function delcookie(){
   document.body.style.backgroundColor = "#fffe1b";
   document.cookie = "Cookie_First_Name=";
-  document.cookie = "Cookie_Last_Name=;
-  document.cookie = "CookieSet="NO;
+  document.cookie = "Cookie_Last_Name=";
+  document.cookie = "CookieSet="NO";
 }
