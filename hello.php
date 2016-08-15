@@ -28,7 +28,8 @@
      $background_color = "white";
 }
 }
-
+ $background_color = "red";
+ 
           echo "Hello Web World from Language PHP.";
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
