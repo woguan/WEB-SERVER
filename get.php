@@ -45,7 +45,7 @@ echo "Last Name: ". $last;
 ?>
 
        
-       <script type="text/javascript" src="/CSE135SUMMER/form_action.js"></script>
+       <script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
 </body>
  
 
