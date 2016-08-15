@@ -32,11 +32,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $first = test_input($_POST["first_name"]);
   $method = test_input($_POST["method"]);
   $color = test_input($_POST["colordropdown"]);
-  echo "ITS POST";
+  
 }
 else{
- 
- echo "ITS A GET: RESPONDED FROM SERVER";
+   $last = test_input($_GET["last_name"]);
+  $first = test_input($_GET["first_name"]);
+  $method = test_input($_GET["method"]);
+  $color = test_input($_GET["colordropdown"]);
+
 }
 
 function test_input($data) {
@@ -46,7 +49,8 @@ function test_input($data) {
   return $data;
 }
 
-echo "Last Name: ". $last;
+echo "Hello " $last $first;
+echo ". Nice to meet you. Your favorite color is: " $color;
 ?>
 
        
