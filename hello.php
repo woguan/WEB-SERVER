@@ -22,7 +22,7 @@
           $date = date('m/d/Y h:i:s a', time());
 echo "The current server timezone is: " . $date;
  echo "<br />\n";
-  echo "<br />\n";
+
 
   print"<table border=0>";
     foreach ($_SERVER as $key=>$val )
