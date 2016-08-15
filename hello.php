@@ -42,8 +42,8 @@ echo  "</table>"
        
        <br>
 <form action="/CSE135SUMMER/get.php" method="get">
-First Name: <input type="text" name="name"><br>
-Last Name: <input type="text" name="email"><br>
+First Name: <input type="text" name="last_name"><br>
+Last Name: <input type="text" name="first_name"><br>
 
 Favorite Color: <select name="colordropdown"><option value="Blue" selected>Blue</option>
                 <option value="Brown">Brown</option><option value="Green">Green</option>
