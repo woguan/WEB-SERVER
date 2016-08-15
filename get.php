@@ -62,7 +62,7 @@ else if ($first == '' || $last == ''){
  $color = $_COOKIE['Cookie_Favorite_Color'];
 }
 
-echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
+echo "<h2>Hello $last $first. Nice to meet you. Your Favorite color is: $color </h2><br>";
 //echo "<script>setBackGroundColor($color)</script>";
 //echo "<script>document.body.style.backgroundColor=\"Blue\"</script>";
 
