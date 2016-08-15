@@ -70,7 +70,7 @@ echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
 
 
 echo "<script>";
-echo "document.body.style.backgroundColor=\"$blue\" ";
+echo "setBackGroundColor(\"$blue\")";
 echo "</script>";
 
 ?>
