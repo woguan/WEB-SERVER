@@ -44,6 +44,9 @@ echo "The current server timezone is: " . $date;
     print"</table>";
 
        ?>
+       
+       
+       <script type="text/javascript" src="/CSE135SUMMER/form_action.js"></script>
 </body>
  
 
