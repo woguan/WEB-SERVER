@@ -39,7 +39,6 @@ else{
   $first = test_input($_GET["first_name"]);
   $method = test_input($_GET["method"]);
   $color = test_input($_GET["colordropdown"]);
-
 }
 
 function test_input($data) {
@@ -49,7 +48,7 @@ function test_input($data) {
   return $data;
 }
 
-echo "Hello " $last $first;
+echo "Hello " $last; $first;
 echo ". Nice to meet you. Your favorite color is: " $color;
 ?>
 
