@@ -3,3 +3,6 @@
  sudo chmod 777.... 
  
  sudo chmod a+x... ?
+
+
+installed nodejs from: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-16-04
