@@ -63,8 +63,8 @@ else if ($first == '' || $last == ''){
 }
 
 echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
-//echo "<script>setBackGroundColor('$color')</script>";
-echo "<script>document.body.style.backgroundColor=\"Blue\"</script>";
+echo "<script>setBackGroundColor($color)</script>";
+//echo "<script>document.body.style.backgroundColor=\"Blue\"</script>";
 ?>
 
  <br>
