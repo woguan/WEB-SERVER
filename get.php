@@ -73,7 +73,7 @@ echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
       
        <script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
       <script>document.body.style.backgroundColor="red"</script>
-      this is: $color
+      this is: <?php $color;>
 </body>
  
 
