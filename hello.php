@@ -24,11 +24,21 @@ table, th, td {
 <body>
      <?php
  
+ $first = $_COOKIE['Cookie_First_Name'];
+ $last = $_COOKIE['Cookie_Last_Name'];
+
           echo "<h1>Hello Web World from Language PHP. ";
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
 echo "The current server timezone is: " . $date;
  echo "</h1><br />\n";
+ 
+ if ( $first !== '' && $last !== ''){
+  echo "Hello friend, you're $last.";
+ }
+ else{
+  echo "Hello Anonymous."
+ }
 echo "This space is reserved";
 echo "<br />\n";
     
