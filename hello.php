@@ -17,7 +17,7 @@
 <body>
      <?php
  
-          echo "Hello Web World from Language PHP.";
+          echo "Hello Web World from Language PHP.\n";
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
 echo "The current server timezone is: " . $date;
@@ -32,7 +32,7 @@ echo "The current server timezone is: " . $date;
 
        ?>
        
-       
+       <br>
 <form action="/CSE135SUMMER/get.php" method="get">
 First Name: <input type="text" name="name"><br>
 Last Name: <input type="text" name="email"><br>
