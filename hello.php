@@ -16,9 +16,7 @@
 
 <body>
      <?php
-          echo "Hello Web World from Language PHP. $t=time();
-echo($t . "<br>");
-echo(date("Y-m-d",$t));";
+          echo "Hello Web World from Language PHP.";
        ?>
 </body>
  
