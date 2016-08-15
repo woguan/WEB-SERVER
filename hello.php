@@ -17,7 +17,8 @@
 <body>
      <?php
  
-          echo "Hello Web World from Language PHP.\n";
+          echo "Hello Web World from Language PHP.";
+          echo "<br />\n";
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
 echo "The current server timezone is: " . $date;
