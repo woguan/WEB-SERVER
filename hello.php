@@ -16,19 +16,6 @@
 
 <body>
      <?php
-     
-     function setBackGroundColor() {
-    $random = rand(0, 10);
-    
-    if ($random > 7) {
-    $background_color = "blue";
-} elseif ($random < 3) {
-     $background_color = "red";
-} else {
-     $background_color = "white";
-}
-}
- $background_color = "red";
  
           echo "Hello Web World from Language PHP.";
           $timezone = date_default_timezone_get();
@@ -44,6 +31,13 @@ echo "The current server timezone is: " . $date;
     print"</table>";
 
        ?>
+       
+       
+<form action="get.php" method="get">
+First Name: <input type="text" name="name"><br>
+Last Name: <input type="text" name="email"><br>
+<input type="submit">
+</form>
        
        
        <script type="text/javascript" src="/CSE135SUMMER/form_action.js"></script>
