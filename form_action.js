@@ -35,3 +35,9 @@ function myfunction(){
     }  
   
 }
+
+function delcookie(){
+  document.cookie = "Cookie_First_Name="";
+  document.cookie = "Cookie_Last_Name="";
+  document.cookie = "CookieSet="NO";
+}
