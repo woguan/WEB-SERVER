@@ -48,6 +48,14 @@ function test_input($data) {
   return $data;
 }
 
+// cookie place
+if ($first !== '' && $last !== ''){
+setcookie('Cookie_First_Name',$first,time() + (86400 * 7));
+setcookie('Cookie_Last_Name',$last,time() + (86400 * 7));
+setcookie('Cookie_Favorite_Color',$color,time() + (86400 * 7));
+}
+
+
 echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
 
 ?>
