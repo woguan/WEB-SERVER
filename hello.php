@@ -20,6 +20,15 @@
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
 echo "The current server timezone is: " . $date;
+
+
+  print"<table border=0>";
+    foreach ($_SERVER as $key=>$val )
+       {
+         echo "<tr><td>".$key."</td><td>" .$val."</tr>";
+        }
+    print"</table>";
+
        ?>
 </body>
  
