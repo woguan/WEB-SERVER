@@ -68,8 +68,9 @@ echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
  <br>
  <button  onclick="delcookie()">Clear Cookie</button><br><script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
 
-       <script> setBackGroundColor('$color')</script>
+      
        <script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
+        <script> setBackGroundColor('$color')</script>
 </body>
  
 
