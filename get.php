@@ -72,7 +72,7 @@ echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
 echo '<script>';
 echo 'var myVar = ' . json_encode($color) . ';';
 //echo "setBackGroundColor('$myVar')";
-echo "document.body.style.backgroundColor='$myVar'";
+echo "document.body.style.backgroundColor=$myVar";
 echo '</script>';
 
 ?>
