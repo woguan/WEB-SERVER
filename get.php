@@ -22,10 +22,11 @@ table, th, td {
 </head>
 
 <body>
-
-    <?php
-// define variables and set to empty values
+ // define variables and set to empty values
 $last = $first = $$method = $color = "";
+    <?php
+
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $last = test_input($_POST["last_name"]);
