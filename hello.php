@@ -33,17 +33,11 @@ echo "The current server timezone is: " . $date;
 
     
   
-echo  "<table>
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-  </tr>";
- foreach ($_SERVER as $key=>$val )
-       {
-         echo "<tr><td>".$key."</td><td>" .$val."</tr>";
-        }
+echo  "<table> <tr>  <th>Firstname</th>   <th>Lastname</th>  </tr>";
+ foreach ($_SERVER as $key=>$val ){
+             echo "<tr><td>".$key."</td><td>" .$val."</tr>";
+         }
 echo  "</table>"
-
        ?>
        
        <br>
