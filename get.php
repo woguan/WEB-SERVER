@@ -22,10 +22,10 @@ table, th, td {
 </head>
 
 <body>
- // define variables and set to empty values
+
 $last = $first = $$method = $color = "";
     <?php
-
+ // define variables and set to empty values
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
