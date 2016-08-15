@@ -33,10 +33,18 @@ echo "The current server timezone is: " . $date;
        ?>
        
        
-<form action="get.php" method="get">
+<form action="/CSE135SUMMER/get.php" method="get">
 First Name: <input type="text" name="name"><br>
 Last Name: <input type="text" name="email"><br>
-<input type="submit">
+
+Favorite Color: <select name="colordropdown"><option value="Blue" selected>Blue</option>
+                <option value="Brown">Brown</option><option value="Green">Green</option>
+                <option value="Grey">Grey</option><option value="Red">Red</option>
+                <option value="Yellow">Yellow</option></select> <br>
+Method <select name="method" id ="method" onchange="changeSelect()" >
+               <option value="GET">GET</option>
+               <option value="POST">POST</option></select>
+ <input type="submit">
 </form>
        
        
