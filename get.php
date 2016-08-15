@@ -63,7 +63,7 @@ else if ($first == '' || $last == ''){
 }
 
 if ( $first == '' || $last == ''){
-echo "<h2>Howdy Stranger, give your full name in page 1. </h2><br>";
+echo "<h2>Howdy stranger...tell me your name on page1! </h2><br>";
 }
 else{
 echo "<h2>Hello $last $first. Nice to meet you. Your Favorite color is: $color </h2><br>";
