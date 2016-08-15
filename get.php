@@ -34,12 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $color = test_input($_POST["colordropdown"]);
   
 }
-/*else{
+else{
    $last = test_input($_GET["last_name"]);
   $first = test_input($_GET["first_name"]);
   $method = test_input($_GET["method"]);
   $color = test_input($_GET["colordropdown"]);
-}*/
+}
 
 function test_input($data) {
   $data = trim($data);
