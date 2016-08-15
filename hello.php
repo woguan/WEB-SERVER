@@ -58,8 +58,6 @@ Method <select name="method" id ="method" onchange="changeSelect()" >
        
        <script type="text/javascript" src="/CSE135SUMMER/form_action.js"></script>
 </body>
- 
- <button  onclick="delcookie()">Clear Cookie</button><br><script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
 
 
 </html>
