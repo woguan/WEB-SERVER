@@ -23,10 +23,10 @@ table, th, td {
 
 <body>
 
-$last = $first = $$method = $color = "";
+
     <?php
  // define variables and set to empty values
-
+$last = $first = $$method = $color = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $last = test_input($_POST["last_name"]);
@@ -63,7 +63,7 @@ else if ($first == '' || $last == ''){
 }
 
 echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
-
+echo "<script> setBackGroundColor('$color')</script>"
 ?>
 
  <br>
@@ -71,7 +71,7 @@ echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
 
       
        <script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
-        <script> setBackGroundColor('$color')</script>
+        
 </body>
  
 
