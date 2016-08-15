@@ -16,6 +16,19 @@
 
 <body>
      <?php
+     
+     function setBackGroundColor() {
+    $random = rand(0, 10);
+    
+    if ($random > 7) {
+    $background_color = "blue";
+} elseif ($random < 3) {
+     $background_color = "red";
+} else {
+     $background_color = "white";
+}
+}
+
           echo "Hello Web World from Language PHP.";
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
