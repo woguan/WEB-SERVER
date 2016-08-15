@@ -73,7 +73,7 @@ echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
       
        <script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
        
-       <script> var myVar = <?php echo json_encode($color); ?>; setBackGroundColor('myVar'); </script>
+       <script> var myVar = <?php echo json_encode($color); ?>; setBackGroundColor('$myVar'); </script>
  <!--     <script>document.body.style.backgroundColor="red"</script> -->
 
 </body>
