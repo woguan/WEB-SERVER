@@ -1,13 +1,37 @@
-<?php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+ 
+<!-- If IE use the latest rendering engine -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Set the page to the width of the device and set the zoon level -->
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+<title>PHP</title>
+ 
+ <style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+
+</head>
+
+<body>
+
+    <?php
 // define variables and set to empty values
-$name = $email = $gender = $comment = $website = "";
+$last = $first = $$method = $color = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $name = test_input($_POST["name"]);
-  $email = test_input($_POST["email"]);
-  $website = test_input($_POST["website"]);
-  $comment = test_input($_POST["comment"]);
-  $gender = test_input($_POST["gender"]);
+  $last = test_input($_POST["last_name"]);
+  $first = test_input($_POST["first_name"]);
+  $method = test_input($_POST["method"]);
+  $color = test_input($_POST["colordropdown"]);
 }
 
 function test_input($data) {
@@ -16,4 +40,14 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
+
+echo "Last Name: ". $last;
 ?>
+
+       
+       <script type="text/javascript" src="/CSE135SUMMER/form_action.js"></script>
+</body>
+ 
+
+
+</html>
