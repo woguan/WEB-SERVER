@@ -55,10 +55,18 @@ setcookie('Cookie_Last_Name',$last,time() + (86400 * 7));
 setcookie('Cookie_Favorite_Color',$color,time() + (86400 * 7));
 }
 
+else if ($first == '' || $last == ''){
+ $first = $_COOKIE['Cookie_First_Name'];
+ $last = $_COOKIE['Cookie_Last_Name'];
+ $color = $_COOKIE['Cookie_Favorite_Color'];
+}
 
 echo "Hello $last $first. Nice to meet you. Your Favorite color is: $color";
 
 ?>
+
+ 
+ <button  onclick="delcookie()">Clear Cookie</button><br><script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
 
        
        <script type="text/javascript" src="/CSE135SUMMER/cookie.js"></script>
