@@ -50,7 +50,7 @@ echo  "</table>"
        ?>
        
        <br>
-<form id="hurl" action="/CSE135SUMMER/get.php" method="get">
+<form id="hurl" action="/CSE135SUMMER/session2.php" method="get">
 First Name: <input type="text" name="last_name"><br>
 Last Name: <input type="text" name="first_name"><br>
 
