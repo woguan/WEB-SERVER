@@ -34,7 +34,7 @@ echo "The current server timezone is: " . $date;
  echo "</h1><br />\n";
  
  if ( $first !== '' && $last !== ''){
-  echo "<h2>Hello friend, you're $last.</h2>";
+  echo "<h2>Hello friend, you're $last $first.</h2>";
  }
  else{
   echo "<h2>Hello Anonymous.</h2>";
