@@ -48,7 +48,7 @@ function test_input($data) {
   return $data;
 }
 
-echo "Hello";
+echo "Hello "; $last; $first;
 //echo "Hello " $last; $first;
 //echo ". Nice to meet you. Your favorite color is: " $color;
 ?>
