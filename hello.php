@@ -30,7 +30,7 @@ table, th, td {
           echo "<h1>Hello Web World from Language PHP. ";
           $timezone = date_default_timezone_get();
           $date = date('m/d/Y h:i:s a', time());
-echo "The current server timezone is: " . $date;
+echo "HEHEH The current server timezone is: " . $date;
  echo "</h1><br />\n";
  
  if ( $first == "" || $last == ""){
