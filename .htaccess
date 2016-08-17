@@ -3,6 +3,10 @@ RewriteEngine on
 RewriteRule ^index$ index.html [NC]
 RewriteRule ^session1$ hello.php [NC]
 RewriteRule /testing index.html
+RewriteRule ^php/helloworld$ helloworld.php
+RewriteRule ^php/echovariables$ echovariables.php
+RewriteRule ^php/formcollection$ formcollection.php
+RewriteRule ^php/sessionpage1$ sessionpage1.php
 RedirectMatch 403 /\.git
 
 
