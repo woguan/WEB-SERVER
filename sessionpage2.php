@@ -57,10 +57,11 @@ setcookie('Cookie_Favorite_Color',$color,time() + (86400 * 7));
 }
 $fcookie = $_COOKIE['Cookie_First_Name'];
 $lcookie = $_COOKIE['Cookie_Last_Name']; 
-
+$ccookie = $_COOKIE['Cookie_Favorite_Color'];
 if ($first !== '' && $last !== ''){
  $fcookie = $first;
  $lcookie = $last;
+ $ccookie = $color;
 }
 
 if ( $fcookie == '' || $lcookie == ''){
@@ -76,7 +77,7 @@ echo "<h2>Hi $fcookie $lcookie nice to meet you </h2><br>";
 
 echo "<script>";
 //echo "setBackGroundColor(\"blue\")";
-echo "document.body.style.backgroundColor=\"$color\"";
+echo "document.body.style.backgroundColor=\"$ccookie\"";
 echo "</script>";
 
 ?>
