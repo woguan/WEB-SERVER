@@ -16,10 +16,10 @@
 <?php
 
 	// PLEASE CHANGE THESE LINES!!!!!!
-    define('DB_USER','cse135demo');
-    define('DB_PASSWORD','notsecret');
+    define('DB_USER','root');
+    define('DB_PASSWORD','wong123');
     define('DB_HOST','127.0.0.1');
-    define('DB_NAME','userDB');
+    define('DB_NAME','movieInfo');
 
 	// CONNECT TO DB
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -29,7 +29,8 @@
     }
     
     // FORM AND EXECUTE SOME QUERY
-    $sql = "SELECT user_id,login,first_name,last_name, password FROM users ORDER BY login";
+    //$sql = "SELECT user_id,login,first_name,last_name, password FROM users ORDER BY login";
+    $sql = "SELECT * from movieInfo";
     $result = mysqli_query($conn, $sql);
     
     // USE THE QUERY RESULT
@@ -41,10 +42,10 @@
     
       while($row = mysqli_fetch_assoc($result)) {
 	    print "<tr>";
-	    print "<td>". $row['first_name'] . "</td>" ;
-	    print "<td>". $row['last_name'] . "</td>" ;
-	    print "<td>". $row['login'] . "</td>" ;
-	    print "<td>". $row['password'] . "</td>" ;
+	    print "<td>". $row['movie_title'] . "</td>" ;
+	    print "<td>". $row['studio'] . "</td>" ;
+	    print "<td>". $row['year'] . "</td>" ;
+	    print "<td>". $row['box_office'] . "</td>" ;
 	   
 	    print "<td><div class='row'>";
 	    	    
