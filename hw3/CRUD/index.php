@@ -26,7 +26,9 @@
     
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
+      print "NOT WORKING";
     }
+    print "WORING";
     
     // FORM AND EXECUTE SOME QUERY
     //$sql = "SELECT user_id,login,first_name,last_name, password FROM users ORDER BY login";
