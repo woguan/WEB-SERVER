@@ -20,12 +20,12 @@
     define('DB_PASSWORD','');
     define('DB_HOST','127.0.0.1:3306');
     define('DB_NAME','homework3');
-print "SHOW SOMETHING7";
+print "SHOW SOMETHING1231231231231312";
 	// CONNECT TO DB
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     print "show 4";
     if (!$conn) {
-    	print "NOT WORKING";
+    	print "NOT123 WORKING";
       die("Connection failed: " . mysqli_connect_error());
       
     }
