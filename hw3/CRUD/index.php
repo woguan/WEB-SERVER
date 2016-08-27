@@ -38,7 +38,7 @@
     
     // USE THE QUERY RESULT
     print "<table class='table'>";
-    print "<tr><th>First Name</th><th>Last Name</th><th>Login</th><th>Password</th><th></th></tr>";   
+    print "<tr><th>First Name</th><th>Last Name</th><th>Login</th><th>Password</th><th></th></tr><tr><th>Image</th><th>";   
     
     if (mysqli_num_rows($result) > 0) {
     
@@ -49,7 +49,7 @@
 	    print "<td>". $row['studio'] . "</td>" ;
 	    print "<td>". $row['year'] . "</td>" ;
 	    print "<td>". $row['box_office'] . "</td>" ;
-	   
+	    print "<td>". $row['picture'] . "</td>" ;
 	    print "<td><div class='row'>";
 	    	    
 	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='user_id' value='".$row['user_id']."'>
