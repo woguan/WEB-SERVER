@@ -17,8 +17,8 @@
  print "SHOW SOMETHING";
 	// PLEASE CHANGE THESE LINES!!!!!!
     define('DB_USER','root');
-    define('DB_PASSWORD','wong123');
-    define('DB_HOST','138.68.12.213');
+    define('DB_PASSWORD','');
+    define('DB_HOST','127.0.0.1');
     define('DB_NAME','homework3');
 print "SHOW SOMETHING5";
 	// CONNECT TO DB
