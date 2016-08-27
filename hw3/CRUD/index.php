@@ -20,7 +20,7 @@
     define('DB_PASSWORD','wong123');
     define('DB_HOST','127.0.0.1');
     define('DB_NAME','homework3');
-print "SHOW SOMETHING8";
+    
 	// CONNECT TO DB
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
@@ -33,7 +33,7 @@ print "SHOW SOMETHING8";
     
     // FORM AND EXECUTE SOME QUERY
     //$sql = "SELECT user_id,login,first_name,last_name, password FROM users ORDER BY login";
-    $sql = "SELECT movie_title from movieInfo";
+    $sql = "SELECT * from movieInfo";
     $result = mysqli_query($conn, $sql);
     
     // USE THE QUERY RESULT
