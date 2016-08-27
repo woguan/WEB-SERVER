@@ -14,7 +14,7 @@
 <h1>Super Basic CRUD!</h1>
 
 <?php
-
+ print "SHOW SOMETHING";
 	// PLEASE CHANGE THESE LINES!!!!!!
     define('DB_USER','root');
     define('DB_PASSWORD','wong123');
