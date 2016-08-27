@@ -49,7 +49,7 @@
 	    print "<td>". $row['studio'] . "</td>" ;
 	    print "<td>". $row['year'] . "</td>" ;
 	    print "<td>". $row['box_office'] . "</td>" ;
-	    $imgName = . $row['picture'] .;
+	    $imgName = $row['picture'];
 	    print "<td>" $imgName "</td>" ;
 	    print "<td><div class='row'>";
 	    	    
