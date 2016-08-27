@@ -17,10 +17,10 @@
  print "SHOW SOMETHING";
 	// PLEASE CHANGE THESE LINES!!!!!!
     define('DB_USER','root');
-    define('DB_PASSWORD','');
+    define('DB_PASSWORD','wong123');
     define('DB_HOST','127.0.0.1');
     define('DB_NAME','homework3');
-print "SHOW SOMETHING5";
+print "SHOW SOMETHING6";
 	// CONNECT TO DB
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     print "show 4";
