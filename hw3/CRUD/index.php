@@ -38,7 +38,7 @@
     
     // USE THE QUERY RESULT
     print "<table class='table'>";
-    print "<tr><th>First Name</th><th>Last Name</th><th>Login</th><th>Password</th><th></th><th>Image</th></tr>";   
+    print "<tr><th>First Name</th><th>Last Name</th><th>Login</th><th>Password</th><th>Image</th></tr>";   
     
     if (mysqli_num_rows($result) > 0) {
     
