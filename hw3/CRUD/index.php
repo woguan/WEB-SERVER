@@ -20,7 +20,7 @@
     define('DB_PASSWORD','wong123');
     define('DB_HOST','127.0.0.1');
     define('DB_NAME','movieInfo');
-
+print "SHOW SOMETHING2";
 	// CONNECT TO DB
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     
