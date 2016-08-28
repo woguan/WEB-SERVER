@@ -10,15 +10,10 @@
 	if (!$conn) {
 	  die("Connection failed: " . mysqli_connect_error());
     }
-$message2 = "wrong answer";
-print "<script type='text/javascript'>alert('$message2');</script>";
 
 	$action = $_REQUEST['action'];
 	
 	if ($action == 'Add') {
-		
-	$message = "wrong answer";
-echo "<script type='text/javascript'>alert('$message');</script>";
 
        $movie_title = $_REQUEST['movie_title'];
 	   $studio= $_REQUEST['studio'];
@@ -26,8 +21,6 @@ echo "<script type='text/javascript'>alert('$message');</script>";
 	   $box_office = $_REQUEST['box_office'];
 	   
 	 // START 
-	  error_reporting(E_ALL);
-        ini_set('display_errors', 1);
         
 	         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              
@@ -37,6 +30,11 @@ echo "<script type='text/javascript'>alert('$message');</script>";
             $size     = $_FILES['file']['size'];
             $ext      = strtolower(pathinfo($name, PATHINFO_EXTENSION));
             echo '<script type="text/javascript">alert("It workk [0].");</script>';
+            
+            
+	   $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
+            
              switch ($error) {
                 case UPLOAD_ERR_OK:
                 	echo '<script type="text/javascript">alert("It workk [1].");</script>';
@@ -100,10 +98,6 @@ echo "<script type='text/javascript'>alert('$message');</script>";
 	  // $picture = $_REQUEST['picture'];
 	   
 	   // SHOULD HAVE VALIDATION HERE!?
-		
-	
-	   $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
 		
 		
 	} else if ($action == "Update") {
