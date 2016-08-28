@@ -32,9 +32,6 @@
             echo '<script type="text/javascript">alert("It workk [0].");</script>';
             
             
-	   $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
-            
              switch ($error) {
                 case UPLOAD_ERR_OK:
                 	echo '<script type="text/javascript">alert("It workk [1].");</script>';
@@ -51,7 +48,8 @@
                     }
                     //upload file
                     if ($valid) {
-                    	 
+                    	 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
                         $targetPath =  dirname( __FILE__ ) . DIRECTORY_SEPARATOR. 'images' . DIRECTORY_SEPARATOR. $name;
                         move_uploaded_file($tmpName,$targetPath);
                         header( 'Location: index.php' ) ;
