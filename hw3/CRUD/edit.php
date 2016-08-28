@@ -46,7 +46,7 @@
  
  
  if ($action == "Update") {
-   print "its here hueasudhasudasudhasuduasduasduasduasu";
+ //  print "its here hueasudhasudasudhasuduasduasduasduasu";
     $user_id = $_POST['user_id'];
      
     define('DB_USER','root');
@@ -75,7 +75,6 @@
  }
 ?>
 
-ITA COIGGIJIAFIIFJAIF I
 
 <!DOCTYPE html>
 <html>
