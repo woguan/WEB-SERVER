@@ -30,16 +30,7 @@
             $size     = $_FILES['file']['size'];
             $ext      = strtolower(pathinfo($name, PATHINFO_EXTENSION));
             
-	         }
-/*	           if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-             
-            $name     = $_FILES['file']['name'];
-            $tmpName  = $_FILES['file']['tmp_name'];
-            $error    = $_FILES['file']['error'];
-            $size     = $_FILES['file']['size'];
-            $ext      = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-           
-            switch ($error) {
+             switch ($error) {
                 case UPLOAD_ERR_OK:
                     $valid = true;
                     //validate file extensions
@@ -85,7 +76,8 @@
                     $response = 'Unknown error';
                 break;
             }
-	   */
+	         }
+
 	   
 	   // END 
 	  // $picture = $_REQUEST['picture'];
