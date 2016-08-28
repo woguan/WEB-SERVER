@@ -93,6 +93,7 @@ if ($uploadOk == 0) {
 		
 	}
 
-	header('Location: index.php');
+// this is to redirect
+//	header('Location: index.php');
 	
 ?>
