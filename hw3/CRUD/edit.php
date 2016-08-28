@@ -2,7 +2,7 @@
 
  $action = $_POST['action'];
 
- /**
+ /*
  $movie_title = '';
  $studio= '';
  $year = '';
@@ -102,8 +102,8 @@
 	</div>-->
 
 	<div class="form-group">
-	<label for="last_name">Last Name</label>
-	<input type="text" name="last_name" value="<?= $last_name ?>"  class="form-control">
+	<label for="studio">Studio</label>
+	<input type="text" name="studio" value="<?= $studio ?>"  class="form-control">
 	</div>
 
 	<div class="form-group">
