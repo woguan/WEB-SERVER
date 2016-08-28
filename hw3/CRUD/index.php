@@ -52,7 +52,7 @@
 	   // print "<td>" "href = . $row['picture']" "</td>";
 	   print "<td>";
 	   $imgName = $row['picture'];
-	    print "<a href=\"thisworkds.php\">LinkToImage</a>";
+	    print "<a href=\"$imgName.php\">LinkToImage</a>";
 	   print "</td>";
 	    
 	    //print "<td>" $imgName "</td>" ;
