@@ -29,7 +29,7 @@
             $error    = $_FILES['file']['error'];
             $size     = $_FILES['file']['size'];
             $ext      = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-            
+            echo '<script type="text/javascript">alert("It workk [0].");</script>';
              switch ($error) {
                 case UPLOAD_ERR_OK:
                 	echo '<script type="text/javascript">alert("It workk [1].");</script>';
