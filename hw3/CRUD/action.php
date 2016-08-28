@@ -27,7 +27,7 @@
        $uploadOk = 1;
        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
        
-       $picture = $target_file;	
+       $picture = basename($_FILES["file"]["name"]);	
        $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
        $result = mysqli_query($conn, $sql);
        
