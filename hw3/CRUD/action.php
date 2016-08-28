@@ -52,15 +52,14 @@ if ($_FILES["file"]["size"] > 500000) {
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
-	$picture = $imageFileType;
-	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-	
+		$picture = $imageFileType;
+	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
