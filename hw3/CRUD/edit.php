@@ -46,7 +46,7 @@
  
  
  if ($action == "Update") {
-   
+   print "its here hueasudhasudasudhasuduasduasduasduasu";
     $user_id = $_POST['user_id'];
      
     define('DB_USER','root');
