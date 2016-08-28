@@ -48,8 +48,7 @@
                     }
                     //upload file
                     if ($valid) {
-                    	 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
+                
                         $targetPath =  dirname( __FILE__ ) . DIRECTORY_SEPARATOR. 'images' . DIRECTORY_SEPARATOR. $name;
                         move_uploaded_file($tmpName,$targetPath);
                         header( 'Location: index.php' ) ;
@@ -57,6 +56,8 @@
                     }
                     break;
                 case UPLOAD_ERR_INI_SIZE:
+                		 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
                 	echo '<script type="text/javascript">alert("It workk [2].");</script>';
                     $response = 'The uploaded file exceeds the upload_max_filesize directive in php.ini.';
                     break;
