@@ -34,21 +34,23 @@ if(isset($_POST["submit"])) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-    	
+    		$picture = "NOT IMAGE";
+	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
         echo "File is not an image.";
         $uploadOk = 0;
     }
 }
 // Check if file already exists
 if (file_exists($target_file)) {
-		$picture = $imageFileType;
-	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
     echo "Sorry, file already exists.";
     $uploadOk = 0;
 }
 // Check file size
 if ($_FILES["file"]["size"] > 500000) {
+	$picture = "SIZE TOO LARGE IMAGE";
+	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
