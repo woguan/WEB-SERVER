@@ -89,17 +89,17 @@
 	
 <h1><?= $action ?> Record</h1>
 
-<!--<form action="action.php" method="POST" class="form">
+<form action="action.php" method="POST" class="form">
 	<div class="form-group">
 	 <label for="movie_title">Movie Title</label>
 	 <input type="text" name="movie_title" value="<?= $movie_title ?>"  class="form-control">
-	</div> -->
-	
+	</div> 
+	<!--
 	<form action="action.php" method="POST" class="form">
 	<div class="form-group">
 	 <label for="first_name">First Name</label>
 	 <input type="text" name="first_name" value="<?= $first_name ?>"  class="form-control">
-	</div>
+	</div>-->
 
 	<div class="form-group">
 	<label for="last_name">Last Name</label>
