@@ -3,10 +3,11 @@
  $action = $_POST['action'];
 
  
- $first_name = '';
- $last_name = '';
- $login = '';
- $password = '';
+ $movie_title = '';
+ $studio= '';
+ $year = '';
+ $box_office = '';
+ $picture = '';
  
  
  if ($action == "Update") {
