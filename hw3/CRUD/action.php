@@ -62,10 +62,18 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
+	$picture = "CONTAINERROR";
+	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+    	
+    	$picture = "IMAGE UPLOADED";
+	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
+	   
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
