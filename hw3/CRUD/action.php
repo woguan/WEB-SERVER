@@ -52,6 +52,7 @@ if ($_FILES["file"]["size"] > 500000) {
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
+	$picture = $imageFileType;
 	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
 	   $result = mysqli_query($conn, $sql);
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
