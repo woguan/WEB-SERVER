@@ -25,7 +25,7 @@
     }
     
     //$sql = "SELECT login,first_name,last_name, password FROM users where user_id = ".$user_id;
-    $sql = SELECT * FROM movieInfo;
+    $sql = "SELECT * FROM movieInfo";
     $result = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_assoc($result)) {
