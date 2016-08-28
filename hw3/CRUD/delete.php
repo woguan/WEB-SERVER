@@ -20,7 +20,7 @@
 	  
     <form action="action.php" method="POST">
 
-	<input type="hidden" name="user_id" value="<?= $_POST['user_id'] ?>">
+	<input type="hidden" name="movie_id" value="<?= $_POST['movie_id'] ?>">
 
 	<input type="submit" name="action" value="Delete" class="btn btn-primary">
 	
