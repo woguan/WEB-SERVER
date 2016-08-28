@@ -88,7 +88,7 @@
 
 </head>
 <body>
-
+Checking IF updated [0]
 <div class="container">
 	
 <h1><?= $action ?> Record</h1>
