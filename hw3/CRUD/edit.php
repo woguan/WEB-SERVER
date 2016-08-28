@@ -91,7 +91,7 @@
 	
 <h1><?= $action ?> Record</h1>
 
-<form action="action.php" method="POST" class="form">
+<form action="action.php" method="POST" enctype="multipart/form-data" class="form">
 	<div class="form-group">
 	 <label for="movie_title">Movie Title</label>
 	 <input type="text" name="movie_title" value="<?= $movie_title ?>"  class="form-control">
