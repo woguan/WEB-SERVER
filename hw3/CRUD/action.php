@@ -89,7 +89,7 @@ if ($uploadOk == 0) {
 	}  else if ($action == "Delete") {
 		
   		
-       $sql = "DELETE FROM users WHERE user_id='".$_POST['user_id']."'"; 
+       $sql = "DELETE FROM users WHERE movie_id='".$_POST['movie_id']."'"; 
        $result = mysqli_query($conn, $sql);
 
 		
