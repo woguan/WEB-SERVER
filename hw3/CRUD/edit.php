@@ -2,7 +2,7 @@
 
  $action = $_POST['action'];
 
- 
+ /**
  $movie_title = '';
  $studio= '';
  $year = '';
@@ -38,7 +38,39 @@
 	 $year = $row['year'];
 	 $box_office = $row['box_office']
 	 $picture = $row['picture'];
+	}*/
+	$first_name = '';
+ $last_name = '';
+ $login = '';
+ $password = '';
+ 
+ 
+ if ($action == "Update") {
+   
+    $user_id = $_POST['user_id'];
+     
+    define('DB_USER','cse135demo');
+    define('DB_PASSWORD','notsecret');
+    define('DB_HOST','127.0.0.1');
+    define('DB_NAME','userDB');
+
+    $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    
+    if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+    }
+    
+    $sql = "SELECT login,first_name,last_name, password FROM users where user_id = ".$user_id;
+    $result = mysqli_query($conn, $sql);
+
+    while($row = mysqli_fetch_assoc($result)) {
+    
+	 $first_name = $row['first_name'];
+	 $last_name = $row['last_name'];
+	 $login = $row['login'];
+	 $password = $row['password'];
 	}
+
 	 
  }
 ?>
