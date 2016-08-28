@@ -43,7 +43,7 @@
     
       while($row = mysqli_fetch_assoc($result)) {
 	    print "<tr>";
-	    print "<td>". $row['movie_title'] . "</td>" ;
+	    print "<td>". $row['movie_id'] $row['movie_title'] . "</td>" ;
 	    print "<td>". $row['studio'] . "</td>" ;
 	    print "<td>". $row['year'] . "</td>" ;
 	    print "<td>". $row['box_office'] . "</td>" ;
