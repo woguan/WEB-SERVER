@@ -11,7 +11,7 @@
 	  die("Connection failed: " . mysqli_connect_error());
     }
 $message2 = "wrong answer";
-echo "<script type='text/javascript'>alert('$message2');</script>";
+print "<script type='text/javascript'>alert('$message2');</script>";
 
 	$action = $_REQUEST['action'];
 	
