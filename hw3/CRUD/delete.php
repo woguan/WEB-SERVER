@@ -27,7 +27,7 @@
 	<input type="submit" name="action" value="Cancel" class="btn btn-default">
 
     </form>
-This is: $_POST['movie_id']
+This is: <?= $_POST['movie_id'] ?>
   </div>
 </div>
 	
