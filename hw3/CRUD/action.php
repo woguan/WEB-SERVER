@@ -47,7 +47,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["file"]["size"] > 500000) {
+if ($_FILES["file"]["size"] > 5000000) {
 	$picture = "SIZE TOO LARGE IMAGE";
 	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
 	   $result = mysqli_query($conn, $sql);
