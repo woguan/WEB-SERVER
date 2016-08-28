@@ -16,8 +16,8 @@
 	
 	if ($action == 'Add') {
 		
-		echo "<script type=\"text/javascript\">window.alert('You must enter your full name.');
-window.location.href = '/index.html';</script>"; 
+	$message = "wrong answer";
+echo "<script type='text/javascript'>alert('$message');</script>";
 
        $movie_title = $_REQUEST['movie_title'];
 	   $studio= $_REQUEST['studio'];
