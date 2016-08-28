@@ -50,7 +50,7 @@
 	    print "<td>". $row['year'] . "</td>" ;
 	    print "<td>". $row['box_office'] . "</td>" ;
 	    $imgName = $row['picture'];
-	    print "<td><a href=\"/images/$imgName\">LinkToImage</a> </td>";
+	    print "<td><a href=\"//images/$imgName\">LinkToImage</a> </td>";
 	    print "<td><div class='row'>";
 	    	    
 	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='user_id' value='".$row['user_id']."'>
