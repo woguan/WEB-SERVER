@@ -72,8 +72,6 @@
 	 $login = $row['login'];
 	 $password = $row['password'];
 	}*/
-
-	 
  }
 ?>
 
@@ -98,12 +96,6 @@ Checking IF updated [0]
 	 <label for="movie_title">Movie Title</label>
 	 <input type="text" name="movie_title" value="<?= $movie_title ?>"  class="form-control">
 	</div> 
-	<!--
-	<form action="action.php" method="POST" class="form">
-	<div class="form-group">
-	 <label for="first_name">First Name</label>
-	 <input type="text" name="first_name" value="<?= $first_name ?>"  class="form-control">
-	</div>-->
 
 	<div class="form-group">
 	<label for="studio">Studio</label>
@@ -125,7 +117,7 @@ Checking IF updated [0]
 	<input type="file" name="file" id="file">
 	</div>
 
-	<input type="hidden" name="user_id" value="<?= $user_id ?>">
+	<!-- <input type="hidden" name="user_id" value="< ?= $user_id ?>">  move '?' to left-->
 	
 	<div class="form-group">
 	<input type="submit" value="<?= $action ?>" name="action" class="btn btn-primary">
