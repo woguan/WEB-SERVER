@@ -20,6 +20,10 @@
 	   $year = $_REQUEST['year'];
 	   $box_office = $_REQUEST['box_office'];
 	   
+	   <iframe name="myIframe">
+	   print "IS THIS WORKING?";
+</iframe>
+
 	 // START 
        
        $target_dir = "../CRUD/images/";
