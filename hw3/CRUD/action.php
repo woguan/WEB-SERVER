@@ -15,21 +15,19 @@
 	
 	if ($action == 'Add') {
 
+// Request variables from the form
        $movie_title = $_REQUEST['movie_title'];
-	   $studio= $_REQUEST['studio'];
-	   $year = $_REQUEST['year'];
-	   $box_office = $_REQUEST['box_office'];
+       $studio= $_REQUEST['studio'];
+       $year = $_REQUEST['year'];
+       $box_office = $_REQUEST['box_office'];
 
-	 // START 
-       
+// Setting variables for uploading image 
        $target_dir = "../CRUD/images/";
        $target_file = $target_dir . basename($_FILES["file"]["name"]);
-       $uploadOk = 1;
+       $uploadOk = 1; // this is a boolean to tell if upload is valid
        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
        
-       $picture = basename($_FILES["file"]["name"]);	
-       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-       $result = mysqli_query($conn, $sql);
+       $picture = basename($_FILES["file"]["name"]); // this is used to pass to mysql - the file name	
        
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
@@ -70,10 +68,12 @@ if ($uploadOk == 0) {
     }
 }
 	   
-	   // END 
 	   
 	   // SHOULD HAVE VALIDATION HERE!?
-		
+// we will add some validation here... like... if upload is success then call the two lines below	   
+	   
+       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+       $result = mysqli_query($conn, $sql);	
 		
 	} else if ($action == "Update") {
 		
