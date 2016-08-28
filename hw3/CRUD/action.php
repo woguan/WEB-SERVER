@@ -21,7 +21,10 @@
 	   $year = $_REQUEST['year'];
 	   $box_office = $_REQUEST['box_office'];
 	   
-	 // START   
+	 // START 
+	  error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+        
 	         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              
             $name     = $_FILES['file']['name'];
