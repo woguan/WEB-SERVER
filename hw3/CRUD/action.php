@@ -92,6 +92,8 @@ if ($uploadOk == 0) {
        $sql = "DELETE FROM users WHERE movie_id='".$_POST['movie_id']."'"; 
        $result = mysqli_query($conn, $sql);
 
+print "This is the movie_id being removed: '".$REQUEST['movie_id']."'";
+
 		
 	}
 
