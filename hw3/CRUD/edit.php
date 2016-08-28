@@ -13,10 +13,10 @@
    
     $user_id = $_POST['user_id'];
      
-    define('DB_USER','cse135demo');
-    define('DB_PASSWORD','notsecret');
+    define('DB_USER','root');
+    define('DB_PASSWORD','wong123');
     define('DB_HOST','127.0.0.1');
-    define('DB_NAME','userDB');
+    define('DB_NAME','homework3');
 
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     
