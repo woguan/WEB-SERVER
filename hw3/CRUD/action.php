@@ -56,8 +56,7 @@
                     }
                     break;
                 case UPLOAD_ERR_INI_SIZE:
-                		 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
+                	
                 	echo '<script type="text/javascript">alert("It workk [2].");</script>';
                     $response = 'The uploaded file exceeds the upload_max_filesize directive in php.ini.';
                     break;
@@ -66,14 +65,20 @@
                     $response = 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.';
                     break;
                 case UPLOAD_ERR_PARTIAL:
+                		 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
                 	echo '<script type="text/javascript">alert("It workk [4].");</script>';
                     $response = 'The uploaded file was only partially uploaded.';
                     break;
                 case UPLOAD_ERR_NO_FILE:
+                		 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
                 	echo '<script type="text/javascript">alert("It workk [5].");</script>';
                     $response = 'No file was uploaded.';
                     break;
                 case UPLOAD_ERR_NO_TMP_DIR:
+                		 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
                 	echo '<script type="text/javascript">alert("It workk [6].");</script>';
                     $response = 'Missing a temporary folder. Introduced in PHP 4.3.10 and PHP 5.0.3.';
                     break;
