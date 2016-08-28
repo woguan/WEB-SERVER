@@ -51,9 +51,10 @@
 	    print "<td>". $row['box_office'] . "</td>" ;
 	   // print "<td>" "href = . $row['picture']" "</td>";
 	   print "<td>";
+	   $imgName = $row['picture'];
 	    print "<a href=\"thisworkds.php\">LinkToImage</a>";
 	   print "</td>";
-	    //$imgName = $row['picture'];
+	    
 	    //print "<td>" $imgName "</td>" ;
 	    print "<td><div class='row'>";
 	    	    
