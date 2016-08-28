@@ -107,13 +107,18 @@
 	</div>
 
 	<div class="form-group">
-	<label for="login">Login</label>
-	<input type="text" name="login" value="<?= $login ?>"  class="form-control">
+	<label for="year">Year</label>
+	<input type="text" name="year" value="<?= $year ?>"  class="form-control">
 	</div>
 
 	<div class="form-group">
-	<label>Password</label>
-	<input type="password" name="password" value="<?= $password ?>"  class="form-control">
+	<label for="box_office">Box Office</label>
+	<input type="text" name="box_office" value="<?= $box_office ?>"  class="form-control">
+	</div>
+	
+	<div class="form-group">
+	<label for="picture">Picture</label>
+	<inout type="text" name="picture" value="<?= $picture ?>" class="form-control">
 	</div>
 
 	<input type="hidden" name="user_id" value="<?= $user_id ?>">
