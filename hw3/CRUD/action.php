@@ -19,84 +19,53 @@
 	   $studio= $_REQUEST['studio'];
 	   $year = $_REQUEST['year'];
 	   $box_office = $_REQUEST['box_office'];
-	   
-	 // START 
-        
-	         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-             
-            $name     = $_FILES['file']['name'];
-            $tmpName  = $_FILES['file']['tmp_name'];
-            $error    = $_FILES['file']['error'];
-            $size     = $_FILES['file']['size'];
-            $ext      = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-            echo '<script type="text/javascript">alert("It workk [0].");</script>';
-            
-            
-             switch ($error) {
-                case UPLOAD_ERR_OK:
-                	
-                	echo '<script type="text/javascript">alert("It workk [1].");</script>';
-                    $valid = true;
-                    //validate file extensions
-                    if ( !in_array($ext, array('jpg','jpeg','png')) ) {
-                    		 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
 	   $result = mysqli_query($conn, $sql);
-                        $valid = false;
-                        $response = 'Invalid file extension.';
-                    }
-                    //validate file size
-                    if ( $size/1024/1024 > 2 ) {
-                        $valid = false;
-                        $response = 'File size is exceeding maximum allowed size.';
-                    }
-                    //upload file
-                    if ($valid) {
-                
-                        $targetPath =  dirname( __FILE__ ) . DIRECTORY_SEPARATOR. 'images' . DIRECTORY_SEPARATOR. $name;
-                        move_uploaded_file($tmpName,$targetPath);
-                        header( 'Location: index.php' ) ;
-                        exit;
-                    }
-                    break;
-                case UPLOAD_ERR_INI_SIZE:
-                	
-                	echo '<script type="text/javascript">alert("It workk [2].");</script>';
-                    $response = 'The uploaded file exceeds the upload_max_filesize directive in php.ini.';
-                    break;
-                case UPLOAD_ERR_FORM_SIZE:
-                	echo '<script type="text/javascript">alert("It workk [3].");</script>';
-                    $response = 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form.';
-                    break;
-                case UPLOAD_ERR_PARTIAL:
-                	
-                	echo '<script type="text/javascript">alert("It workk [4].");</script>';
-                    $response = 'The uploaded file was only partially uploaded.';
-                    break;
-                case UPLOAD_ERR_NO_FILE:
-                		
-                	echo '<script type="text/javascript">alert("It workk [5].");</script>';
-                    $response = 'No file was uploaded.';
-                    break;
-                case UPLOAD_ERR_NO_TMP_DIR:
-                	
-                	echo '<script type="text/javascript">alert("It workk [6].");</script>';
-                    $response = 'Missing a temporary folder. Introduced in PHP 4.3.10 and PHP 5.0.3.';
-                    break;
-                case UPLOAD_ERR_CANT_WRITE:
-                	echo '<script type="text/javascript">alert("It workk [7].");</script>';
-                    $response = 'Failed to write file to disk. Introduced in PHP 5.1.0.';
-                    break;
-                case UPLOAD_ERR_EXTENSION:
-                	echo '<script type="text/javascript">alert("It workk [8].");</script>';
-                    $response = 'File upload stopped by extension. Introduced in PHP 5.2.0.';
-                    break;
-                default:
-                	echo '<script type="text/javascript">alert("It workk [9].");</script>';
-                    $response = 'Unknown error';
-                break;
-            }
-	         }
-
+	 // START 
+       
+       $target_dir = "../CRUD/images/";
+       $target_file = $target_dir . basename($_FILES["file"]["name"]);
+       $uploadOk = 1;
+       $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+       
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["file"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+// Check if file already exists
+if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["file"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
 	   
 	   // END 
 	  // $picture = $_REQUEST['picture'];
