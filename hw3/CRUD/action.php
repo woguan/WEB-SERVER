@@ -31,11 +31,12 @@
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["file"]["tmp_name"]);
     if($check !== false) {
+    	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-    	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
+    	
         echo "File is not an image.";
         $uploadOk = 0;
     }
