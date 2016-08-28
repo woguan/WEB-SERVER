@@ -19,10 +19,6 @@
 	   $studio= $_REQUEST['studio'];
 	   $year = $_REQUEST['year'];
 	   $box_office = $_REQUEST['box_office'];
-	   
-print "<iframe name="myIframe">";
-	   print "IS THIS WORKING?";
-print "</iframe>"
 
 	 // START 
        
