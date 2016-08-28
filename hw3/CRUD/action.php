@@ -16,6 +16,7 @@
 	
 	if ($action == 'Add') {
 		
+		echo '<script type="text/javascript">alert("It workk [1110].");</script>';
        $movie_title = $_REQUEST['movie_title'];
 	   $studio= $_REQUEST['studio'];
 	   $year = $_REQUEST['year'];
