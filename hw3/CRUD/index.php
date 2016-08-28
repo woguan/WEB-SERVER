@@ -48,7 +48,8 @@
 	    print "<td>". $row['year'] . "</td>" ;
 	    print "<td>". $row['box_office'] . "</td>" ;
 	    $imgName = $row['picture'];
-	    print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
+            $mvId = $row['movie_id'];
+	    print "<td><a href=\"../CRUD/images/$mvId\">LinkToImage</a> </td>";
 	    print "<td><div class='row'>";
 	    	    
 	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'>
