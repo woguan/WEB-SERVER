@@ -121,7 +121,6 @@
 	<div class="form-group">
 	<label for="Select picture to upload">Picture</label>
 	<input type="file" name="picture" class="form-control">
-	<input type="submit" value="Upload" class="form-control">
 	</div>
 
 	<input type="hidden" name="user_id" value="<?= $user_id ?>">
