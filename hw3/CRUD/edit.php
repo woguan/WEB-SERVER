@@ -120,7 +120,7 @@
 	
 	<div class="form-group">
 	<label for="Select picture to upload">Picture</label>
-	<input type="file" name="picture" class="form-control">
+	<input type="file" name="picture">
 	</div>
 
 	<input type="hidden" name="user_id" value="<?= $user_id ?>">
