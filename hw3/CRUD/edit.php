@@ -120,7 +120,7 @@
 	
 	<div class="form-group">
 	<label for="picture">Picture</label>
-	<inout type="text" name="picture" value="<?= $picture ?>" class="form-control">
+	<input type="text" name="picture" value="<?= $picture ?>" class="form-control">
 	</div>
 
 	<input type="hidden" name="user_id" value="<?= $user_id ?>">
