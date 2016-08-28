@@ -24,15 +24,17 @@
       die("Connection failed: " . mysqli_connect_error());
     }
     
-    $sql = "SELECT login,first_name,last_name, password FROM users where user_id = ".$user_id;
+    //$sql = "SELECT login,first_name,last_name, password FROM users where user_id = ".$user_id;
+    $sql = SELECT * FROM movieInfo;
     $result = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_assoc($result)) {
     
-	 $first_name = $row['first_name'];
-	 $last_name = $row['last_name'];
-	 $login = $row['login'];
-	 $password = $row['password'];
+	 $movie_title = $row['movie_title'];
+	 $studio = $row['studio'];
+	 $year = $row['year'];
+	 $box_office = $row['box_office']
+	 $picture = $row['picture'];
 	}
 	 
  }
@@ -54,8 +56,8 @@
 
 <form action="action.php" method="POST" class="form">
 	<div class="form-group">
-	 <label for="first_name">First Name</label>
-	 <input type="text" name="first_name" value="<?= $first_name ?>"  class="form-control">
+	 <label for="movie_title">Movie Title</label>
+	 <input type="text" name="movie_title" value="<?= $movie_title ?>"  class="form-control">
 	</div>
 
 	<div class="form-group">
