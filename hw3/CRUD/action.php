@@ -34,12 +34,13 @@
             
              switch ($error) {
                 case UPLOAD_ERR_OK:
-                		 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
+                	
                 	echo '<script type="text/javascript">alert("It workk [1].");</script>';
                     $valid = true;
                     //validate file extensions
                     if ( !in_array($ext, array('jpg','jpeg','png')) ) {
+                    		 $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
                         $valid = false;
                         $response = 'Invalid file extension.';
                     }
