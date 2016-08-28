@@ -15,6 +15,9 @@
 
 <?php
 
+$message = "wrong answer";
+echo "<script type='text/javascript'>alert('$message');</script>";
+
 	// PLEASE CHANGE THESE LINES!!!!!!
     define('DB_USER','root');
     define('DB_PASSWORD','wong123');
