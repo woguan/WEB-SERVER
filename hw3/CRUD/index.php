@@ -49,13 +49,8 @@
 	    print "<td>". $row['studio'] . "</td>" ;
 	    print "<td>". $row['year'] . "</td>" ;
 	    print "<td>". $row['box_office'] . "</td>" ;
-	   // print "<td>" "href = . $row['picture']" "</td>";
-	   print "<td>";
-	   $imgName = $row['picture'];
-	    print "<a href=\"$imgName.php\">LinkToImage</a>";
-	   print "</td>";
-	    
-	    //print "<td>" $imgName "</td>" ;
+	    $imgName = $row['picture'];
+	    print "<td><a href=\"$imgName.php\">LinkToImage</a> </td>";
 	    print "<td><div class='row'>";
 	    	    
 	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='user_id' value='".$row['user_id']."'>
