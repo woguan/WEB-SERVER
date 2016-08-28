@@ -89,8 +89,8 @@ if ($uploadOk == 0) {
 	}  else if ($action == "Delete") {
 		
   		$checking = $_REQUEST['movie_id'];
-print "this: ".$_checking."done!";
-print "This is the movie_id being removed: ".$POST['movie_id']." -- Done.";
+print "this: ".$checking."done!";
+print "This is the movie_id being removed: ".$_POST['movie_id']." -- Done.";
        $sql = "DELETE FROM movieInfo WHERE movie_id='".$_POST['movie_id']."'"; 
        $result = mysqli_query($conn, $sql);
 
