@@ -50,7 +50,7 @@
 	    print "<td>". $row['year'] . "</td>" ;
 	    print "<td>". $row['box_office'] . "</td>" ;
 	   // print "<td>" "href = . $row['picture']" "</td>";
-	    print "<td>" "<a href=\". $row['picture'] .\"> LinkToImage </a>" "</td>";
+	    print "<td>" "<a href=\" this workds\"> LinkToImage </a>" "</td>";
 	    //$imgName = $row['picture'];
 	    //print "<td>" $imgName "</td>" ;
 	    print "<td><div class='row'>";
