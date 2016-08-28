@@ -28,7 +28,7 @@
        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
        $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
        $result = mysqli_query($conn, $sql);
-	   
+      $picture = $target_file;	   
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["file"]["tmp_name"]);
@@ -93,7 +93,7 @@ if ($uploadOk == 0) {
 		
 	}
 
-// this is to redirect
+// this is to redirect : WE WILL CREATE FUNCTION TO HANDLE THIS CASE.
 //	header('Location: index.php');
 	
 ?>
