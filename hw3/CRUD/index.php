@@ -15,7 +15,6 @@
 
 <?php
 
-	// PLEASE CHANGE THESE LINES!!!!!!
     define('DB_USER','root');
     define('DB_PASSWORD','wong123');
     define('DB_HOST','127.0.0.1');
@@ -29,7 +28,6 @@
       die("Connection failed: " . mysqli_connect_error());
       
     }
-    print "WORING";
     
     // FORM AND EXECUTE SOME QUERY
     //$sql = "SELECT user_id,login,first_name,last_name, password FROM users ORDER BY login";
@@ -53,11 +51,11 @@
 	    print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
 	    print "<td><div class='row'>";
 	    	    
-	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='user_id' value='".$row['user_id']."'>
+	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'>
 	    <div class='form-group'><button type='submit' name='action' value='Update' class='btn btn-default'>
   <span class='glyphicon glyphicon-pencil'></span></button></div></form></div>";
 	    
-	    print "<div class='col-sm-6'><form action='delete.php' method='POST' class='form-horizontal'><input type='hidden' name='user_id' value='".$row['user_id']."'><div class='form-group'><button type='submit' class='btn btn-default' name='action' value=delete'>
+	    print "<div class='col-sm-6'><form action='delete.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'><div class='form-group'><button type='submit' class='btn btn-default' name='action' value=delete'>
   <span class='glyphicon glyphicon-trash'></span></button></div></form></div>";
 
   	    print "</div></td></tr>\n";
