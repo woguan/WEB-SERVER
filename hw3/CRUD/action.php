@@ -19,8 +19,7 @@
 	   $studio= $_REQUEST['studio'];
 	   $year = $_REQUEST['year'];
 	   $box_office = $_REQUEST['box_office'];
-	   $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-	   $result = mysqli_query($conn, $sql);
+	   
 	 // START 
        
        $target_dir = "../CRUD/images/";
@@ -35,6 +34,8 @@ if(isset($_POST["submit"])) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
+    	$sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+	   $result = mysqli_query($conn, $sql);
         echo "File is not an image.";
         $uploadOk = 0;
     }
