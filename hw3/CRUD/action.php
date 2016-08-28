@@ -25,7 +25,7 @@
 	   // SHOULD HAVE VALIDATION HERE!?
 		
 	
-	   $sql = "INSERT INTO users (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year' , '$box_offic','$picture')";
+	   $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
 	   $result = mysqli_query($conn, $sql);
 		
 		
