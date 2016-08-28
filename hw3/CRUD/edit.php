@@ -11,7 +11,7 @@
  
  if ($action == "Update") {
    
-    $user_id = $_POST['user_id'];
+    $movie_id = $_POST['movie_title'];
      
     define('DB_USER','root');
     define('DB_PASSWORD','wong123');
@@ -25,7 +25,9 @@
     }
     
     //$sql = "SELECT login,first_name,last_name, password FROM users where user_id = ".$user_id;
-    $sql = "SELECT * FROM movieInfo";
+  
+    $sql = "SELECT movie_title, studio, year, box_office, picture FROM movieInfo where movie_title = ".$movie_id;
+    //$sql = "SELECT * FROM movieInfo";
     $result = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_assoc($result)) {
