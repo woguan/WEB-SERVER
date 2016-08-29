@@ -30,8 +30,7 @@
   
 
     while($row = mysqli_fetch_assoc($result)) {
-    print $row['movie_title'];
-//	 $movie_title = $row['movie_title'];
+	 $movie_title = $row['movie_title'];
 //	 $studio = $row['studio'];
 //	 $year = $row['year'];
 //	 $box_office = $row['box_office']
@@ -51,7 +50,8 @@
 
 </head>
 <body>
-Checking IF updated [0]
+Checking IF updated [1]
+ <?= $movie_title; ?>
 <div class="container">
 	
 <h1><?= $action ?> Record</h1>
