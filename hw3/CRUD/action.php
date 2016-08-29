@@ -14,10 +14,10 @@
 	$action = $_REQUEST['action'];
     
     // Helper Functions
-    function uploadIMG(string $target_dir, string $filename, string $imageFileType) {
+    function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
    print "This are the info: <br>";
    print "$target_dir <br>";
-   print "$filename <br>";
+   print "$Filename <br>";
    print "$imageFileType <br>";
   
           $uploadOk = 1; // this is a boolean to tell if upload is valid
@@ -54,7 +54,7 @@ if ($uploadOk == 0) {
 	print "(F)<br>";
 	if ($isActionExecuted == 1){
 		print "(EXECUTED)<br>";
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$filename")) {
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$Filename")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
         return 1;
     } else {
