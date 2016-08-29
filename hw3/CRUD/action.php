@@ -21,8 +21,6 @@
    print "$imageFileType <br>";
   print basename($_FILES["file"]["name"]);
   print "<br>";
-  print "watch: ";
-  print $_FILES[\"file\"][\"tmp_name\"];
   //print "$imageFileType <br>";
   //print "$imageFileType <br>";
   
@@ -43,6 +41,7 @@ if(isset($_POST["submit"])) {
     }
 }
 
+print getimagesize($_FILES['file']['tmp_name']);
 // Check file size
 if ($_FILES["file"]["size"] > 5000000) {
     $msgerr = "Sorry, your file is over 5MB.";
