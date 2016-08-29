@@ -79,7 +79,7 @@ Checking IF updated [3]
 	
 	<div class="form-group">
 	<label for="Select picture to upload">Picture</label>
-	<input type="file" name="file" id="file">
+	<input type="file" name="file" value="none" id="file">
 	</div>
 
 	 <input type="hidden" name="movie_id" value="<?= $movie_id ?>">
