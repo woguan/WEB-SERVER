@@ -40,7 +40,7 @@
     
     
       while($row = mysqli_fetch_assoc($result)) {
-	    print "<tr>";
+	    print "<tr align=\"center\">";
 	    print "<td>". $row['movie_title'] . "</td>" ;
 	    print "<td>". $row['studio'] . "</td>" ;
 	    print "<td>". $row['year'] . "</td>" ;
