@@ -58,7 +58,7 @@ if ($uploadOk == 0) {
 	print "(F)<br>";
 	if ($isActionExecuted == 1){
 		print "(EXECUTED)<br>";
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$picture")) {
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
         return 1;
     } else {
