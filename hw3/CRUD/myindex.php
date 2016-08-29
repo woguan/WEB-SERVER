@@ -28,12 +28,6 @@
       die("Connection failed: " . mysqli_connect_error());
       
     }
-    
-    print "show some data[3]: ";
-     $sql2 = "SELECT count(movie_id) FROM movieInfo ";
-     $retval3 = mysqli_query( $sql2, $conn );
-     $lok = mysql_result($retval3, 0);
-     print $lok;    
          
          
          
