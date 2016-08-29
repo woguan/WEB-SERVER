@@ -150,8 +150,8 @@ if ($uploadOk == 0) {
     	print "(E)<br>";
         $msgerr = "Sorry, there was an error uploading your file.";
         
-        if(!is_writable("$target_dir$Filename")){ 
-        	echo "error in dir"; } else{
+        if(!is_writable("../CRUD/images/something.jpg")){ 
+        	echo "error in dir<br>"; } else{
         		print "no error :)";
         	}
     }
