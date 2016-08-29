@@ -149,6 +149,11 @@ if ($uploadOk == 0) {
     } else {
     	print "(E)<br>";
         $msgerr = "Sorry, there was an error uploading your file.";
+        
+        if(!is_writable($target_dir)){ 
+        	echo "error in dir"; } else{
+        		print "no error :)";
+        	}
     }
 	
 }
