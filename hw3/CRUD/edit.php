@@ -2,44 +2,6 @@
 
  $action = $_POST['action'];
 
- /*
- $movie_title = '';
- $studio= '';
- $year = '';
- $box_office = '';
- $picture = '';
- 
- 
- if ($action == "Update") {
-   
-    $movie_id = $_POST['movie_title'];
-     
-    define('DB_USER','root');
-    define('DB_PASSWORD','wong123');
-    define('DB_HOST','127.0.0.1');
-    define('DB_NAME','homework3');
-
-    $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    
-    //$sql = "SELECT login,first_name,last_name, password FROM users where user_id = ".$user_id;
-  
-    $sql = "SELECT movie_title, studio, year, box_office, picture FROM movieInfo where movie_title = ".$movie_id;
-    //$sql = "SELECT * FROM movieInfo";
-    $result = mysqli_query($conn, $sql);
-
-    while($row = mysqli_fetch_assoc($result)) {
-    
-	 $movie_title = $row['movie_title'];
-	 $studio = $row['studio'];
-	 $year = $row['year'];
-	 $box_office = $row['box_office']
-	 $picture = $row['picture'];
-	}*/
-
  $movie_id = '';	
  $movie_title = '';
  $studio= '';
@@ -58,14 +20,14 @@
     define('DB_NAME','homework3');
 
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-  /*   
+
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
-    
+       
     $sql = "SELECT movie_title, studio, year, box_office, picture FROM movieInfo where movie_id = ".$movie_id;
     $result = mysqli_query($conn, $sql);
-
+ /* 
     while($row = mysqli_fetch_assoc($result)) {
     
 	 $movie_title = $row['movie_title'];
