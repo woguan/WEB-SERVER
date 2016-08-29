@@ -22,7 +22,7 @@
   print basename($_FILES["file"]["name"]);
   print "<br>";
   print "watch: ";
-  print "$_FILES[\"file\"][\"tmp_name\"] <br>";
+  print $_FILES[\"file\"][\"tmp_name\"];
   //print "$imageFileType <br>";
   //print "$imageFileType <br>";
   
