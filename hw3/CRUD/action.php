@@ -41,7 +41,9 @@ if(isset($_POST["submit"])) {
     }
 }
 
-print getimagesize($_FILES['file']['tmp_name']);
+$chsz = getimagesize($_FILES["file"]["size"]);
+print $chsz;
+
 // Check file size
 if ($_FILES["file"]["size"] > 5000000) {
     $msgerr = "Sorry, your file is over 5MB.";
