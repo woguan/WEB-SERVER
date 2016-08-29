@@ -19,6 +19,11 @@
    print "$target_dir <br>";
    print "$Filename <br>";
    print "$imageFileType <br>";
+  print basename($_FILES["file"]["name"]);
+  print "<br>";
+  //print "$imageFileType <br>";
+  //print "$imageFileType <br>";
+  
   
           $uploadOk = 1; // this is a boolean to tell if upload is valid
 // Check if image file is a actual image or fake image
