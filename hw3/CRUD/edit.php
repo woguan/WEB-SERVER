@@ -4,7 +4,7 @@
 
  $movie_id = '';	
  $movie_title = '';
- $studio= '';
+ $studio = '';
  $year = '';
  $box_office = '';
  $picture = '';
@@ -31,9 +31,9 @@
 
     while($row = mysqli_fetch_assoc($result)) {
 	 $movie_title = $row['movie_title'];
-//	 $studio = $row['studio'];
-//	 $year = $row['year'];
-//	 $box_office = $row['box_office']
+	 $studio = $row['studio'];
+	 $year = $row['year'];
+	 $box_office = $row['box_office']
 	 $picture = $row['picture']; // need to modify this?
 	}
  }
