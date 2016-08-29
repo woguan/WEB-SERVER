@@ -41,7 +41,7 @@
     
       while($row = mysqli_fetch_assoc($result)) {
 	    print "<tr>";
-	    print "<td style=\"text-align:right;\">". $row['movie_title'] . "</td>" ;
+	    print "<td style=\"vertical-align:middle;\">". $row['movie_title'] . "</td>" ;
 	    print "<td>". $row['studio'] . "</td>" ;
 	    print "<td>". $row['year'] . "</td>" ;
 	    print "<td>". $row['box_office'] . "</td>" ;
