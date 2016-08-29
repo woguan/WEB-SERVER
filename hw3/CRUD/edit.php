@@ -48,7 +48,7 @@
  
  
  if ($action == "Update") {
- 	
+ /*	
     $movie_id = $_POST['movie_id'];
      
     define('DB_USER','root');
@@ -72,7 +72,7 @@
 	 $year = $row['year'];
 	 $box_office = $row['box_office']
 	 $picture = $row['picture']; // need to modify this?
-	}
+	}*/
  }
 ?>
 
