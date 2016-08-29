@@ -27,7 +27,7 @@
        
     $sql = "SELECT movie_title, studio, year, box_office, picture FROM movieInfo where movie_id = ".$movie_id;
     $result = mysqli_query($conn, $sql);
- /* 
+  
     while($row = mysqli_fetch_assoc($result)) {
     
 	 $movie_title = $row['movie_title'];
@@ -35,7 +35,7 @@
 	 $year = $row['year'];
 	 $box_office = $row['box_office']
 	 $picture = $row['picture']; // need to modify this?
-	}*/
+	}
  }
 ?>
 
