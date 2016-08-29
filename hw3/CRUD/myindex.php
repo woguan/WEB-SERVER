@@ -56,7 +56,7 @@
 	  }else{
 	  print "<td> <img id=\"noimagefound\" src=\"../CRUD/images/noimage.png\" height=\"150\" width=\"100\" alt=\"No Image\" onerror=\"showNoImage()\"> </td>";	
 	  }
-	    print "<td><div class='row'>";
+	    print "<td style=\"vertical-align:middle;\"><div class='row'>";
 	    	    
 	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'>
 	    <div class='form-group'><button type='submit' name='action' value='Update' class='btn btn-default'>
