@@ -33,7 +33,7 @@
      $sql2 = "SELECT count(movie_id) FROM employee ";
          $retval3 = mysqli_query( $sql2, $conn );
          $row5 = mysqli_fetch_array($retval3, MYSQLI_NUM );
-         $rec_count = $row[0];
+         $rec_count = $row5[0];
          print $rec_count;
          
          
