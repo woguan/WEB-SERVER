@@ -62,7 +62,7 @@ if ($uploadOk == 0) {
 } else {
 	print "(F)<br>";
 		print "I failed to move to: $target_dir$Filename<br>";
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$Filename")) {
+    if (move_uploaded_file($_FILES["file"]["name"], "$target_dir$Filename")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
         return 1;
     } else {
