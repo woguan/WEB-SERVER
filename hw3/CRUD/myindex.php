@@ -30,7 +30,7 @@
     }
     
     print "show some data[1]: ";
-     $sql2 = "SELECT count(movie_id) FROM employee ";
+     $sql2 = "SELECT count(movie_id) FROM movieInfo ";
          $retval3 = mysqli_query( $sql2, $conn );
          $row5 = mysqli_fetch_array($retval3, MYSQLI_NUM );
          $rec_count = $row5[0];
