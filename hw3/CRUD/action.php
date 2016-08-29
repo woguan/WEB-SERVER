@@ -95,7 +95,7 @@ if ($uploadOk == 0) {
 	//$isActionExecuted = 1;
        print "Title: $movie_title<br>";
        print "Picture: $picture<br>";
-       print "File: ".$_REQUEST['file']."<br>";
+       print "File: ".basename($_FILES["file"]["name"]."<br>";
        print "ID: $movie_id<br>";
         $sql = "UPDATE users SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
        $result = mysqli_query($conn, $sql);
