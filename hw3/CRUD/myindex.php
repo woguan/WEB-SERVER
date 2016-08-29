@@ -9,6 +9,14 @@
 </head>
 <body>
 
+<script>
+	
+	function showNoImage() {
+    document.getElementById('noimagefound').src = 'https://www.google.com/images/srpr/logo11w.png'
+}
+	
+</script>
+
 <div class="container">
 	
 <h1>Super Basic CRUD!</h1>
@@ -47,7 +55,8 @@
 	    print "<td style=\"vertical-align:middle;\">". $row['box_office'] . "</td>" ;
 	    $imgName = $row['picture'];
 	  //  print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
-	   print "<td> <img src=\"../CRUD/images/$imgName\" height=\"100\" width=\"100\" alt=\"Something\"> </td>";
+	   print "<td> <img id=\"noimagefound\" src=\"../CRUD/images/$imgName\" height=\"100\" width=\"100\" alt=\"No Image\" onerror=\"showNoImage()\"> </td>";
+	   //<img id="foo" src="notfound.gif" onerror="standby()">
 	    print "<td><div class='row'>";
 	    	    
 	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'>
