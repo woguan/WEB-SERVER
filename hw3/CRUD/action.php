@@ -15,15 +15,22 @@
     
     // Helper Functions
     function uploadIMG(string $target_dir, string $target_file, string $imageFileType) {
-   
+   print "This are the info: <br>";
+   print "$target_dir <br>";
+   print "$target_file <br>";
+   print "$imageFileType <br>";
+  
           $uploadOk = 1; // this is a boolean to tell if upload is valid
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
+	 print "(A)<br>";
     $check = getimagesize($_FILES["file"]["tmp_name"]);
     if($check !== false) {
+    	print "(B)<br>";
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
+    	print "(C)<br>";
         $msgerr = "File is not an image.";
         $uploadOk = 0;
     }
@@ -45,6 +52,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
+	print "(D)<br>";
 	$isActionExecuted = 0;
 } else {
 	if ($isActionExecuted == 1){
@@ -52,6 +60,7 @@ if ($uploadOk == 0) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
         return 1;
     } else {
+    	print "(E)<br>";
     	$isActionExecuted = 0;
         $msgerr = "Sorry, there was an error uploading your file.";
     }
