@@ -82,11 +82,9 @@ if ($uploadOk == 0) {
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
        if ($uploadOk == 1 && $isActionExecuted == 1){
-       	print "something..2?";
        $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
        $result = mysqli_query($conn, $sql);	
        }
-	print "something..3?";	
 	} else if ($action == "Update") {
 		
 	   $first_name = $_REQUEST['first_name'];
@@ -106,10 +104,10 @@ if ($uploadOk == 0) {
 	}
 
 // this is to redirect : WE WILL CREATE FUNCTION TO HANDLE THIS CASE.
-//if ($isActionExecuted == 1){
-//	header('Location: index.php');
-//}
-//else{
-//	print "An error has occured. $msgerr";
-//}
+if ($isActionExecuted == 1){
+	header('Location: index.php');
+}
+else{
+	print "An error has occured. $msgerr";
+}
 ?>
