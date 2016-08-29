@@ -29,7 +29,7 @@
       
     }
     
-    print "show some data[1]: ";
+    print "show some data[2]: ";
      $sql2 = "SELECT count(movie_id) FROM movieInfo ";
          $retval3 = mysqli_query( $sql2, $conn );
          $row5 = mysqli_fetch_array($retval3, MYSQLI_NUM );
