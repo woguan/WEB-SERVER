@@ -1,0 +1,46 @@
+drop table mytable; 
+create table mytable ( 
+    id smallint unsigned AUTO_INCREMENT, 
+    age tinyint not null, 
+    primary key(id) 
+); 
+DELIMITER $$  
+CREATE TRIGGER checkage_bi BEFORE INSERT ON mytable FOR EACH ROW  
+BEGIN  
+    DECLARE dummy,baddata INT;  
+    SET baddata = 0;  
+    IF NEW.age > 20 THEN  
+        SET baddata = 1;  
+    END IF;  
+    IF NEW.age < 1 THEN  
+        SET baddata = 1;  
+    END IF;  
+    IF baddata = 1 THEN  
+        SELECT CONCAT('Cannot Insert This Because Age ',NEW.age,' is Invalid')  
+        INTO dummy FROM information_schema.tables;
+    END IF;  
+END; $$  
+CREATE TRIGGER checkage_bu BEFORE UPDATE ON mytable FOR EACH ROW  
+BEGIN  
+    DECLARE dummy,baddata INT;  
+    SET baddata = 0;  
+    IF NEW.age > 20 THEN  
+        SET baddata = 1;  
+    END IF;  
+    IF NEW.age < 1 THEN  
+        SET baddata = 1;  
+    END IF;  
+    IF baddata = 1 THEN  
+        SELECT CONCAT('Cannot Update This Because Age ',NEW.age,' is Invalid')  
+        INTO dummy FROM information_schema.tables;
+    END IF;  
+END; $$  
+DELIMITER ;  
+insert into mytable (age) values (10);
+insert into mytable (age) values (15);
+insert into mytable (age) values (20);
+insert into mytable (age) values (25);
+insert into mytable (age) values (35);
+select * from mytable;
+insert into mytable (age) values (5);
+select * from mytable;
