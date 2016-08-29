@@ -137,17 +137,12 @@ if ($uploadOk == 0) {
 } else {
 	print "(F)<br>";
 		print "I failed to move to: $target_dir$Filename<br>";
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], "/CSE135SUMMER/hw3/CRUD/images/thisworks.jpg")) {
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$Filename")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
         return 1;
     } else {
     	print "(E)<br>";
         $msgerr = "Sorry, there was an error uploading your file.";
-        
-        if(!is_writable("../CRUD/images/$originalName")){ 
-        	echo "error in dir<br>"; } else{
-        		print "no error :)";
-        	}
     }
 	
 }
