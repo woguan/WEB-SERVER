@@ -14,10 +14,9 @@
 	$action = $_REQUEST['action'];
     
     // Helper Functions
-    function uploadIMG(string $targer_dir, string $target_file, string $imageFileType) {
+    function uploadIMG(string $target_dir, string $target_file, string $imageFileType) {
    
           $uploadOk = 1; // this is a boolean to tell if upload is valid
-          print "DOES IT EVEN CALL?";
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["file"]["tmp_name"]);
@@ -46,7 +45,6 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-	print "IDK.....";
 	$isActionExecuted = 0;
 } else {
 	if ($isActionExecuted == 1){
