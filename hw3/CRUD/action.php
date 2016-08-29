@@ -4,49 +4,77 @@
 	define('DB_PASSWORD','wong123');
 	define('DB_HOST','127.0.0.1');
 	define('DB_NAME','homework3');
-
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     
 	if (!$conn) {
 	  die("Connection failed: " . mysqli_connect_error());
     }
-
 	$action = $_REQUEST['action'];
-      
-// my globals
-	$msgerr = ''; //Error Reporting Variable
-	$isActionExecuted = 0; // to check if action were executed
-	
 	
 	if ($action == 'Add') {
+// my globals
+	$msgerr = ''; //Error Reporting Variable
+	$isActionExecuted = 0; // to check if some action were executed
 	
 // Request variables from the form
        $movie_title = $_REQUEST['movie_title'];
        $studio= $_REQUEST['studio'];
        $year = $_REQUEST['year'];
        $box_office = $_REQUEST['box_office'];
-     
-     // SHOULD HAVE VALIDATION HERE!?   - check if data input is valid
-$isActionExecuted = 1; // assuming its valid for now
+// Setting variables for uploading image 
+       $target_dir = "../CRUD/images/";
+       $target_file = $target_dir . basename($_FILES["file"]["name"]);
+       $uploadOk = 1; // this is a boolean to tell if upload is valid
+       $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$imageFileType";
     
-// start
-       // Setting variables for uploading image 
-       $target_directory = "../CRUD/images/";
-       $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
-       $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
-       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType";
-       
-     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
-     
-     if(isset($_POST["submit"])) {
-     print "isset suppose to appear....<br>";	
-     }
-     
-// end
+// SHOULD HAVE VALIDATION HERE!?   - check if data input is valid
+$isActionExecuted = 1; // assuming its valid for now
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["file"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        $msgerr = "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+// Check if file already exists - This is basically impossible to happen. But just in case it happens
+if (file_exists($target_file)) {
+    $msgerr = "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["file"]["size"] > 5000000) {
+    $msgerr = "Sorry, your file is over 5MB.";
+    $uploadOk = 0;
+}
+// Only allow 3 extensions - jpg, png, jpeg
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    $msgerr = "Sorry, only JPG, JPEG, PNG files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+	$isActionExecuted = 0;
+} else {
+	if ($isActionExecuted == 1){
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$picture")) {
+    	
+        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+    } else {
+    	$isActionExecuted = 0;
+        $msgerr = "Sorry, there was an error uploading your file.";
+    }
+	}
+}
+	   
 	   
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
-       if ($isActionExecuted == 1){
+       if ($uploadOk == 1 && $isActionExecuted == 1){
        $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
        $result = mysqli_query($conn, $sql);	
        }
@@ -84,7 +112,6 @@ $isActionExecuted = 1; // assuming its valid for now
        $result = mysqli_query($conn, $sql);
 	
 	}
-
 // this is to redirect : WE WILL CREATE FUNCTION TO HANDLE THIS CASE.
 if ($isActionExecuted == 1){
 	header('Location: index.php');
@@ -92,74 +119,4 @@ if ($isActionExecuted == 1){
 else{
 	print "An error has occured. $msgerr";
 }
-
-
-    // Helper Functions
-    function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
-   print "This are the info: <br>";
-   print "$target_dir <br>";
-   print "$Filename <br>";
-   print "$imageFileType <br>";
-   $originalName = basename($_FILES["file"]["name"]);
-  print $originalName;
-  print "<br>";
-  //print "$imageFileType <br>";
-  //print "$imageFileType <br>";
-  
-  
-          $uploadOk = 1; // this is a boolean to tell if upload is valid
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-	 print "(A)<br>";
-    $check = getimagesize($_FILES["file"]["tmp_name"]);
-    if($check !== false) {
-    	print "(B)<br>";
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-    	print "(C)<br>";
-        $msgerr = "File is not an image.";
-        $uploadOk = 0;
-    }
-}
-
-$chsz = getimagesize($_FILES["file"]["size"]);
-print $chsz;
-
-// Check file size
-if ($_FILES["file"]["size"] > 5000000) {
-    $msgerr = "Sorry, your file is over 5MB.";
-    print "(100)<br>";
-    $uploadOk = 0;
-}
-// Only allow 3 extensions - jpg, png, jpeg
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    print "(101)<br>";
-    $msgerr = "Sorry, only JPG, JPEG, PNG files are allowed.";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-	print "(D)<br>";
-} else {
-	print "(F)<br>";
-		print "I failed to move to: $target_dir$Filename<br>";
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], "/CSE135SUMMER/hw3/CRUD/images/thisworks.jpg")) {
-        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-        return 1;
-    } else {
-    	print "(E)<br>";
-        $msgerr = "Sorry, there was an error uploading your file.";
-        
-        if(!is_writable("../CRUD/images/$originalName")){ 
-        	echo "error in dir<br>"; } else{
-        		print "no error :)";
-        	}
-    }
-	
-}
- return 0;    
-     
-}
-
 ?>
