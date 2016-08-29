@@ -92,7 +92,7 @@ if ($uploadOk == 0) {
 	   $picture = $_REQUEST['picture'];
 	   $movie_id = $_REQUEST['movie_id'];
 	
-	$isActionExecuted == 1
+	$isActionExecuted = 1;
 	   $sql = "UPDATE users SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
        $result = mysqli_query($conn, $sql);
 		
