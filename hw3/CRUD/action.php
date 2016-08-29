@@ -86,7 +86,7 @@ $isActionExecuted = 1; // assuming its valid for now
        $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType";
        
      $isActionExecuted = uploadIMG($target_directory, $target_full_filepath,  $image_FileType);
-      
+      print $isActionExecuted;
 // end
 	   
 	 
