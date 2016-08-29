@@ -12,29 +12,12 @@
     }
 
 	$action = $_REQUEST['action'];
-	
-	if ($action == 'Add') {
-
-// my globals
-	$msgerr = ''; //Error Reporting Variable
-	$isActionExecuted = 0; // to check if some action were executed
-	
-// Request variables from the form
-       $movie_title = $_REQUEST['movie_title'];
-       $studio= $_REQUEST['studio'];
-       $year = $_REQUEST['year'];
-       $box_office = $_REQUEST['box_office'];
-
-// Setting variables for uploading image 
-       $target_dir = "../CRUD/images/";
-       $target_file = $target_dir . basename($_FILES["file"]["name"]);
-       $uploadOk = 1; // this is a boolean to tell if upload is valid
-       $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$imageFileType";
     
-// SHOULD HAVE VALIDATION HERE!?   - check if data input is valid
-$isActionExecuted = 1; // assuming its valid for now
-
+    // Helper Functions
+    function uploadIMG(string $targer_dir, string $target_file, string $imageFileType) {
+   
+          $uploadOk = 1; // this is a boolean to tell if upload is valid
+          
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["file"]["tmp_name"]);
@@ -67,19 +50,48 @@ if ($uploadOk == 0) {
 } else {
 	if ($isActionExecuted == 1){
     if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$picture")) {
-    	
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+        return 1;
     } else {
     	$isActionExecuted = 0;
         $msgerr = "Sorry, there was an error uploading your file.";
     }
 	}
 }
-	   
+ return 0;    
+     
+}
+      
+// my globals
+	$msgerr = ''; //Error Reporting Variable
+	$isActionExecuted = 0; // to check if action were executed
+	
+	
+	if ($action == 'Add') {
+	
+// Request variables from the form
+       $movie_title = $_REQUEST['movie_title'];
+       $studio= $_REQUEST['studio'];
+       $year = $_REQUEST['year'];
+       $box_office = $_REQUEST['box_office'];
+     
+     // SHOULD HAVE VALIDATION HERE!?   - check if data input is valid
+$isActionExecuted = 1; // assuming its valid for now
+    
+// start
+       // Setting variables for uploading image 
+       $target_directory = "../CRUD/images/";
+       $target_full_filepath = $target_directory . basename($_FILES["file"]["name"]);
+       $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
+       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType";
+       
+     $isActionExecuted = uploadIMG($target_directory, $target_full_filepath,  $image_FileType);
+      
+// end
 	   
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
-       if ($uploadOk == 1 && $isActionExecuted == 1){
+       if ($isActionExecuted == 1){
        $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
        $result = mysqli_query($conn, $sql);	
        }
