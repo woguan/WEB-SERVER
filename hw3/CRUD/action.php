@@ -17,7 +17,7 @@
     function uploadIMG(string $targer_dir, string $target_file, string $imageFileType) {
    
           $uploadOk = 1; // this is a boolean to tell if upload is valid
-          
+          print "DOES IT EVEN CALL?";
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["file"]["tmp_name"]);
