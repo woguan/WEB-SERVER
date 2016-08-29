@@ -92,8 +92,11 @@ if ($uploadOk == 0) {
 	   $picture = $_REQUEST['picture'];
 	   $movie_id = $_REQUEST['movie_id'];
 	
-	$isActionExecuted = 1;
-	   $sql = "UPDATE users SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
+	//$isActionExecuted = 1;
+       print "Title: $movie_title<br>";
+       print "Picture: $picture<br>";
+       print "ID: $movie_id<br>";
+        $sql = "UPDATE users SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
        $result = mysqli_query($conn, $sql);
 		
 	}  else if ($action == "Delete") {
