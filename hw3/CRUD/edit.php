@@ -49,7 +49,7 @@
  
  if ($action == "Update") {
  	
-    $user_id = $_POST['movie_id'];
+    $movie_id = $_POST['movie_id'];
      
     define('DB_USER','root');
     define('DB_PASSWORD','wong123');
@@ -62,16 +62,17 @@
       die("Connection failed: " . mysqli_connect_error());
     }
     
-   // $sql = "SELECT login,first_name,last_name, password FROM users where user_id = ".$user_id;
-   // $result = mysqli_query($conn, $sql);
+    $sql = "SELECT movie_title, studio, year, box_office, picture FROM movieInfo where movie_id = ".$movie_id;
+    $result = mysqli_query($conn, $sql);
 
-  /*  while($row = mysqli_fetch_assoc($result)) {
+    while($row = mysqli_fetch_assoc($result)) {
     
-	 $first_name = $row['first_name'];
-	 $last_name = $row['last_name'];
-	 $login = $row['login'];
-	 $password = $row['password'];
-	}*/
+	 $movie_title = $row['movie_title'];
+	 $studio = $row['studio'];
+	 $year = $row['year'];
+	 $box_office = $row['box_office']
+	 $picture = $row['picture']; // need to modify this?
+	}
  }
 ?>
 
