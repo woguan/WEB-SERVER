@@ -30,7 +30,14 @@
     }
     
     print "show some data: ";
-    
+     $sql2 = "SELECT count(movie_id) FROM employee ";
+         $retval3 = mysql_query( $sql2, $conn );
+         $row5 = mysql_fetch_array($retval3, MYSQL_NUM );
+         $rec_count = $row[0];
+         print $rec_count;
+         
+         
+         
     // FORM AND EXECUTE SOME QUERY
     //$sql = "SELECT user_id,login,first_name,last_name, password FROM users ORDER BY login";
     $sql = "SELECT * from movieInfo";
