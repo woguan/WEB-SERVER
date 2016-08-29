@@ -101,7 +101,11 @@ $isActionExecuted = 1; // assuming its valid for now
        $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType";
        
      $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
-      print $isActionExecuted;
+     
+     if(isset($_POST["submit"])) {
+     print "isset suppose to appear....<br>";	
+     }
+     
 // end
 	   
 	 
