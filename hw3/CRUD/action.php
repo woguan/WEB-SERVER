@@ -85,13 +85,15 @@ if ($uploadOk == 0) {
        }
 	} else if ($action == "Update") {
 		
-	   $first_name = $_REQUEST['first_name'];
-	   $last_name = $_REQUEST['last_name'];
-	   $login = $_REQUEST['login'];
-	   $password = $_REQUEST['password'];
-	   $user_id = $_REQUEST['user_id'];
+	   $movie_title = $_REQUEST['movie_title'];
+	   $studio = $_REQUEST['studio'];
+	   $year = $_REQUEST['year'];
+	   $box_office = $_REQUEST['box_office'];
+	   $picture = $_REQUEST['picture'];
+	   $movie_id = $_REQUEST['movie_id'];
 	
-	   $sql = "UPDATE users SET first_name='" .$first_name."' ,last_name='".$last_name."' ,login='".$login."' ,password='".$password."' WHERE user_id='".$user_id."'";
+	$isActionExecuted == 1
+	   $sql = "UPDATE users SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
        $result = mysqli_query($conn, $sql);
 		
 	}  else if ($action == "Delete") {
