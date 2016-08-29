@@ -91,12 +91,20 @@ if ($uploadOk == 0) {
 	   $box_office = $_REQUEST['box_office'];
 	   $picture = $_REQUEST['picture'];
 	   $movie_id = $_REQUEST['movie_id'];
+	   
+	   $uploaded_file_name = basename($_FILES["file"]["name"]);
 	
+//	if ($uploaded_file_name == '' ){
+//		$
+//	}
 	//$isActionExecuted = 1;
        print "Title: $movie_title<br>";
        print "Picture: $picture<br>";
-       print "File: ".basename($_FILES["file"]["name"])."<br>";
+       print "File: ".$uploaded_file_name."<br>";
        print "ID: $movie_id<br>";
+       
+       
+       
         $sql = "UPDATE users SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
        $result = mysqli_query($conn, $sql);
 		
