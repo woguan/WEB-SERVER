@@ -31,7 +31,7 @@
 
     while($row = mysqli_fetch_assoc($result)) {
     ;
-//	 $movie_title = $row['movie_title'];
+	 $movie_title = $row['movie_title'];
 //	 $studio = $row['studio'];
 //	 $year = $row['year'];
 //	 $box_office = $row['box_office']
