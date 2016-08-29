@@ -33,7 +33,7 @@
 	 $movie_title = $row['movie_title'];
 	 $studio = $row['studio'];
 	 $year = $row['year'];
-//	 $box_office = $row['box_office']
+	 $box_office = $row['box_office'];
 	 $picture = $row['picture']; // need to modify this?
 	}
  }
@@ -51,7 +51,7 @@
 </head>
 <body>
 Checking IF updated [2]
- <?= $picture; ?>
+
 <div class="container">
 	
 <h1><?= $action ?> Record</h1>
@@ -82,7 +82,7 @@ Checking IF updated [2]
 	<input type="file" name="file" id="file">
 	</div>
 
-	<!-- <input type="hidden" name="user_id" value="< ?= $user_id ?>">  move '?' to left-->
+	 <input type="hidden" name="movie_id" value="<?= $movie_id ?>">
 	
 	<div class="form-group">
 	<input type="submit" value="<?= $action ?>" name="action" class="btn btn-primary">
