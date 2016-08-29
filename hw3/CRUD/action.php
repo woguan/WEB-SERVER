@@ -14,7 +14,7 @@
 	$action = $_REQUEST['action'];
     
     // Helper Functions
-    function uploadIMG(string $target_dir, string $target_file, string $imageFileType) {
+    function uploadIMG(string $target_dir, string $filename, string $imageFileType) {
    print "This are the info: <br>";
    print "$target_dir <br>";
    print "$target_file <br>";
@@ -35,11 +35,7 @@ if(isset($_POST["submit"])) {
         $uploadOk = 0;
     }
 }
-// Check if file already exists - This is basically impossible to happen. But just in case it happens
-if (file_exists($target_file)) {
-    $msgerr = "Sorry, file already exists.";
-    $uploadOk = 0;
-}
+
 // Check file size
 if ($_FILES["file"]["size"] > 5000000) {
     $msgerr = "Sorry, your file is over 5MB.";
@@ -58,7 +54,7 @@ if ($uploadOk == 0) {
 	print "(F)<br>";
 	if ($isActionExecuted == 1){
 		print "(EXECUTED)<br>";
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir")) {
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$filename")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
         return 1;
     } else {
@@ -91,11 +87,10 @@ $isActionExecuted = 1; // assuming its valid for now
 // start
        // Setting variables for uploading image 
        $target_directory = "../CRUD/images/";
-       $target_full_filepath = $target_directory . basename($_FILES["file"]["name"]);
        $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
        $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType";
        
-     $isActionExecuted = uploadIMG($target_directory, $target_full_filepath,  $image_FileType);
+     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
       print $isActionExecuted;
 // end
 	   
