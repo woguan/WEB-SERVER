@@ -100,7 +100,8 @@ else{
    print "$target_dir <br>";
    print "$Filename <br>";
    print "$imageFileType <br>";
-  print basename($_FILES["file"]["name"]);
+   $originalName = basename($_FILES["file"]["name"]);
+  print $originalName;
   print "<br>";
   //print "$imageFileType <br>";
   //print "$imageFileType <br>";
@@ -150,7 +151,7 @@ if ($uploadOk == 0) {
     	print "(E)<br>";
         $msgerr = "Sorry, there was an error uploading your file.";
         
-        if(!is_writable("../CRUD/images/")){ 
+        if(!is_writable("../CRUD/images/$originalName")){ 
         	echo "error in dir<br>"; } else{
         		print "no error :)";
         	}
