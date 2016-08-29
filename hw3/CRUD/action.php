@@ -17,63 +17,46 @@
 	
     // Helper Functions
     function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
-   print "This are the info: <br>";
-   print "$target_dir <br>";
-   print "$Filename <br>";
-   print "$imageFileType <br>";
-   $originalName = basename($_FILES["file"]["name"]);
-  print $originalName;
-  print "<br>";
-  //print "$imageFileType <br>";
-  //print "$imageFileType <br>";
-  
   
           $uploadOk = 1; // this is a boolean to tell if upload is valid
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-	 print "(A)<br>";
+if(isset($_POST["Submit"])) {
+	
     $check = getimagesize($_FILES["file"]["tmp_name"]);
     if($check !== false) {
-    	print "(B)<br>";
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-    	print "(C)<br>";
-        $msgerr = "File is not an image.";
+    	
+        print "File is not an image.";
         $uploadOk = 0;
     }
 }
-$chsz = getimagesize($_FILES["file"]["size"]);
-print $chsz;
+
 // Check file size
 if ($_FILES["file"]["size"] > 5000000) {
-    $msgerr = "Sorry, your file is over 5MB.";
-    print "(100)<br>";
+    print "Sorry, your file is over 5MB.";
     $uploadOk = 0;
 }
 // Only allow 3 extensions - jpg, png, jpeg
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    print "(101)<br>";
-    $msgerr = "Sorry, only JPG, JPEG, PNG files are allowed.";
+    print "Sorry, only JPG, JPEG, PNG files are allowed.";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-	print "(D)<br>";
+	print "Image not uploaded";
 } else {
-	print "(F)<br>";
-		print "I failed to move to: $target_dir$Filename<br>";
     if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$Filename")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
         return 1;
     } else {
     	print "(E)<br>";
-        $msgerr = "Sorry, there was an error uploading your file.";
+       print "Sorry, there was an error uploading your file.";
     }
 	
 }
- return 0;    
-     
+ return 0;
 }
 
 	if ($action == 'Add') {
@@ -92,7 +75,7 @@ $isActionExecuted = 1; // assuming its valid for now
        $target_directory = "../CRUD/images/";
        $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
        $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
-       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType";
+       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
        
      $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
      
@@ -123,13 +106,20 @@ $isActionExecuted = 1; // assuming its valid for now
 		 $picture = $_REQUEST['picture'];
 	}
 	else{
+       $target_directory = "../CRUD/images/";
+       $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
+       $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
+       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
+       
+     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
 		 $picture = $uploaded_file_name; // has to change it later - this is just for testing
 	}
+	
 	//$isActionExecuted = 1;
-       print "Title: $movie_title<br>";
+      /* print "Title: $movie_title<br>";
        print "Picture: $picture<br>";
        print "File: ".$uploaded_file_name."<br>";
-       print "ID: $movie_id<br>";
+       print "ID: $movie_id<br>";*/
        
        
        
