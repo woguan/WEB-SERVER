@@ -39,10 +39,12 @@ if(isset($_POST["submit"])) {
 // Check file size
 if ($_FILES["file"]["size"] > 5000000) {
     $msgerr = "Sorry, your file is over 5MB.";
+    print "(100)<br>";
     $uploadOk = 0;
 }
 // Only allow 3 extensions - jpg, png, jpeg
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    print "(101)<br>";
     $msgerr = "Sorry, only JPG, JPEG, PNG files are allowed.";
     $uploadOk = 0;
 }
