@@ -15,8 +15,9 @@
 	
 	if ($action == 'Add') {
 
-// Error Reporting Variable
-	$msgerr = '';
+// my globals
+	$msgerr = ''; //Error Reporting Variable
+	$isActionExecuted = 0; // to check if some action were executed
 	
 // Request variables from the form
        $movie_title = $_REQUEST['movie_title'];
@@ -30,7 +31,10 @@
        $uploadOk = 1; // this is a boolean to tell if upload is valid
        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
        $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$imageFileType";
-       
+    
+// SHOULD HAVE VALIDATION HERE!?   - check if data input is valid
+$isActionExecuted = 1; // assuming its valid for now
+
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["file"]["tmp_name"]);
@@ -59,22 +63,27 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    $msgerr = "Sorry, your file was not uploaded.";
+ //   $msgerr = "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
+	if ($isActionExecuted == 1){
     if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$picture")) {
+    	
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
     } else {
-        echo "Sorry, there was an error uploading your file.";
+    	$isActionExecuted = 0;
+        $msgerr = "Sorry, there was an error uploading your file.";
     }
+	}
 }
 	   
 	   
-	   // SHOULD HAVE VALIDATION HERE!?
+	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
-	   
+       if ($uploadOk == 1 && $isActionExecuted == 1){
        $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
        $result = mysqli_query($conn, $sql);	
+       }
 		
 	} else if ($action == "Update") {
 		
@@ -88,12 +97,17 @@ if ($uploadOk == 0) {
        $result = mysqli_query($conn, $sql);
 		
 	}  else if ($action == "Delete") {
+       $isActionExecuted = 1;
        $sql = "DELETE FROM movieInfo WHERE movie_id='".$_POST['movie_id']."'"; 
        $result = mysqli_query($conn, $sql);
-		
+	
 	}
 
 // this is to redirect : WE WILL CREATE FUNCTION TO HANDLE THIS CASE.
-	//header('Location: index.php');
-	
+if ($isActionExecuted == 1){
+	header('Location: index.php');
+}
+else{
+	print "An error has occured. $msgerr";
+}
 ?>
