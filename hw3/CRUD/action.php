@@ -28,8 +28,8 @@
        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
        //$new_image_name = 'image_' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
        $new_image_name = "image_" . date('Y-m-d-H-i-s') . "_" . uniqid() . "$imageFileType";
-       $picture = basename($_FILES["file"]["name"]); // this is used to pass to mysql - the file name	
-       
+       //$picture = basename($_FILES["file"]["name"]); // this is used to pass to mysql - the file name	
+       $picture = $new_image_name;
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["file"]["tmp_name"]);
