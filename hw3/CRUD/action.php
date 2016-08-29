@@ -102,7 +102,7 @@ if ($uploadOk == 0) {
        $result = mysqli_query($conn, $sql);
 	
 	}
-
+print "something..?";
 // this is to redirect : WE WILL CREATE FUNCTION TO HANDLE THIS CASE.
 //if ($isActionExecuted == 1){
 //	header('Location: index.php');
