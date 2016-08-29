@@ -28,11 +28,8 @@
       die("Connection failed: " . mysqli_connect_error());
       
     }
-         
-         
-         
+      
     // FORM AND EXECUTE SOME QUERY
-    //$sql = "SELECT user_id,login,first_name,last_name, password FROM users ORDER BY login";
     $sql = "SELECT * from movieInfo";
     $result = mysqli_query($conn, $sql);
     
