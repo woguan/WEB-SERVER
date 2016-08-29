@@ -41,10 +41,10 @@
     
       while($row = mysqli_fetch_assoc($result)) {
 	    print "<tr>";
-	    print "<td valign=\"center\">". $row['movie_title'] . "</td>" ;
-	    print "<td valign=\"center\">". $row['studio'] . "</td>" ;
-	    print "<td valign=\"center\">". $row['year'] . "</td>" ;
-	    print "<td valign=\"center\">". $row['box_office'] . "</td>" ;
+	    print "<td>". $row['movie_title'] . "</td>" ;
+	    print "<td>". $row['studio'] . "</td>" ;
+	    print "<td>". $row['year'] . "</td>" ;
+	    print "<td>". $row['box_office'] . "</td>" ;
 	    $imgName = $row['picture'];
 	  //  print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
 	   print "<td> <img src=\"../CRUD/images/$imgName\" height=\"100\" width=\"100\"> </td>";
