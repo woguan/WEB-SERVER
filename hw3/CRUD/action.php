@@ -17,7 +17,7 @@
     function uploadIMG(string $target_dir, string $filename, string $imageFileType) {
    print "This are the info: <br>";
    print "$target_dir <br>";
-   print "$target_file <br>";
+   print "$filename <br>";
    print "$imageFileType <br>";
   
           $uploadOk = 1; // this is a boolean to tell if upload is valid
