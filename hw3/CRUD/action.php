@@ -10,12 +10,72 @@
 	  die("Connection failed: " . mysqli_connect_error());
     }
 	$action = $_REQUEST['action'];
-      
+    
 // my globals
 	$msgerr = ''; //Error Reporting Variable
 	$isActionExecuted = 0; // to check if action were executed
 	
+    // Helper Functions
+    function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
+   print "This are the info: <br>";
+   print "$target_dir <br>";
+   print "$Filename <br>";
+   print "$imageFileType <br>";
+   $originalName = basename($_FILES["file"]["name"]);
+  print $originalName;
+  print "<br>";
+  //print "$imageFileType <br>";
+  //print "$imageFileType <br>";
+  
+  
+          $uploadOk = 1; // this is a boolean to tell if upload is valid
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+	 print "(A)<br>";
+    $check = getimagesize($_FILES["file"]["tmp_name"]);
+    if($check !== false) {
+    	print "(B)<br>";
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+    	print "(C)<br>";
+        $msgerr = "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+$chsz = getimagesize($_FILES["file"]["size"]);
+print $chsz;
+// Check file size
+if ($_FILES["file"]["size"] > 5000000) {
+    $msgerr = "Sorry, your file is over 5MB.";
+    print "(100)<br>";
+    $uploadOk = 0;
+}
+// Only allow 3 extensions - jpg, png, jpeg
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
+    print "(101)<br>";
+    $msgerr = "Sorry, only JPG, JPEG, PNG files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+	print "(D)<br>";
+} else {
+	print "(F)<br>";
+		print "I failed to move to: $target_dir$Filename<br>";
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$Filename")) {
+        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
+        return 1;
+    } else {
+    	print "(E)<br>";
+        $msgerr = "Sorry, there was an error uploading your file.";
+    }
 	
+}
+ return 0;    
+     
+}
+
 	if ($action == 'Add') {
 	
 // Request variables from the form
@@ -89,64 +149,5 @@ if ($isActionExecuted == 1){
 else{
 	print "An error has occured. $msgerr";
 }
-    // Helper Functions
-    function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
-   print "This are the info: <br>";
-   print "$target_dir <br>";
-   print "$Filename <br>";
-   print "$imageFileType <br>";
-   $originalName = basename($_FILES["file"]["name"]);
-  print $originalName;
-  print "<br>";
-  //print "$imageFileType <br>";
-  //print "$imageFileType <br>";
-  
-  
-          $uploadOk = 1; // this is a boolean to tell if upload is valid
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-	 print "(A)<br>";
-    $check = getimagesize($_FILES["file"]["tmp_name"]);
-    if($check !== false) {
-    	print "(B)<br>";
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-    	print "(C)<br>";
-        $msgerr = "File is not an image.";
-        $uploadOk = 0;
-    }
-}
-$chsz = getimagesize($_FILES["file"]["size"]);
-print $chsz;
-// Check file size
-if ($_FILES["file"]["size"] > 5000000) {
-    $msgerr = "Sorry, your file is over 5MB.";
-    print "(100)<br>";
-    $uploadOk = 0;
-}
-// Only allow 3 extensions - jpg, png, jpeg
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    print "(101)<br>";
-    $msgerr = "Sorry, only JPG, JPEG, PNG files are allowed.";
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-	print "(D)<br>";
-} else {
-	print "(F)<br>";
-		print "I failed to move to: $target_dir$Filename<br>";
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$Filename")) {
-        echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
-        return 1;
-    } else {
-    	print "(E)<br>";
-        $msgerr = "Sorry, there was an error uploading your file.";
-    }
-	
-}
- return 0;    
-     
-}
+
 ?>
