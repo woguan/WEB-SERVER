@@ -89,14 +89,17 @@ if ($uploadOk == 0) {
 	   $studio = $_REQUEST['studio'];
 	   $year = $_REQUEST['year'];
 	   $box_office = $_REQUEST['box_office'];
-	   $picture = $_REQUEST['picture'];
+	  
 	   $movie_id = $_REQUEST['movie_id'];
 	   
 	   $uploaded_file_name = basename($_FILES["file"]["name"]);
 	
-//	if ($uploaded_file_name == '' ){
-//		$
-//	}
+	if ($uploaded_file_name == '' ){
+		 $picture = $_REQUEST['picture'];
+	}
+	else{
+		 $picture = $uploaded_file_name; // has to change it later - this is just for testing
+	}
 	//$isActionExecuted = 1;
        print "Title: $movie_title<br>";
        print "Picture: $picture<br>";
@@ -105,7 +108,7 @@ if ($uploadOk == 0) {
        
        
        
-        $sql = "UPDATE users SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
+        $sql = "UPDATE movieInfo SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
        $result = mysqli_query($conn, $sql);
 		
 	}  else if ($action == "Delete") {
