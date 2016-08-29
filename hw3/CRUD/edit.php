@@ -50,8 +50,8 @@
 
 </head>
 <body>
-Checking IF updated [2]
-
+Checking IF updated [3]
+<?= $picture ?>
 <div class="container">
 	
 <h1><?= $action ?> Record</h1>
