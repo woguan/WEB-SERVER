@@ -47,7 +47,7 @@
 	    print "<td>". $row['box_office'] . "</td>" ;
 	    $imgName = $row['picture'];
 	   // print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
-	   print "<td> <img src=\"../CRUD/images/$imgName\" height="100" width="100"> </td>"
+	   print "<td> <img src=\"../CRUD/images/$imgName\" height="100" width="100"></img> </td>"
 	    print "<td><div class='row'>";
 	    	    
 	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'>
