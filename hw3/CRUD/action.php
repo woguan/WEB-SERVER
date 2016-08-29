@@ -26,7 +26,8 @@
        $target_file = $target_dir . basename($_FILES["file"]["name"]);
        $uploadOk = 1; // this is a boolean to tell if upload is valid
        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-       
+       //$new_image_name = 'image_' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+       $new_image_name = "image_" . date('Y-m-d-H-i-s') . "_" . uniqid() . "$imageFileType";
        $picture = basename($_FILES["file"]["name"]); // this is used to pass to mysql - the file name	
        
 // Check if image file is a actual image or fake image
@@ -61,7 +62,7 @@ if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+    if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$new_image_name")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
