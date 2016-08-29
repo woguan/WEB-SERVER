@@ -89,6 +89,7 @@ $isActionExecuted = 1; // assuming its valid for now
 // start
        // Setting variables for uploading image 
        $target_directory = "../CRUD/images/";
+       $target_full_filepath = $target_director . basename( $_FILES["file"]["name"];
        $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
        $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType";
        
