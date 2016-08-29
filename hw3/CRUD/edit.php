@@ -39,7 +39,8 @@
 	 $box_office = $row['box_office']
 	 $picture = $row['picture'];
 	}*/
-	
+
+ $movie_id = '';	
  $movie_title = '';
  $studio= '';
  $year = '';
