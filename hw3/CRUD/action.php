@@ -21,6 +21,8 @@
    print "$imageFileType <br>";
   print basename($_FILES["file"]["name"]);
   print "<br>";
+  print "watch: ";
+  print "$_FILES[\"file\"][\"tmp_name\"] <br>";
   //print "$imageFileType <br>";
   //print "$imageFileType <br>";
   
