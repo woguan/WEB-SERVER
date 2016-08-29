@@ -34,7 +34,7 @@
 //	 $studio = $row['studio'];
 //	 $year = $row['year'];
 //	 $box_office = $row['box_office']
-//	 $picture = $row['picture']; // need to modify this?
+	 $picture = $row['picture']; // need to modify this?
 	}
  }
 ?>
@@ -51,7 +51,7 @@
 </head>
 <body>
 Checking IF updated [1]
- <?= $movie_title; ?>
+ <?= $picture; ?>
 <div class="container">
 	
 <h1><?= $action ?> Record</h1>
