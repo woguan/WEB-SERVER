@@ -42,7 +42,7 @@ if(isset($_POST["submit"])) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        $msgerr = "File is not an image.";
         $uploadOk = 0;
     }
 }
@@ -65,6 +65,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 if ($uploadOk == 0) {
  //   $msgerr = "Sorry, your file was not uploaded.";
 // if everything is ok, try to upload file
+;
 } else {
 	if ($isActionExecuted == 1){
     if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$picture")) {
