@@ -59,16 +59,14 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
 	print "(D)<br>";
-	$isActionExecuted = 0;
 } else {
 	print "(F)<br>";
-		print "(EXECUTED)<br>";
+		print "I failed to move to: $target_dir$Filename<br>";
     if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$Filename")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
         return 1;
     } else {
     	print "(E)<br>";
-    	$isActionExecuted = 0;
         $msgerr = "Sorry, there was an error uploading your file.";
     }
 	
