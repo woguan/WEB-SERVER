@@ -104,10 +104,10 @@ if ($uploadOk == 0) {
 	}
 
 // this is to redirect : WE WILL CREATE FUNCTION TO HANDLE THIS CASE.
-if ($isActionExecuted == 1){
-	header('Location: index.php');
-}
-else{
-	print "An error has occured. $msgerr";
-}
+//if ($isActionExecuted == 1){
+//	header('Location: index.php');
+//}
+//else{
+//	print "An error has occured. $msgerr";
+//}
 ?>
