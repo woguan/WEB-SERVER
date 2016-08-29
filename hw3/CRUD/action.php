@@ -63,9 +63,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
- //   $msgerr = "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
-;
+	$isActionExecuted = 0;
 } else {
 	if ($isActionExecuted == 1){
     if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$picture")) {
@@ -105,8 +103,7 @@ if ($uploadOk == 0) {
 
 // this is to redirect : WE WILL CREATE FUNCTION TO HANDLE THIS CASE.
 if ($isActionExecuted == 1){
-	//header('Location: index.php');
-	print "action executed";
+	header('Location: index.php');
 }
 else{
 	print "An error has occured. $msgerr";
