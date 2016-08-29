@@ -46,6 +46,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
+	print "IDK.....";
 	$isActionExecuted = 0;
 } else {
 	if ($isActionExecuted == 1){
