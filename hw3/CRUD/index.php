@@ -96,13 +96,21 @@ if($rec_count > 0){
       while($row = mysqli_fetch_assoc($result)) {
 //      while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
             print "<tr>";
-            print "<td>". $row['movie_title'] . "</td>" ;
-            print "<td>". $row['studio'] . "</td>" ;
-            print "<td>". $row['year'] . "</td>" ;
-            print "<td>". $row['box_office'] . "</td>" ;
+            print "<td style=\"vertical-align:middle;\">". $row['movie_title'] . "</td>" ;
+            print "<td style=\"vertical-align:middle;\">". $row['studio'] . "</td>" ;
+            print "<td style=\"vertical-align:middle;\">". $row['year'] . "</td>" ;
+            print "<td style=\"vertical-align:middle;\">". $row['box_office'] . "</td>" ;
             $imgName = $row['picture'];
-            print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
-            print "<td><div class='row'>";
+            //print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
+            
+             if ($imgName !== ''){
+	   print "<td> <img id=\"noimagefound\" src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\" onerror=\"showNoImage()\"> </td>";
+	  }else{
+	  print "<td> <img id=\"noimagefound\" src=\"../CRUD/images/noimage.png\" height=\"150\" width=\"100\" alt=\"No Image\" onerror=\"showNoImage()\"> </td>";	
+	  }
+            
+            
+            print "<td style=\"vertical-align:middle;\"><div class='row'>";
 
             print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'>
             <div class='form-group'><button type='submit' name='action' value='Update' class='btn btn-default'>
