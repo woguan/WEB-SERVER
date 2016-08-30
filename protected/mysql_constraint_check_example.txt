@@ -73,5 +73,7 @@ begin
 end$
 
 
+====> working one: rlike '^([a-zA-Z0-9-]+[!?]*[[:space:]]?)*$'
+
 
 
