@@ -104,9 +104,9 @@ if($rec_count > 0){
             //print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
             
              if ($imgName !== ''){
-	   print "<td> <img id=\"noimagefound\" src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\" onerror=\"showNoImage()\"> </td>";
+	   print "<td> <img  src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\" > </td>";
 	  }else{
-	  print "<td> <img id=\"noimagefound\" src=\"../CRUD/images/noimage.png\" height=\"150\" width=\"100\" alt=\"No Image\" onerror=\"showNoImage()\"> </td>";	
+	  print "<td> <img src=\"../CRUD/images/noimage.png\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";	
 	  }
             
             
