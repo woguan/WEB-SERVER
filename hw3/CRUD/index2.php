@@ -26,98 +26,99 @@
     if (!$conn) {
     
       die("Connection failed: " . mysqli_connect_error());
-      	    }
+      
+    }
 
     // Testing getting number of records
-        mysqli_select_db('homework3');
-        $sql = "SELECT * FROM movieInfo";
-        $retval = mysqli_query($conn, $sql);
-        $rec_count = mysqli_num_rows($retval);
-        print "There are  $rec_count rows<br>";
-        $rec_limit =5;
-        // Pgae number
-        if( isset($_GET['page'] ) ) {
+	mysqli_select_db('homework3');
+	$sql = "SELECT * FROM movieInfo";
+	$retval = mysqli_query($conn, $sql);
+	$rec_count = mysqli_num_rows($retval);
+	print "There are  $rec_count rows<br>";
+	$rec_limit =5;
+	// Pgae number
+	if( isset($_GET['page'] ) ) {
             $page = $_GET['page'] ;
             //$offset = $rec_limit * $page ;
 
-        // Hard coded. Find more efficient way of doing this
-        if($page == 1){$rec_limit = 5;}
-        elseif($page == 2){$rec_limit = $rec_limit * 2;}
-        elseif($page == 3){$rec_limit = $rec_limit * 4;}
-        else{ $rec_limit = $rec_count;}
-        $offset = 0;
+	// Hard coded. Find more efficient way of doing this
+	if($page == 1){$rec_limit = 5;}
+	elseif($page == 2){$rec_limit = $rec_limit * 2;}
+	elseif($page == 3){$rec_limit = $rec_limit * 4;}
+	else{ $rec_limit = $rec_count;}
+	$offset = 0;
          }else {
            // $page = 0;
-        $page = 1;
+	$page = 1;
         $offset = 0;
-        //$rec_limit = 5;
+	//$rec_limit = 5;
          }
-        print "rec_limit currently is $rec_limit<br>";
-        print "Page $page<br>";
+	print "rec_limit currently is $rec_limit<br>";
+	print "Page $page<br>";
+    
+	// Checks for sort
+	if( isset($_GET['sort'])){
+	$sort = $_GET['sort'];}
+	else{$sort = 0;}
 
-        // Checks for sort
-        if( isset($_GET['sort'])){
-        $sort = $_GET['sort'];}
-        else{$sort = 0;}
+	// Cases which sort the data
+	if($sort == 0){$sql = "SELECT * FROM movieInfo ORDER BY movie_title ASC LIMIT $offset, $rec_limit";}
 
-        // Cases which sort the data
-        if($sort == 0){$sql = "SELECT * FROM movieInfo ORDER BY movie_title ASC LIMIT $offset, $rec_limit";}
-
-        elseif($sort == 1){
+	elseif($sort == 1){
                 $sql = "SELECT * FROM movieInfo ORDER BY studio ASC LIMIT  $offset, $rec_limit";}
 
 
-        elseif($sort == 2){
+	elseif($sort == 2){
                 $sql = "SELECT * FROM movieInfo ORDER BY year ASC LIMIT  $offset, $rec_limit";}
 
-        elseif($sort == 3){
+	elseif($sort == 3){
                 $sql = "SELECT * FROM movieInfo ORDER BY box_office DESC LIMIT  $offset, $rec_limit";}
 
-        else{
+	else{
                 $sql = "SELECT * FROM movieInfo ORDER BY picture ASC LIMIT  $offset, $rec_limit";}
 
-        // Get results from query
-        $result = mysqli_query($conn, $sql);
+	// Get results from query
+	$result = mysqli_query($conn, $sql);
 
-        //  Checks if data was received
-        if(! $result ) {
+	//  Checks if data was received
+ 	if(! $result ) {
             die('Could not get data: ' . mysqli_error());
          }
-
+    
     // USE THE QUERY RESULT
     print "<table class='table'>";
     print "<tr><th><a href=\"$_PHP_SELF?page=$page&sort=0\">Movie Title</a></th><th><a href=\"$_PHP_SELF?page=$page&sort=1\">Studio</a></th><th><a href=\"$_PHP_SELF?page=$page&sort=2\">Year</a></th>";
-    print "<th><a href=\"$_PHP_SELF?page=$page&sort=3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?page=$page&sort=4\">Picture</a></th></tr>";
-
+    print "<th><a href=\"$_PHP_SELF?page=$page&sort=3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?page=$page&sort=4\">Picture</a></th></tr>";   
+    
    // if (mysqli_num_rows($result) > 0) {
 if($rec_count > 0){
-
-
+    
+    
       while($row = mysqli_fetch_assoc($result)) {
-//      while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-            print "<tr>";
-            print "<td>". $row['movie_title'] . "</td>" ;
-            print "<td>". $row['studio'] . "</td>" ;
-            print "<td>". $row['year'] . "</td>" ;
-            print "<td>". $row['box_office'] . "</td>" ;
-            $imgName = $row['picture'];
-            print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
-            print "<td><div class='row'>";
-
-            print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'>
-            <div class='form-group'><button type='submit' name='action' value='Update' class='btn btn-default'>
+//	while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	    print "<tr>";
+	    print "<td>". $row['movie_title'] . "</td>" ;
+	    print "<td>". $row['studio'] . "</td>" ;
+	    print "<td>". $row['year'] . "</td>" ;
+	    print "<td>". $row['box_office'] . "</td>" ;
+	    $imgName = $row['picture'];
+	    print "<td><a href=\"../CRUD/images/$imgName\">LinkToImage</a> </td>";
+	    print "<td><div class='row'>";
+	    	    
+	    print "<div class='col-sm-6'><form action='edit.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'>
+	    <div class='form-group'><button type='submit' name='action' value='Update' class='btn btn-default'>
   <span class='glyphicon glyphicon-pencil'></span></button></div></form></div>";
-
-            print "<div class='col-sm-6'><form action='delete.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'><div class='form-group'><button type='submit' class='btn btn-default' name='action' value=delete'>
+	    
+	    print "<div class='col-sm-6'><form action='delete.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'><div class='form-group'><button type='submit' class='btn btn-default' name='action' value=delete'>
   <span class='glyphicon glyphicon-trash'></span></button></div></form></div>";
 
-            print "</div></td></tr>\n";
+  	    print "</div></td></tr>\n";
 
       }
     } else {
-            print "<tr><td colspan='4'>No Rows</td></tr>";
+	    print "<tr><td colspan='4'>No Rows</td></tr>";
     }
-
+   
    print "</table>";
 
  if( $page >  1 ) {
@@ -128,10 +129,10 @@ if($rec_count > 0){
 
          }
 else if( $page == 1 ) {
-        print "<a href = \"$_PHP_SELF\">5</a>";
+	print "<a href = \"$_PHP_SELF\">5</a>";
         print "<td><a href = \"$_PHP_SELF?page=2\"> 10</a></td>";
-        print "<td><a href = \"$_PHP_SELF?page=3\"> 20</a></td>";
-        print "<td><a href = \"$_PHP_SELF?page=4\"> All</a></td>";
+	print "<td><a href = \"$_PHP_SELF?page=3\"> 20</a></td>";
+	print "<td><a href = \"$_PHP_SELF?page=4\"> All</a></td>";	
          }
 
 
