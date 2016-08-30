@@ -44,3 +44,34 @@ insert into mytable (age) values (35);
 select * from mytable;
 insert into mytable (age) values (5);
 select * from mytable;
+
+
+
+====== regular language =====
+^[ [a-z] |  '[[.!.]]' | '[[.-.]]' | '[[.?.]]' | [0-9] | '[[. .]]' ]*
+
+
+CREATE TRIGGER trig_phone_check BEFORE INSERT ON data
+FOR EACH ROW 
+BEGIN 
+IF (NEW.phone REGEXP '^(\\+?[0-9]{1,4}-)?[0-9]{3,10}$' ) = 0 THEN 
+  SIGNAL SQLSTATE '12345'
+     SET MESSAGE_TEXT = 'Wroooong!!!';
+END IF; 
+END$$
+
+
+=== new method ====
+
+create trigger cars_number_validate before insert on cars
+for each row
+begin
+    if new.number not rlike '^[[:alpha:]]{2}-[[:digit:]]{3}-[[:alpha:]]{2}$'
+    then
+        signal sqlstate '45000' set message_text = 'bad number';
+    end if;
+end$
+
+
+
+
