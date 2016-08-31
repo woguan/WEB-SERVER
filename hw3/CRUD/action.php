@@ -100,14 +100,6 @@ $studio = mysqli_real_escape_string($conn, $studio);
 $year = mysqli_real_escape_string($conn, $year);
 $box_office = mysqli_real_escape_string($conn, $box_office);
 
-//mystart
-
-  //  $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-/* check connection */
-//if (mysqli_connect_errno()) 
-//{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
-
-
 $query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (?,?,?,?,?)";
 $stmt = $mysqli->prepare($query);
 $stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
@@ -151,7 +143,8 @@ $mysqli->close();
      $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
 	
 	}
-       
+    
+    if ($isActionExecuted == 1){   
 	$movie_title = mysqli_real_escape_string($conn, $movie_title);
 	$studio = mysqli_real_escape_string($conn, $studio);
 	$year = mysqli_real_escape_string($conn, $year);
@@ -161,13 +154,14 @@ $mysqli->close();
 	$stmt = $mysqli->prepare($query);
 	$stmt->bind_param("ssiisi", $movie_title, $studio, $year, $box_office, $picture,$movie_id);
 	if ($stmt->execute()){
-		$isActionExecuted = 0;
 print "the statement was executed;<br>";
 }
 else{
 	$isActionExecuted = 0;
+	print "There is one error from inputs. Below is mysql_error report:<br>";
 	print mysqli_error($mysqli);
-	print "<br>failed to execute...<br>";
+	print "<br>";
+}
 }
      //   $sql = "UPDATE movieInfo SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
      //  $result = mysqli_query($conn, $sql);
