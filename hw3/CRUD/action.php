@@ -98,10 +98,12 @@ $isActionExecuted = 1; // assuming its valid for now
 	$stmt->execute();*/
 	
 $movie_title = mysqli_real_escape_string($conn, $movie_title);
-$movie_title = mysqli_real_escape_string($conn, $movie_title);
-$movie_title = mysqli_real_escape_string($conn, $movie_title);
-     //  $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-    //   $result = mysqli_query($conn, $sql);	
+$studio = mysqli_real_escape_string($conn, $studio);
+$year = mysqli_real_escape_string($conn, $year);
+$box_office = mysqli_real_escape_string($conn, $box_office);
+
+       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+       $result = mysqli_query($conn, $sql);	
        }
 	} else if ($action == "Update") {
 		
