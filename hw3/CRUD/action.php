@@ -4,17 +4,17 @@
 	define('DB_PASSWORD','wong123');
 	define('DB_HOST','127.0.0.1');
 	define('DB_NAME','homework3');
-  //  $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     
-    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+ //   $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 /* check connection */
-if (mysqli_connect_errno()) 
-{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
+//if (mysqli_connect_errno()) 
+//{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
 
 
-//	if (!$conn) {
-//	  die("Connection failed: " . mysqli_connect_error());
-//    }
+	if (!$conn) {
+	  die("Connection failed: " . mysqli_connect_error());
+    }
         mysqli_set_charset('gbk');
 	$action = $_REQUEST['action'];
     
