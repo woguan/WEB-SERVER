@@ -83,3 +83,8 @@ $query = "SELECT Name, CountryCode, District FROM myCity";
 if ($result = $mysqli->query($query)) {   
 while ($row = $result->fetch_row()) {        printf("%s (%s,%s)n", $row[0], $row[1], $row[2]);    }   
 $result->close();}
+
+
+
+complete:
+<?php$mysqli = new mysqli("localhost", "my_user", "my_password", "world");/* check connection */if (mysqli_connect_errno()) {    printf("Connect failed: %sn", mysqli_connect_error());    exit();}$mysqli->query("CREATE TABLE myCity LIKE City");/* Prepare an insert statement */$query = "INSERT INTO myCity (Name, CountryCode, District) VALUES (?,?,?)";$stmt = $mysqli->prepare($query);$stmt->bind_param("sss", $val1, $val2, $val3);$val1 = $_POST['city_name1'];$val2 = $_POST['country_code1'];$val3 = $_POST['district1'];/* Execute the statement */$stmt->execute();$val1 = $_POST['city_name2'];$val2 = $_POST['country_code2'];$val3 = $_POST['district2'];/* Execute the statement */$stmt->execute();/* close statement */$stmt->close();/* retrieve all rows from myCity */$query = "SELECT Name, CountryCode, District FROM myCity";if ($result = $mysqli->query($query)) {    while ($row = $result->fetch_row()) {        printf("%s (%s,%s)n", $row[0], $row[1], $row[2]);    }    /* free result set */    $result->close();}/* remove table */$mysqli->query("DROP TABLE myCity");/* close connection */$mysqli->close();?>
