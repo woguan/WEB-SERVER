@@ -20,7 +20,7 @@
     function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
           $uploadOk = 1; // this is a boolean to tell if upload is valid
 // Check if image file is a actual image or fake image
-if(isset($_POST["Submit"])) {
+if(isset($_POST["submit"])) {
 	
     $check = getimagesize($_FILES["file"]["tmp_name"]);
     if($check !== false) {
@@ -28,24 +28,24 @@ if(isset($_POST["Submit"])) {
         $uploadOk = 1;
     } else {
     	
-        print "File is not an image.";
+        print "File is not an image.<br>";
         $uploadOk = 0;
     }
 }
 
 // Check file size
 if ($_FILES["file"]["size"] > 5000000) {
-    print "Sorry, your file is over 5MB.";
+    print "Sorry, your file is over 5MB.<br>";
     $uploadOk = 0;
 }
 // Only allow 3 extensions - jpg, png, jpeg
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg") {
-    print "Sorry, only JPG, JPEG, PNG files are allowed.";
+    print "Sorry, only JPG, JPEG, PNG files are allowed.<br>";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-	print "Image not uploaded";
+	print "Image not uploaded<br>";
 } else {
     if (move_uploaded_file($_FILES["file"]["tmp_name"], "$target_dir$Filename")) {
         echo "The file ". basename( $_FILES["file"]["name"]). " has been uploaded.";
