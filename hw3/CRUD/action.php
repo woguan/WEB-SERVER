@@ -96,18 +96,27 @@ $studio = mysqli_real_escape_string($conn, $studio);
 $year = mysqli_real_escape_string($conn, $year);
 $box_office = mysqli_real_escape_string($conn, $box_office);
 
- $db = new PDO('mysqli:host=127.0.0.1;dbname=homework3;charset=utf8mb4', 'root', 'wong123');
- $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+// $db = new PDO('mysqli:host=127.0.0.1;dbname=homework3;charset=utf8mb4', 'root', 'wong123');
+ //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+//$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-$stmt = $db->prepare("INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title, :studio, :year, :box_office, :picture)");
-$stmt->bindParam(':movie_title', $movie_title);
-$stmt->bindParam(':studio', $studio);
-$stmt->bindParam(':year', $year);
-$stmt->bindParam(':box_office', $box_office);
-$stmt->bindParam(':picture', $picture);
+$db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-$stmt->execute();
+$stmt = mysqli_prepare($conn, "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title, :studio, :year, :box_office, :picture)");
+/*$stmt->bind_param(':movie_title', $movie_title);
+$stmt->bind_param(':studio', $studio);
+$stmt->bind_param(':year', $year);
+$stmt->bind_param(':box_office', $box_office);
+$stmt->bind_param(':picture', $picture);*/
+mysqli_stmt_bind_param($stmt, ':movie_title', $movie_title);
+mysqli_stmt_bind_param($stmt, ':studio', $studio);
+mysqli_stmt_bind_param($stmt, ':year', $year);
+mysqli_stmt_bind_param($stmt, ':box_office', $box_office);
+mysqli_stmt_bind_param($stmt, ':picture', $picture);
+
+mysqli_stmt_fetch($stmt);
+
+//$stmt->execute();
 
 //       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
 //       $result = mysqli_query($conn, $sql);	
