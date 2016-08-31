@@ -64,6 +64,10 @@
         $sort = $_GET['sort'];}
         else{$sort = 0;}
 
+	$page2 = $page - 1;
+	print "Sort is $sort<br>";
+	print "Page is $page<br>";
+	print "Page2 is $page2<br>";
         // Cases which sort the data
         if($sort == 0){$sql = "SELECT * FROM movieInfo ORDER BY movie_title ASC LIMIT $offset, $rec_limit";}
 
@@ -104,8 +108,8 @@
 
     // USE THE QUERY RESULT
     print "<table class='table'>";
-    print "<tr><th><a href=\"$_PHP_SELF?page=$page&sort=0\">Movie Title</a></th><th><a href=\"$_PHP_SELF?page=$page&sort=1\">Studio</a></th><th><a href=\"$_PHP_SELF?page=$page&sort=2\">Year</a></th>";
-    print "<th><a href=\"$_PHP_SELF?page=$page&sort=3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?page=$page&sort=4\">Picture</a></th></tr>";
+    print "<tr><th><a href=\"$_PHP_SELF?sort=0&rec_limit=$rec_limit\">Movie Title</a></th><th><a href=\"$_PHP_SELF?sort=1&rec_limit=$rec_limit&page=$page2\">Studio</a></th><th><a href=\"$_PHP_SELF?sort=2&rec_limit=$rec_limit\">Year</a></th>";
+    print "<th><a href=\"$_PHP_SELF?sort=3&rec_limit=$rec_limit\">Box Office $</a></th><th><a href=\"$_PHP_SELF?sort=4&rec_limit=$rec_limit\">Picture</a></th></tr>";
 
     if($rec_count > 0){
       while($row = mysqli_fetch_assoc($result)) {
@@ -165,7 +169,7 @@
 	}
 
 	else{
-	print "<a href=\"$_PHP_SELF?rec_limit=$rec_limit\">First Page</a>";
+	print "<a href=\"$_PHP_SELF?rec_limit=$rec_limit&sort=$sort\">First Page</a>";
 	}
 
 	// Prints previous page
@@ -174,7 +178,7 @@
 	}
 
 	else{
-	print "<a href=\"$_PHP_SELF?page=$prev_page&rec_limit=$rec_limit\">Previous Page</a>";
+	print "<a href=\"$_PHP_SELF?page=$prev_page&rec_limit=$rec_limit&sort=$sort\">Previous Page</a>";
 	}
 
 	// Prints next page
@@ -183,7 +187,7 @@
 	}
 
 	else{
-	print "<a href=\"$_PHP_SELF?page=$page&rec_limit=$rec_limit\">Next Page</a>";
+	print "<a href=\"$_PHP_SELF?page=$page&rec_limit=$rec_limit&sort=$sort\">Next Page</a>";
 	}
 
 	// Prints last page
@@ -193,7 +197,7 @@
 	}
 
 	else{
-	print "<a href=\"$_PHP_SELF?page=$last_page&rec_limit=$rec_limit\">Last Page</a>";
+	print "<a href=\"$_PHP_SELF?page=$last_page&rec_limit=$rec_limit&sort=$sort\">Last Page</a>";
 	}
 
 ?>
