@@ -9,6 +9,7 @@
 	if (!$conn) {
 	  die("Connection failed: " . mysqli_connect_error());
     }
+        mysqli_set_charset('gbk');
 	$action = $_REQUEST['action'];
     
 // my globals
@@ -88,15 +89,10 @@ $isActionExecuted = 1; // assuming its valid for now
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
        if ($isActionExecuted == 1){
-       	
-     /* 	$stmt = $conn->prepare("INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title , :studio , :year, :box_office,:picture)");
-	$stmt->bindParam(':movie_title', $movie_title);
-	$stmt->bindParam(':studio', $studio);
-	$stmt->bindParam(':year', $year);
-	$stmt->bindParam(':box_office', $box_office);
-	$stmt->bindParam(':picture', $picture);
-	$stmt->execute();*/
 	
+	
+
+
 $movie_title = mysqli_real_escape_string($conn, $movie_title);
 $studio = mysqli_real_escape_string($conn, $studio);
 $year = mysqli_real_escape_string($conn, $year);
