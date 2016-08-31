@@ -115,7 +115,7 @@ print "the statement was executed;<br>";
 else{
 	$isActionExecuted = 0;
 	print "One of the inputs had problem<br>";
-	print mysqli_errno($mysqli);
+	print mysqli_error($mysqli);
 }
 $stmt->close();
 
