@@ -162,9 +162,7 @@ if ($isActionExecuted == 1){
 	}
 	else{
      $isActionExecuted = uploadIMG($target_directory, $newpicture,  $image_FileType);
-     print "this: $isActionExecuted <br>";
      	if ($isActionExecuted == 1){
-     		print "entered<br>";
      			$stmt->close();
        $query = "UPDATE movieInfo SET picture = ? WHERE movie_id = ?";
 	$stmt = $mysqli->prepare($query);
@@ -172,7 +170,7 @@ if ($isActionExecuted == 1){
 	$stmt->execute();
      		}
      		else{
-     			print "Image was not uploaded. All contents that has valid inputs were automatically updated.<br>";
+     			print "Image was not uploaded, using default image.<br> All contents that has valid inputs were automatically updated.<br>";
      		}
 	}
 }
