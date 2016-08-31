@@ -116,6 +116,7 @@ else{
 	$isActionExecuted = 0;
 	print "One of the inputs had problem<br>";
 	print mysqli_error($mysqli);
+	print "<br>";
 }
 $stmt->close();
 
@@ -176,7 +177,7 @@ if ($isActionExecuted == 1){
 	header('Location: index.php');
 }
 else{
-	print "An error has occured. $msgerr";
+	print "The action was not performed. $msgerr";
 }
 
 ?>
