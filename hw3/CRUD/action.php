@@ -6,10 +6,10 @@
 	define('DB_NAME','homework3');
   //  $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     
-    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $mysqli = new mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 /* check connection */
-if (!mysqli_connect()) 
-{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
+//if (!mysqli_connect()) 
+//{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
 
 
 //	if (!$conn) {
