@@ -162,7 +162,9 @@ if ($isActionExecuted == 1){
 	}
 	else{
      $isActionExecuted = uploadIMG($target_directory, $newpicture,  $image_FileType);
-     		if ($isActionExecuted == 1){
+     print "this: $isActionExecuted <br>";
+     	if ($isActionExecuted == 1){
+     		print "entered<br>";
      			$stmt->close();
        $query = "UPDATE movieInfo SET picture = ? WHERE movie_id = ?";
 	$stmt = $mysqli->prepare($query);
