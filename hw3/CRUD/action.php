@@ -161,7 +161,7 @@ if ($isActionExecuted == 1){
 	if ($uploaded_file_name == '' ){
 	}
 	else{
-     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
+     $isActionExecuted = uploadIMG($target_directory, $newpicture,  $image_FileType);
      		if ($isActionExecuted == 1){
      			$stmt->close();
        $query = "UPDATE movieInfo SET picture = ? WHERE movie_id = ?";
