@@ -114,7 +114,7 @@ print "the statement was executed;<br>";
 }
 else{
 	$isActionExecuted = 0;
-	print "One of the inputs had problem<br>";
+	print "One of the inputs has problem. Using mysqli_error report:<br>";
 	print mysqli_error($mysqli);
 	print "<br>";
 }
