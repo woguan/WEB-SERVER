@@ -89,13 +89,17 @@ $isActionExecuted = 1; // assuming its valid for now
 // we will add some validation here... like... if upload is success then call the two lines below	   
        if ($isActionExecuted == 1){
        	
-      	$stmt = $conn->prepare("INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title , :studio , :year, :box_office,:picture)");
+     /* 	$stmt = $conn->prepare("INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title , :studio , :year, :box_office,:picture)");
 	$stmt->bindParam(':movie_title', $movie_title);
 	$stmt->bindParam(':studio', $studio);
 	$stmt->bindParam(':year', $year);
 	$stmt->bindParam(':box_office', $box_office);
 	$stmt->bindParam(':picture', $picture);
-	$stmt->execute();
+	$stmt->execute();*/
+	
+$movie_title = mysqli_real_escape_string($conn, $movie_title);
+$movie_title = mysqli_real_escape_string($conn, $movie_title);
+$movie_title = mysqli_real_escape_string($conn, $movie_title);
      //  $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
     //   $result = mysqli_query($conn, $sql);	
        }
