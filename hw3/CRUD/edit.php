@@ -50,7 +50,6 @@
 
 </head>
 <body>
-Checking IF updated [3]
 <?= $picture ?>
 <div class="container">
 	
