@@ -175,6 +175,7 @@ else{
 	print "There is one error from inputs. Below is mysql_error report:<br>";
 	print mysqli_error($mysqli);
 	print "<br>";
+	print "The table contents that has invalid inputs will have its default value set.<br>"
 }	
      		}
 	}
@@ -194,7 +195,7 @@ if ($isActionExecuted == 1){
 	header('Location: index.php');
 }
 else{
-	print "The action was not performed. $msgerr";
+
 }
 
 ?>
