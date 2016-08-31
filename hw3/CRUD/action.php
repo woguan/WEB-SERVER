@@ -100,23 +100,45 @@ $box_office = mysqli_real_escape_string($conn, $box_office);
  //$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-$db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+//$db = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-$stmt = mysqli_prepare($conn, "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title, :studio, :year, :box_office, :picture)");
+//$stmt = mysqli_prepare($conn, "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title, :studio, :year, :box_office, :picture)");
 /*$stmt->bind_param(':movie_title', $movie_title);
 $stmt->bind_param(':studio', $studio);
 $stmt->bind_param(':year', $year);
 $stmt->bind_param(':box_office', $box_office);
 $stmt->bind_param(':picture', $picture);*/
-mysqli_stmt_bind_param($stmt, ':movie_title', $movie_title);
+/*mysqli_stmt_bind_param($stmt, ':movie_title', $movie_title);
 mysqli_stmt_bind_param($stmt, ':studio', $studio);
 mysqli_stmt_bind_param($stmt, ':year', $year);
 mysqli_stmt_bind_param($stmt, ':box_office', $box_office);
 mysqli_stmt_bind_param($stmt, ':picture', $picture);
 
-mysqli_stmt_fetch($stmt);
+mysqli_stmt_fetch($stmt);*/
 
 //$stmt->execute();
+
+//mystart
+$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+/* check connection */
+if (mysqli_connect_errno()) 
+{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
+
+//$mysqli->query("CREATE TABLE myCity LIKE City");/* Prepare an insert statement */
+$query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (?,?,?,?,?)";
+$stmt = $mysqli->prepare($query);
+$stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
+$stmt->execute();
+$stmt->close();
+
+
+$query = "SELECT Name, CountryCode, District FROM myCity";
+if ($result = $mysqli->query($query)) {   
+while ($row = $result->fetch_row()) {        printf("%s (%s,%s)n", $row[0], $row[1], $row[2]);    }   
+$result->close();}
+$mysqli->close();
+//endstart
+
 
 //       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
 //       $result = mysqli_query($conn, $sql);	
