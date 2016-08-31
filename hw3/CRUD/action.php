@@ -90,7 +90,7 @@ $stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
 
 if ($stmt->execute()){
 	$isActionExecuted = 1;
-print "the statement was executed;<br>";
+//print "the statement was executed;<br>";
 }
 else{
 	$isActionExecuted = 0;
@@ -147,7 +147,7 @@ print "image wont be uploaded due some error.<br>";
 	$stmt->bind_param("ssiii", $movie_title, $studio, $year, $box_office,$movie_id);
 	if ($stmt->execute()){
 		$isActionExecuted = 1;
-print "the statement was executed;<br>";
+//print "the statement was executed;<br>";
 }
 else{
 	$isActionExecuted = 0;
@@ -169,16 +169,10 @@ if ($isActionExecuted == 1){
        $query = "UPDATE movieInfo SET picture = ? WHERE movie_id = ?";
 	$stmt = $mysqli->prepare($query);
 	$stmt->bind_param("si", $newpicture,$movie_id);
-	if ($stmt->execute()){
-		print "the statement was executed;<br>";
-		}
-else{
-	$isActionExecuted = 0;
-	print "There is one error from inputs. Below is mysql_error report:<br>";
-	print mysqli_error($mysqli);
-	print "<br>";
-	print "The table contents that has invalid inputs will have its default value set.<br>";
-}	
+	$stmt->execute()
+     		}
+     		else{
+     			print "Image was not uploaded. All contents that has valid inputs were automatically updated.<br>"
      		}
 	}
 }
