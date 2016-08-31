@@ -88,8 +88,12 @@ $isActionExecuted = 1; // assuming its valid for now
      
 // end
 
+
+// validate if filename is empty
 if ($isActionExecuted == 0 && $uploaded_file_name == ''){
-	print "<br>EMTPY IMAGE SPOTTED<br>";
+	//print "<br>EMTPY IMAGE SPOTTED<br>";
+	$picture = "noimage.png";
+	$isActionExecuted = 1;
 }
 	   
 	 
@@ -118,9 +122,6 @@ $stmt->close();
 $mysqli->close();
 //endstart
 
-
-//       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-//       $result = mysqli_query($conn, $sql);	
        }
 	} else if ($action == "Update") {
 		
