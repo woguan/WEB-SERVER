@@ -97,10 +97,10 @@ $isActionExecuted = 1; // assuming its valid for now
 	$stmt->bindParam(':picture', $picture);
 	$stmt->execute();*/
 	
-$movie_title = mysqli_real_escape_string($conn, $movie_title);
-$studio = mysqli_real_escape_string($conn, $studio);
-$year = mysqli_real_escape_string($conn, $year);
-$box_office = mysqli_real_escape_string($conn, $box_office);
+//$movie_title = mysqli_real_escape_string($conn, $movie_title);
+//$studio = mysqli_real_escape_string($conn, $studio);
+//$year = mysqli_real_escape_string($conn, $year);
+//$box_office = mysqli_real_escape_string($conn, $box_office);
 
        $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
        $result = mysqli_query($conn, $sql);	
