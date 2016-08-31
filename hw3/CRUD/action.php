@@ -127,34 +127,24 @@ print "image wont be uploaded due some error.<br>";
 	   $studio = $_REQUEST['studio'];
 	   $year = $_REQUEST['year'];
 	   $box_office = $_REQUEST['box_office'];
-	  
 	   $movie_id = $_REQUEST['movie_id'];
-	   
-	   $uploaded_file_name = basename($_FILES["file"]["name"]);
-	
-	if ($uploaded_file_name == '' ){
-		 $picture = $_REQUEST['picture'];
-		 $isActionExecuted = 1;
-	}
-	else{
+
+//loading for new image	   
        $target_directory = "../CRUD/images/";
        $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
        $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
-       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
-       
-     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
-	
-	}
-    
-    if ($isActionExecuted == 1){   
+       $newpicture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name  
+       $picture = $_REQUEST['picture'];	  
+        $uploaded_file_name = basename($_FILES["file"]["name"]);
+        
 	$movie_title = mysqli_real_escape_string($conn, $movie_title);
 	$studio = mysqli_real_escape_string($conn, $studio);
 	$year = mysqli_real_escape_string($conn, $year);
 	$box_office = mysqli_real_escape_string($conn, $box_office);
        
-       $query = "UPDATE movieInfo SET movie_title = ? ,studio = ? ,year = ? ,box_office = ?, picture = ? WHERE movie_id = ?";
+       $query = "UPDATE movieInfo SET movie_title = ? ,studio = ? ,year = ? ,box_office = ? WHERE movie_id = ?";
 	$stmt = $mysqli->prepare($query);
-	$stmt->bind_param("ssiisi", $movie_title, $studio, $year, $box_office, $picture,$movie_id);
+	$stmt->bind_param("ssiii", $movie_title, $studio, $year, $box_office,$movie_id);
 	if ($stmt->execute()){
 print "the statement was executed;<br>";
 }
@@ -164,7 +154,31 @@ else{
 	print mysqli_error($mysqli);
 	print "<br>";
 }
+	   
+if ($isActionExecuted == 1){	  
+	
+	if ($uploaded_file_name == '' ){
+	}
+	else{
+     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
+     		if ($isActionExecuted == 1){
+     			$stmt->close();
+       $query = "UPDATE movieInfo SET picture = ? WHERE movie_id = ?";
+	$stmt = $mysqli->prepare($query);
+	$stmt->bind_param("si", $newpicture,$movie_id);
+	if ($stmt->execute()){
+		print "the statement was executed;<br>";
+		}
+else{
+	$isActionExecuted = 0;
+	print "There is one error from inputs. Below is mysql_error report:<br>";
+	print mysqli_error($mysqli);
+	print "<br>";
+}	
+     		}
+	}
 }
+
      //   $sql = "UPDATE movieInfo SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
      //  $result = mysqli_query($conn, $sql);
 		
