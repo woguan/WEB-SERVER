@@ -86,7 +86,7 @@ $box_office = mysqli_real_escape_string($conn, $box_office);
 
 $query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (?,?,?,?,?)";
 $stmt = $mysqli->prepare($query);
-$stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
+$stmt->bind_param("ssids", $movie_title, $studio, $year, $box_office, $picture);
 
 if ($stmt->execute()){
 	$isActionExecuted = 1;
@@ -144,7 +144,7 @@ print "image wont be uploaded due some error.<br>";
        
        $query = "UPDATE movieInfo SET movie_title = ? ,studio = ? ,year = ? ,box_office = ? WHERE movie_id = ?";
 	$stmt = $mysqli->prepare($query);
-	$stmt->bind_param("ssiii", $movie_title, $studio, $year, $box_office,$movie_id);
+	$stmt->bind_param("ssidi", $movie_title, $studio, $year, $box_office,$movie_id);
 	if ($stmt->execute()){
 		$isActionExecuted = 1;
 //print "the statement was executed;<br>";
