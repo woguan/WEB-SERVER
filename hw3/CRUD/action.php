@@ -80,7 +80,7 @@ $isActionExecuted = 1; // assuming its valid for now
        
      
      // validate if filename is empty
-if ($isActionExecuted == 0 && $uploaded_file_name == ''){
+if ($uploaded_file_name == ''){
 	//print "<br>EMTPY IMAGE SPOTTED<br>";
 	$picture = "noimage.png";
 	$isActionExecuted = 1;
