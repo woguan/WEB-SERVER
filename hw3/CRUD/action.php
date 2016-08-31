@@ -88,8 +88,16 @@ $isActionExecuted = 1; // assuming its valid for now
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
        if ($isActionExecuted == 1){
-       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-       $result = mysqli_query($conn, $sql);	
+       	
+       	$stmt = $conn->prepare("INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title , :studio , :year, :box_office,:picture)");
+	$stmt->bindValue(':movie_title', $movie_title);
+	$stmt->bindValue(':studio', $studio);
+	$stmt->bindValue(':year', $year);
+	$stmt->bindValue(':box_office', $box_office);
+	$stmt->bindValue(':picture', $picture);
+	$stmt->execute();
+      // $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+     //  $result = mysqli_query($conn, $sql);	
        }
 	} else if ($action == "Update") {
 		
