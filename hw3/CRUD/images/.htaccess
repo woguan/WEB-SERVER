@@ -1,6 +1,6 @@
 Options -Indexes
 
- <Directory ./>
+ <Directory var/www/html/CSE135SUMMER/hw3/CRUD/images/>
             # Important for security, prevents someone from
             # uploading a malicious .htaccess
             AllowOverride None
