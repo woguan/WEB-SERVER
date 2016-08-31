@@ -91,15 +91,26 @@ $isActionExecuted = 1; // assuming its valid for now
        if ($isActionExecuted == 1){
 	
 	
-
-
 $movie_title = mysqli_real_escape_string($conn, $movie_title);
 $studio = mysqli_real_escape_string($conn, $studio);
 $year = mysqli_real_escape_string($conn, $year);
 $box_office = mysqli_real_escape_string($conn, $box_office);
 
-       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
-       $result = mysqli_query($conn, $sql);	
+ $db = new PDO('mysqli:host=127.0.0.1;dbname=homework3;charset=utf8mb4', 'root', 'wong123');
+ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+$stmt = $db->prepare("INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (:movie_title, :studio, :year, :box_office, :picture)");
+$stmt->bindParam(':movie_title', $movie_title);
+$stmt->bindParam(':studio', $studio);
+$stmt->bindParam(':year', $year);
+$stmt->bindParam(':box_office', $box_office);
+$stmt->bindParam(':picture', $picture);
+
+$stmt->execute();
+
+//       $sql = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES ('$movie_title' , '$studio' , '$year', '$box_office','$picture')";
+//       $result = mysqli_query($conn, $sql);	
        }
 	} else if ($action == "Update") {
 		
@@ -132,6 +143,8 @@ $box_office = mysqli_real_escape_string($conn, $box_office);
        print "Picture: $picture<br>";
        print "File: ".$uploaded_file_name."<br>";
        print "ID: $movie_id<br>";*/
+       
+      
        
 	$movie_title = mysqli_real_escape_string($conn, $movie_title);
 	$studio = mysqli_real_escape_string($conn, $studio);
