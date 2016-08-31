@@ -50,7 +50,6 @@
 
 </head>
 <body>
-<?= $picture ?>
 <div class="container">
 	
 <h1><?= $action ?> Record</h1>
