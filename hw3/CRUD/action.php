@@ -133,7 +133,10 @@ $box_office = mysqli_real_escape_string($conn, $box_office);
        print "File: ".$uploaded_file_name."<br>";
        print "ID: $movie_id<br>";*/
        
-       
+	$movie_title = mysqli_real_escape_string($conn, $movie_title);
+	$studio = mysqli_real_escape_string($conn, $studio);
+	$year = mysqli_real_escape_string($conn, $year);
+	$box_office = mysqli_real_escape_string($conn, $box_office);
        
         $sql = "UPDATE movieInfo SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
        $result = mysqli_query($conn, $sql);
