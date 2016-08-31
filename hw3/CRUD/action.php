@@ -70,30 +70,8 @@ if ($uploadOk == 0) {
        $year = $_REQUEST['year'];
        $box_office = $_REQUEST['box_office'];
      
-     // SHOULD HAVE VALIDATION HERE!?   - check if data input is valid
-$isActionExecuted = 1; // assuming its valid for now
-    
-// start
-       // Setting variables for uploading image 
-       $target_directory = "../CRUD/images/";
-       $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
-       $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
-       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
-       $uploaded_file_name = basename($_FILES["file"]["name"]);
-       
-     
-     // validate if filename is empty
-if ($uploaded_file_name == ''){
-	//print "<br>EMTPY IMAGE SPOTTED<br>";
-	$picture = "noimage.png";
-	$isActionExecuted = 1;
-}  else{
-     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
-}
-// end
-	 
-// we will add some validation here... like... if upload is success then call the two lines below	   
-       if ($isActionExecuted == 1){
+     // SHOULD HAVE VALIDATION HERE!?   - 1) check input 2) check picture
+
 $movie_title = mysqli_real_escape_string($conn, $movie_title);
 $studio = mysqli_real_escape_string($conn, $studio);
 $year = mysqli_real_escape_string($conn, $year);
@@ -103,6 +81,7 @@ $query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VAL
 $stmt = $mysqli->prepare($query);
 $stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
 if ($stmt->execute()){
+	$isActionExecuted = 1;
 print "the statement was executed;<br>";
 }
 else{
@@ -113,10 +92,31 @@ else{
 }
 $stmt->close();
 
-$mysqli->close();
-//endstart
+       // Setting variables for uploading image 
+       $target_directory = "../CRUD/images/";
+       $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
+       $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
+       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
+       $uploaded_file_name = basename($_FILES["file"]["name"]);
+       
+     
+     // validate if filename is empty
+if ($uploaded_file_name == ''){
+	$picture = "noimage.png";
+}  else{
+     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
+}
 
-       }
+// delete if action should not be performed
+if ($isActionExecuted == 0){
+print "image wont be uploaded due some error.<br>";
+   if ($uploaded_file_name != ''){
+      $sql = "DELETE FROM movieInfo WHERE picture='$picture'; 
+      $result = mysqli_query($conn, $sql);
+	}
+}
+
+
 	} else if ($action == "Update") {
 		
 	   $movie_title = $_REQUEST['movie_title'];
