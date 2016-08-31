@@ -18,11 +18,6 @@
 	
     // Helper Functions
     function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
-  
-  //returns if no image uploaded
-  if ($Filename == ''){
-  	return 0;
-  }
           $uploadOk = 1; // this is a boolean to tell if upload is valid
 // Check if image file is a actual image or fake image
 if(isset($_POST["Submit"])) {
@@ -83,22 +78,19 @@ $isActionExecuted = 1; // assuming its valid for now
        $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
        $uploaded_file_name = basename($_FILES["file"]["name"]);
        
-       
-     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
      
-     if(isset($_POST["submit"])) {
-     print "isset suppose to appear....<br>";	
-     }
-     
-// end
-
-
-// validate if filename is empty
+     // validate if filename is empty
 if ($isActionExecuted == 0 && $uploaded_file_name == ''){
 	//print "<br>EMTPY IMAGE SPOTTED<br>";
 	$picture = "noimage.png";
 	$isActionExecuted = 1;
+}  else{
+     $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
 }
+// end
+
+
+
 	   
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
