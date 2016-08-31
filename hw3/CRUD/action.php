@@ -89,12 +89,10 @@ $isActionExecuted = 1; // assuming its valid for now
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
        if ($isActionExecuted == 1){
-	
-	
-//$movie_title = mysqli_real_escape_string($conn, $movie_title);
-//$studio = mysqli_real_escape_string($conn, $studio);
-//$year = mysqli_real_escape_string($conn, $year);
-//$box_office = mysqli_real_escape_string($conn, $box_office);
+$movie_title = mysqli_real_escape_string($conn, $movie_title);
+$studio = mysqli_real_escape_string($conn, $studio);
+$year = mysqli_real_escape_string($conn, $year);
+$box_office = mysqli_real_escape_string($conn, $box_office);
 
 //mystart
 $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -102,18 +100,15 @@ $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if (mysqli_connect_errno()) 
 {    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
 
-//$mysqli->query("CREATE TABLE myCity LIKE City");/* Prepare an insert statement */
 $query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (?,?,?,?,?)";
 $stmt = $mysqli->prepare($query);
 $stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
-$stmt->execute();
+if ($stmt->execute()){
+$isActionExecuted = 0;
+print "the statement was executed;<br>";
+}
 $stmt->close();
 
-
-$query = "SELECT Name, CountryCode, District FROM myCity";
-if ($result = $mysqli->query($query)) {   
-while ($row = $result->fetch_row()) {        printf("%s (%s,%s)n", $row[0], $row[1], $row[2]);    }   
-$result->close();}
 $mysqli->close();
 //endstart
 
