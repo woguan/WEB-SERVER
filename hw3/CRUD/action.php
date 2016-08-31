@@ -146,6 +146,7 @@ print "image wont be uploaded due some error.<br>";
 	$stmt = $mysqli->prepare($query);
 	$stmt->bind_param("ssiii", $movie_title, $studio, $year, $box_office,$movie_id);
 	if ($stmt->execute()){
+		$isActionExecuted = 1;
 print "the statement was executed;<br>";
 }
 else{
