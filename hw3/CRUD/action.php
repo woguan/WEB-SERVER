@@ -131,7 +131,6 @@ $mysqli->close();
 	
 	if ($uploaded_file_name == '' ){
 		 $picture = $_REQUEST['picture'];
-		 print "no new picture";
 		 $isActionExecuted = 1;
 	}
 	else{
