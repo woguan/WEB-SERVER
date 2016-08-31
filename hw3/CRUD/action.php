@@ -169,7 +169,7 @@ if ($isActionExecuted == 1){
        $query = "UPDATE movieInfo SET picture = ? WHERE movie_id = ?";
 	$stmt = $mysqli->prepare($query);
 	$stmt->bind_param("si", $newpicture,$movie_id);
-	$stmt->execute()
+	$stmt->execute();
      		}
      		else{
      			print "Image was not uploaded. All contents that has valid inputs were automatically updated.<br>";
