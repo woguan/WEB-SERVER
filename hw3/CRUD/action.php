@@ -77,6 +77,8 @@ $isActionExecuted = 1; // assuming its valid for now
        $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
        $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
        $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
+       $uploaded_file_name = basename($_FILES["file"]["name"]);
+       
        
      $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
      
@@ -85,6 +87,10 @@ $isActionExecuted = 1; // assuming its valid for now
      }
      
 // end
+
+if ($isActionExecuted == 0 && $uploaded_file_name == ''){
+	print "<br>EMTPY IMAGE SPOTTED<br>";
+}
 	   
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
