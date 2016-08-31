@@ -175,7 +175,7 @@ else{
 	print "There is one error from inputs. Below is mysql_error report:<br>";
 	print mysqli_error($mysqli);
 	print "<br>";
-	print "The table contents that has invalid inputs will have its default value set.<br>"
+	print "The table contents that has invalid inputs will have its default value set.<br>";
 }	
      		}
 	}
