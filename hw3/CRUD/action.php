@@ -4,11 +4,17 @@
 	define('DB_PASSWORD','wong123');
 	define('DB_HOST','127.0.0.1');
 	define('DB_NAME','homework3');
-    $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+  //  $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     
-	if (!$conn) {
-	  die("Connection failed: " . mysqli_connect_error());
-    }
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+/* check connection */
+if (mysqli_connect_errno()) 
+{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
+
+
+//	if (!$conn) {
+//	  die("Connection failed: " . mysqli_connect_error());
+//    }
         mysqli_set_charset('gbk');
 	$action = $_REQUEST['action'];
     
@@ -90,10 +96,6 @@ if ($uploaded_file_name == ''){
      $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
 }
 // end
-
-
-
-	   
 	 
 // we will add some validation here... like... if upload is success then call the two lines below	   
        if ($isActionExecuted == 1){
@@ -103,10 +105,6 @@ $year = mysqli_real_escape_string($conn, $year);
 $box_office = mysqli_real_escape_string($conn, $box_office);
 
 //mystart
-$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-/* check connection */
-if (mysqli_connect_errno()) 
-{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
 
 $query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (?,?,?,?,?)";
 $stmt = $mysqli->prepare($query);
@@ -151,22 +149,23 @@ $mysqli->close();
      $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
 	
 	}
-	
-	//$isActionExecuted = 1;
-      /* print "Title: $movie_title<br>";
-       print "Picture: $picture<br>";
-       print "File: ".$uploaded_file_name."<br>";
-       print "ID: $movie_id<br>";*/
-       
-      
        
 	$movie_title = mysqli_real_escape_string($conn, $movie_title);
 	$studio = mysqli_real_escape_string($conn, $studio);
 	$year = mysqli_real_escape_string($conn, $year);
 	$box_office = mysqli_real_escape_string($conn, $box_office);
        
-        $sql = "UPDATE movieInfo SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
-       $result = mysqli_query($conn, $sql);
+       $query = "UPDATE movieInfo SET movie_title=? ,studio=? ,year=? ,box_office=?, picture=? WHERE movie_id=?";
+	$stmt = $mysqli->prepare($query);
+	$stmt->bind_param("ssiisi", $movie_title, $studio, $year, $box_office, $picture,$movie_id);
+	if ($stmt->execute()){
+print "the statement was executed;<br>";
+}
+else{
+	print "failed to execute...<br>";
+}
+     //   $sql = "UPDATE movieInfo SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
+     //  $result = mysqli_query($conn, $sql);
 		
 	}  else if ($action == "Delete") {
        $isActionExecuted = 1;
