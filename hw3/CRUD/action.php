@@ -26,10 +26,12 @@
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
+       return 0;
     } else {
     	
         print "File is not an image.<br>";
         $uploadOk = 0;
+        return 0;
     }
 //}
 
