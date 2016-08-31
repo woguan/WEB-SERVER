@@ -19,6 +19,10 @@
     // Helper Functions
     function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
   
+  //returns if no image uploaded
+  if ($Filename == ''){
+  	return 0;
+  }
           $uploadOk = 1; // this is a boolean to tell if upload is valid
 // Check if image file is a actual image or fake image
 if(isset($_POST["Submit"])) {
