@@ -106,6 +106,12 @@ $box_office = mysqli_real_escape_string($conn, $box_office);
 
 //mystart
 
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+/* check connection */
+if (mysqli_connect_errno()) 
+{    printf("Connect failed: %sn", mysqli_connect_error());    exit();}
+
+
 $query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (?,?,?,?,?)";
 $stmt = $mysqli->prepare($query);
 $stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
