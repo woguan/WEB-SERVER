@@ -110,8 +110,11 @@ $query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VAL
 $stmt = $mysqli->prepare($query);
 $stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
 if ($stmt->execute()){
-$isActionExecuted = 0;
 print "the statement was executed;<br>";
+}
+else{
+	$isActionExecuted = 0;
+	print "One of the inputs had problem<br>";
 }
 $stmt->close();
 
