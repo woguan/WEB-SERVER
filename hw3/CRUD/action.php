@@ -20,7 +20,7 @@
     function uploadIMG(string $target_dir, string $Filename, string $imageFileType) {
           $uploadOk = 1; // this is a boolean to tell if upload is valid
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
+//if(isset($_POST["submit"])) {
 	
     $check = getimagesize($_FILES["file"]["tmp_name"]);
     if($check !== false) {
@@ -31,7 +31,7 @@ if(isset($_POST["submit"])) {
         print "File is not an image.<br>";
         $uploadOk = 0;
     }
-}
+//}
 
 // Check file size
 if ($_FILES["file"]["size"] > 5000000) {
