@@ -165,6 +165,7 @@ $mysqli->close();
 print "the statement was executed;<br>";
 }
 else{
+	$isActionExecuted = 0;
 	print mysqli_error($mysqli);
 	print "<br>failed to execute...<br>";
 }
