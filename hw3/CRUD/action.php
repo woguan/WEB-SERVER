@@ -172,7 +172,7 @@ if ($isActionExecuted == 1){
 	$stmt->execute()
      		}
      		else{
-     			print "Image was not uploaded. All contents that has valid inputs were automatically updated.<br>"
+     			print "Image was not uploaded. All contents that has valid inputs were automatically updated.<br>";
      		}
 	}
 }
