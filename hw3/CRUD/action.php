@@ -77,9 +77,17 @@ $studio = mysqli_real_escape_string($conn, $studio);
 $year = mysqli_real_escape_string($conn, $year);
 $box_office = mysqli_real_escape_string($conn, $box_office);
 
+       // Setting variables for uploading image 
+       $target_directory = "../CRUD/images/";
+       $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
+       $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
+       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
+       $uploaded_file_name = basename($_FILES["file"]["name"]);
+
 $query = "INSERT INTO movieInfo (movie_title,studio,year,box_office,picture) VALUES (?,?,?,?,?)";
 $stmt = $mysqli->prepare($query);
 $stmt->bind_param("ssiis", $movie_title, $studio, $year, $box_office, $picture);
+
 if ($stmt->execute()){
 	$isActionExecuted = 1;
 print "the statement was executed;<br>";
@@ -91,29 +99,25 @@ else{
 	print "<br>";
 }
 $stmt->close();
-
-       // Setting variables for uploading image 
-       $target_directory = "../CRUD/images/";
-       $target_full_filepath = $target_directory . basename( $_FILES["file"]["name"]);
-       $image_FileType = pathinfo($target_full_filepath,PATHINFO_EXTENSION);
-       $picture = "picture_" . date('Y-m-d-H-i-s') . "_" . uniqid() . ".$image_FileType"; // file name
-       $uploaded_file_name = basename($_FILES["file"]["name"]);
        
      
      // validate if filename is empty
+     if ($isActionExecuted == 1){
 if ($uploaded_file_name == ''){
 	$picture = "noimage.png";
 }  else{
      $isActionExecuted = uploadIMG($target_directory, $picture,  $image_FileType);
+}
 }
 
 // delete if action should not be performed
 if ($isActionExecuted == 0){
 print "image wont be uploaded due some error.<br>";
    if ($uploaded_file_name != ''){
-      $sql = "DELETE FROM movieInfo WHERE picture='$picture'; 
+      $sql = "DELETE FROM movieInfo WHERE picture='$picture'"; 
       $result = mysqli_query($conn, $sql);
 	}
+
 }
 
 
