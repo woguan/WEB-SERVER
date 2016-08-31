@@ -157,14 +157,16 @@ $mysqli->close();
 	$year = mysqli_real_escape_string($conn, $year);
 	$box_office = mysqli_real_escape_string($conn, $box_office);
        
-       $query = "UPDATE movieInfo SET movie_title=? ,studio=? ,year=? ,box_office=?, picture=? WHERE movie_id=?";
+       $query = "UPDATE movieInfo SET movie_title = ? ,studio = ? ,year = ? ,box_office = ?, picture = ? WHERE movie_id = ?";
 	$stmt = $mysqli->prepare($query);
 	$stmt->bind_param("ssiisi", $movie_title, $studio, $year, $box_office, $picture,$movie_id);
 	if ($stmt->execute()){
+		$isActionExecuted = 0;
 print "the statement was executed;<br>";
 }
 else{
-	print "failed to execute...<br>";
+	print mysqli_error($mysqli);
+	print "<br>failed to execute...<br>";
 }
      //   $sql = "UPDATE movieInfo SET movie_title='" .$movie_title."' ,studio='".$studio."' ,year='".$year."' ,box_office='".$box_office."', picture='".$picture."' WHERE movie_id='".$movie_id."'";
      //  $result = mysqli_query($conn, $sql);
