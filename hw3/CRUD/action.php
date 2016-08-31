@@ -114,6 +114,7 @@ $box_office = mysqli_real_escape_string($conn, $box_office);
 	
 	if ($uploaded_file_name == '' ){
 		 $picture = $_REQUEST['picture'];
+		 print "no new picture";
 	}
 	else{
        $target_directory = "../CRUD/images/";
