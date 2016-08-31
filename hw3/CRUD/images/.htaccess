@@ -1,24 +1,4 @@
 Options -Indexes
-
- <Directory var/www/html/CSE135SUMMER/hw3/CRUD/images/>
-            # Important for security, prevents someone from
-            # uploading a malicious .htaccess
-            AllowOverride None
-
-            SetHandler none
-            SetHandler default-handler
-
             Options -ExecCGI
             php_flag engine off
             RemoveHandler .cgi .php .php3 .php4 .php5 .phtml .pl .py .pyc .pyo
-            <Files *>
-                    AllowOverride None
-
-                    SetHandler none
-                    SetHandler default-handler
-
-                    Options -ExecCGI
-                    php_flag engine off
-                    RemoveHandler .cgi .php .php3 .php4 .php5 .phtml .pl .py .pyc .pyo
-            </Files>
-    </Directory>
