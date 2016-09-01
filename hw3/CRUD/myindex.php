@@ -142,23 +142,12 @@
             print "<td style=\"vertical-align:middle;\">". $row['year'] . "</td>" ;
             print "<td style=\"vertical-align:middle;\">". $row['box_office'] . "</td>" ;
             $imgName = $row['picture'];
-            
-            if ($imgName !== ''){
 	    print "<td> <img src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";
-	  }
-            
             print "<td style=\"vertical-align:middle;\"><div class='row'>";
-
-
-            //print "</div></td></tr>\n";
-	print "</div></td></tr>\n";
+		print "</div></td></tr>\n";
 
       }
-    } else {
-            print "<tr><td colspan='4'>No Rows</td></tr>";
-    }
-
-
+    } 
 	print "</table>";
 	$start_Val = $offset + 1;
 	$end_val = $rec_limit * ($page + 1);
