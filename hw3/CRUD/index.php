@@ -238,10 +238,10 @@
                 function reload(){
                 var tmp = document.getElementById("dropdown").value;
 
-                if(tmp == 5){window.location.href="index2.php?rec_limit=5";}
-                else if(tmp == 10){window.location.href="index2.php?rec_limit=10";}
-                else if(tmp == 20){window.location.href="index2.php?rec_limit=20";}
-                else if(tmp == 'All'){window.location.href="index2.php?rec_limit=All";}
+                if(tmp == 5){window.location.href="index.php?rec_limit=5";}
+                else if(tmp == 10){window.location.href="index.php?rec_limit=10";}
+                else if(tmp == 20){window.location.href="index.php?rec_limit=20";}
+                else if(tmp == 'All'){window.location.href="index.php?rec_limit=All";}
                 }
 </script>
 </body>
