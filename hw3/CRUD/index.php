@@ -120,7 +120,7 @@
 	</select>
 
 <?PHP
-	print " entries testing";
+	print " entries";
 
     // USE THE QUERY RESULT
 	$invert0 = !$invert;
