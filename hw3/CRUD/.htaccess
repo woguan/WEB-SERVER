@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^index$ index.php [NC]
+RewriteRule ^.+$ /index.php [L]
