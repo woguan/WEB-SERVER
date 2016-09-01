@@ -137,7 +137,7 @@ print "image wont be uploaded due some error.<br>";
        $picture = $_REQUEST['picture'];	  
         $uploaded_file_name = basename($_FILES["file"]["name"]);
         
-	$movie_title = mysqli_real_escape_string($conn, $movie_title);
+//	$movie_title = mysqli_real_escape_string($conn, $movie_title);
 	$studio = mysqli_real_escape_string($conn, $studio);
 	$year = mysqli_real_escape_string($conn, $year);
 	$box_office = mysqli_real_escape_string($conn, $box_office);
