@@ -72,7 +72,7 @@ if ($uploadOk == 0) {
      
      // SHOULD HAVE VALIDATION HERE!?   - 1) check input 2) check picture
 
-$movie_title = mysqli_real_escape_string($conn, $movie_title);
+//$movie_title = mysqli_real_escape_string($conn, $movie_title);
 $studio = mysqli_real_escape_string($conn, $studio);
 $year = mysqli_real_escape_string($conn, $year);
 $box_office = mysqli_real_escape_string($conn, $box_office);
