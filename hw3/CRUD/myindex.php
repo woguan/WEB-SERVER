@@ -129,10 +129,10 @@
 	$invert3 = !$invert;
 	$invert4 = !$invert;
     print "<table class='table'>";
-//    print "<tr><th><a href=\"$_PHP_SELF?sort=0&rec_limit=$rec_limit&invert=$invert0\">Movie Title</a></th><th><a href=\"$_PHP_SELF?sort=1&rec_limit=$rec_limit&invert=$invert1\">Studio</a></th><th><a href=\"$_PHP_SELF?sort=2&rec_limit=$rec_limit&invert=$invert2\">Year</a></th>";
-//    print "<th><a href=\"$_PHP_SELF?sort=3&rec_limit=$rec_limit&invert=$invert3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?sort=4&rec_limit=$rec_limit&invert=$invert4\">Picture</a></th></tr>";
-    print "<tr><th><a href=\"$_PHP_SELF?sort=0&rec_limit=$rec_limit&invert=$invert0\">Movie Title</a></th><th><a href=\"$_PHP_SELF?sort=1&rec_limit=$rec_limit&invert=$invert1\">Studio</a></th><th><a href=\"$_PHP_SELF?sort=2&rec_limit=$rec_limit&invert=$invert2\">Year</a></th></tr>";
-    print "<tr><th><a href=\"$_PHP_SELF?sort=3&rec_limit=$rec_limit&invert=$invert3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?sort=4&rec_limit=$rec_limit&invert=$invert4\">Picture</a></th></tr>";
+    print "<tr><th><a href=\"$_PHP_SELF?sort=0&rec_limit=$rec_limit&invert=$invert0\">Movie Title</a></th><th><a href=\"$_PHP_SELF?sort=1&rec_limit=$rec_limit&invert=$invert1\">Studio</a></th><th><a href=\"$_PHP_SELF?sort=2&rec_limit=$rec_limit&invert=$invert2\">Year</a></th>";
+  print "<th><a href=\"$_PHP_SELF?sort=3&rec_limit=$rec_limit&invert=$invert3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?sort=4&rec_limit=$rec_limit&invert=$invert4\">Picture</a></th></tr>";
+//    print "<tr><th><a href=\"$_PHP_SELF?sort=0&rec_limit=$rec_limit&invert=$invert0\">Movie Title</a></th><th><a href=\"$_PHP_SELF?sort=1&rec_limit=$rec_limit&invert=$invert1\">Studio</a></th><th><a href=\"$_PHP_SELF?sort=2&rec_limit=$rec_limit&invert=$invert2\">Year</a></th></tr>";
+ //   print "<tr><th><a href=\"$_PHP_SELF?sort=3&rec_limit=$rec_limit&invert=$invert3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?sort=4&rec_limit=$rec_limit&invert=$invert4\">Picture</a></th></tr>";
 
     if($rec_count > 0){
       while($row = mysqli_fetch_assoc($result)) {
@@ -146,9 +146,6 @@
             if ($imgName !== ''){
 	    print "<td> <img src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";
 	  }
-	    else{
-	  print "<td> <img src=\"../CRUD/images/noimage.png\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";	
-	  }
             
             print "<td style=\"vertical-align:middle;\"><div class='row'>";
 
@@ -160,7 +157,7 @@
   <span class='glyphicon glyphicon-trash'></span></button></div></form></div>";
 
             //print "</div></td></tr>\n";
-	print "</div></td>\n";
+	print "</div></td></tr>\n";
 
       }
     } else {
@@ -238,10 +235,10 @@
                 function reload(){
                 var tmp = document.getElementById("dropdown").value;
 
-                if(tmp == 5){window.location.href="index2.php?rec_limit=5";}
-                else if(tmp == 10){window.location.href="index2.php?rec_limit=10";}
-                else if(tmp == 20){window.location.href="index2.php?rec_limit=20";}
-                else if(tmp == 'All'){window.location.href="index2.php?rec_limit=All";}
+                if(tmp == 5){window.location.href="index.php?rec_limit=5";}
+                else if(tmp == 10){window.location.href="index.php?rec_limit=10";}
+                else if(tmp == 20){window.location.href="index.php?rec_limit=20";}
+                else if(tmp == 'All'){window.location.href="index.php?rec_limit=All";}
                 }
 </script>
 </body>
