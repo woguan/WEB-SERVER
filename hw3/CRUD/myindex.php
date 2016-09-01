@@ -183,44 +183,7 @@
 
 <div style="border:dashed 2px black; font-size:1.5em; text-align:center">
 
-<?PHP
-	// Prints first page
-	if($page == 0){
-	print "First	";
-	}
 
-	else{
-	print "<a href=\"$_PHP_SELF?rec_limit=$rec_limit&sort=$sort&invert=$invert\">First	</a>";
-	}
-
-	// Prints previous page
-	if($page < 1){
-	print "Previous	";
-	}
-
-	else{
-	print "<a href=\"$_PHP_SELF?page=$prev_page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Previous </a>";
-	}
-
-	// Prints next page
-	if($page > $last_page){
-	print "	Next	";
-	}
-
-	else{
-	print "<a href=\"$_PHP_SELF?page=$page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Next </a>";
-	}
-
-	// Prints last page
-	if($page > $last_page){
-	print "	Last";
-	}
-
-	else{
-	print "<a href=\"$_PHP_SELF?page=$last_page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Last </a>";
-	}
-
-?>
 </div>
 <br><br>
 <form action="edit.php" method="POST">
