@@ -190,6 +190,10 @@ if ($isActionExecuted == 1){
 }
 else{
 
+if ($_POST['action'] == "Cancel"){
+	header('Location: index.php');
+}
+
 }
 
 ?>
