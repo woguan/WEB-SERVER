@@ -21,7 +21,8 @@
     
 	// CONNECT TO DB
     $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
+  $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+  
     if (!$conn) {
     
       die("Connection failed: " . mysqli_connect_error());
@@ -68,6 +69,11 @@
         if( isset($_GET['sort'])){
         $sort = $_GET['sort'];}
         else{$sort = 0;}
+
+
+$offset = mysqli_real_escape_string($conn, $offset);
+$rec_limit = mysqli_real_escape_string($conn, $rec_limit);
+
 
         // Cases which sort the data
         if($sort == 0 && ($invert  == 1)){$sql = "SELECT * FROM movieInfo ORDER BY movie_title ASC LIMIT $offset, $rec_limit";}
