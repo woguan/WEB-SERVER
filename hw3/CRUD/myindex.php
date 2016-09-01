@@ -134,8 +134,19 @@
 //    print "<tr><th><a href=\"$_PHP_SELF?sort=0&rec_limit=$rec_limit&invert=$invert0\">Movie Title</a></th><th><a href=\"$_PHP_SELF?sort=1&rec_limit=$rec_limit&invert=$invert1\">Studio</a></th><th><a href=\"$_PHP_SELF?sort=2&rec_limit=$rec_limit&invert=$invert2\">Year</a></th></tr>";
  //   print "<tr><th><a href=\"$_PHP_SELF?sort=3&rec_limit=$rec_limit&invert=$invert3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?sort=4&rec_limit=$rec_limit&invert=$invert4\">Picture</a></th></tr>";
 
-    if($rec_count > 0){
+    if($rec_count > 1){
+      while($row = mysqli_fetch_assoc($result)) {
+            print "<tr>";
+            print "<td style=\"vertical-align:middle;\">". $row['movie_title'] . "</td>" ;
+            print "<td style=\"vertical-align:middle;\">". $row['studio'] . "</td>" ;
+            print "<td style=\"vertical-align:middle;\">". $row['year'] . "</td>" ;
+            print "<td style=\"vertical-align:middle;\">". $row['box_office'] . "</td>" ;
+            $imgName = $row['picture'];
+	    print "<td> <img src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";
+            print "<td style=\"vertical-align:middle;\"><div class='row'>";
+		print "</div></td></tr>\n";
 
+      }
     } 
 	print "</table>";
 	$start_Val = $offset + 1;
