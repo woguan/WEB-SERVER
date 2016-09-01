@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>Box Office Tracker</title>
@@ -32,7 +32,6 @@
         $sql = "SELECT * FROM movieInfo";
         $retval = mysqli_query($conn, $sql);
         $rec_count = mysqli_num_rows($retval);
-        //print "There are  $rec_count rows<br>";
 
 	// Code to set rec_limit
 	if( isset($_GET['rec_limit'])){
@@ -55,34 +54,51 @@
         $offset = 0;
         }
 
-       // print "rec_limit currently is $rec_limit<br>";
-       // print "Page $page<br>";
-	
+	// Set invert
+	if( isset($_GET['invert'])){
+	$invert = $_GET['invert'];
+	}
+
+	else{
+	$invert = 1;
+	}
+
 
         // Checks for sort
         if( isset($_GET['sort'])){
         $sort = $_GET['sort'];}
         else{$sort = 0;}
 
-	$page2 = $page - 1;
-	print "Sort is $sort<br>";
-	print "Page is $page<br>";
-	print "Page2 is $page2<br>";
         // Cases which sort the data
-        if($sort == 0){$sql = "SELECT * FROM movieInfo ORDER BY movie_title ASC LIMIT $offset, $rec_limit";}
+        if($sort == 0 && ($invert  == 1)){$sql = "SELECT * FROM movieInfo ORDER BY movie_title ASC LIMIT $offset, $rec_limit";}
 
-        elseif($sort == 1){
+	elseif($sort == 0 && ($invert  == 0)){$sql = "SELECT * FROM movieInfo ORDER BY movie_title DESC LIMIT $offset, $rec_limit";}
+
+
+        elseif($sort == 1 && ($invert == 0)){
                 $sql = "SELECT * FROM movieInfo ORDER BY studio ASC LIMIT  $offset, $rec_limit";}
 
+        elseif($sort == 1 && ($invert == 1)){
+                $sql = "SELECT * FROM movieInfo ORDER BY studio DESC LIMIT  $offset, $rec_limit";}
 
-        elseif($sort == 2){
+
+        elseif($sort == 2 && ($invert == 0)){
                 $sql = "SELECT * FROM movieInfo ORDER BY year ASC LIMIT  $offset, $rec_limit";}
 
-        elseif($sort == 3){
+        elseif($sort == 2 && ($invert == 1)){
+                $sql = "SELECT * FROM movieInfo ORDER BY year DESC LIMIT  $offset, $rec_limit";}
+
+        elseif($sort == 3 && ($invert == 0)){
                 $sql = "SELECT * FROM movieInfo ORDER BY box_office DESC LIMIT  $offset, $rec_limit";}
 
-        else{
+        elseif($sort == 3 && ($invert == 1)){
+                $sql = "SELECT * FROM movieInfo ORDER BY box_office ASC LIMIT  $offset, $rec_limit";}
+
+        elseif($sort == 4 && ($invert == 0)){
                 $sql = "SELECT * FROM movieInfo ORDER BY picture ASC LIMIT  $offset, $rec_limit";}
+
+        elseif($sort == 4 && ($invert == 1)){
+                $sql = "SELECT * FROM movieInfo ORDER BY picture DESC LIMIT  $offset, $rec_limit";}
 
         // Get results from query
         $result = mysqli_query($conn, $sql);
@@ -107,9 +123,14 @@
 	print " entries";
 
     // USE THE QUERY RESULT
+	$invert0 = !$invert;
+	$invert1 = !$invert;
+	$invert2 = !$invert;
+	$invert3 = !$invert;
+	$invert4 = !$invert;
     print "<table class='table'>";
-    print "<tr><th><a href=\"$_PHP_SELF?sort=0&rec_limit=$rec_limit\">Movie Title</a></th><th><a href=\"$_PHP_SELF?sort=1&rec_limit=$rec_limit&page=$page2\">Studio</a></th><th><a href=\"$_PHP_SELF?sort=2&rec_limit=$rec_limit\">Year</a></th>";
-    print "<th><a href=\"$_PHP_SELF?sort=3&rec_limit=$rec_limit\">Box Office $</a></th><th><a href=\"$_PHP_SELF?sort=4&rec_limit=$rec_limit\">Picture</a></th></tr>";
+    print "<tr><td colspan=\"6\"><th><a href=\"$_PHP_SELF?sort=0&rec_limit=$rec_limit&invert=$invert0\">Movie Title</a></th><th><a href=\"$_PHP_SELF?sort=1&rec_limit=$rec_limit&invert=$invert1\">Studio</a></th><th><a href=\"$_PHP_SELF?sort=2&rec_limit=$rec_limit&invert=$invert2\">Year</a></th>";
+    print "<th><a href=\"$_PHP_SELF?sort=3&rec_limit=$rec_limit&invert=$invert3\">Box Office $</a></th><th><a href=\"$_PHP_SELF?sort=4&rec_limit=$rec_limit&invert=$invert4\">Picture</a></th></td></tr>";
 
     if($rec_count > 0){
       while($row = mysqli_fetch_assoc($result)) {
@@ -121,10 +142,10 @@
             $imgName = $row['picture'];
             
             if ($imgName !== ''){
-	    print "<td> <img id=\"noimagefound\" src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\" onerror=\"showNoImage()\"> </td>";
+	    print "<td> <img src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";
 	  }
 	    else{
-	  print "<td> <img id=\"noimagefound\" src=\"../CRUD/images/noimage.png\" height=\"150\" width=\"100\" alt=\"No Image\" onerror=\"showNoImage()\"> </td>";	
+	  print "<td> <img src=\"../CRUD/images/noimage.png\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";	
 	  }
             
             print "<td style=\"vertical-align:middle;\"><div class='row'>";
@@ -133,10 +154,11 @@
             <div class='form-group'><button type='submit' name='action' value='Update' class='btn btn-default'>
   <span class='glyphicon glyphicon-pencil'></span></button></div></form></div>";
 
-            print "<div class='col-sm-6'><form action='delete.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'><div class='form-group'><button type='submit' class='btn btn-default' name='action' value=delete'>
+            print "<div class='col-sm-6'><form action='delete.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'><div class='form-group'><button type='submit' class='btn btn-default' name='action' value='delete'>
   <span class='glyphicon glyphicon-trash'></span></button></div></form></div>";
 
-            print "</div></td></tr>\n";
+            //print "</div></td></tr>\n";
+	print "</div></td></tr>\n";
 
       }
     } else {
@@ -165,39 +187,38 @@
 <?PHP
 	// Prints first page
 	if($page == 0){
-	print "<a href=\"$_PHP_SELF?rec_limit=$rec_limit\" onclick=\"return false\">First Page</a>";
+	print "First	";
 	}
 
 	else{
-	print "<a href=\"$_PHP_SELF?rec_limit=$rec_limit&sort=$sort\">First Page</a>";
+	print "<a href=\"$_PHP_SELF?rec_limit=$rec_limit&sort=$sort&invert=$invert\">First	</a>";
 	}
 
 	// Prints previous page
 	if($page < 1){
-	print "<a href=\"$_PHP_SELF?page=$prev_page&rec_limit=$rec_limit\" onclick=\"return false\">Previous Page</a>";
+	print "Previous	";
 	}
 
 	else{
-	print "<a href=\"$_PHP_SELF?page=$prev_page&rec_limit=$rec_limit&sort=$sort\">Previous Page</a>";
+	print "<a href=\"$_PHP_SELF?page=$prev_page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Previous </a>";
 	}
 
 	// Prints next page
 	if($page > $last_page){
-	print "<a href=\"$_PHP_SELF?page=$page&rec_limit=$rec_limit\" onclick=\"return false\">Next Page</a>";
+	print "	Next	";
 	}
 
 	else{
-	print "<a href=\"$_PHP_SELF?page=$page&rec_limit=$rec_limit&sort=$sort\">Next Page</a>";
+	print "<a href=\"$_PHP_SELF?page=$page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Next </a>";
 	}
 
 	// Prints last page
 	if($page > $last_page){
-//	print "<a href=\"$_PHP_SELF?page=$last_page&rec_limit=$rec_limit\" onclick=\"return false\" style=\"cursor:not-allowed\">Last Page</a>";
-	print "Last Page";
+	print "	Last";
 	}
 
 	else{
-	print "<a href=\"$_PHP_SELF?page=$last_page&rec_limit=$rec_limit&sort=$sort\">Last Page</a>";
+	print "<a href=\"$_PHP_SELF?page=$last_page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Last </a>";
 	}
 
 ?>
@@ -210,17 +231,16 @@
 <br><br>
 <hr>
 <br><br>
-
-</body>
+</div>
 <script type="text/javascript">
                 function reload(){
                 var tmp = document.getElementById("dropdown").value;
 
-		if(tmp == 5){window.location.href="index2.php?rec_limit=5";}
-		else if(tmp == 10){window.location.href="index2.php?rec_limit=10";}
-		else if(tmp == 20){window.location.href="index2.php?rec_limit=20";}
-		else if(tmp == 'All'){window.location.href="index2.php?rec_limit=All";}
-		}
+                if(tmp == 5){window.location.href="index2.php?rec_limit=5";}
+                else if(tmp == 10){window.location.href="index2.php?rec_limit=10";}
+                else if(tmp == 20){window.location.href="index2.php?rec_limit=20";}
+                else if(tmp == 'All'){window.location.href="index2.php?rec_limit=All";}
+                }
 </script>
-
+</body>
 </html>

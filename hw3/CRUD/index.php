@@ -158,7 +158,7 @@
   <span class='glyphicon glyphicon-trash'></span></button></div></form></div>";
 
             //print "</div></td></tr>\n";
-	print "</div></td>\n";
+	print "</div></td></tr>\n";
 
       }
     } else {
