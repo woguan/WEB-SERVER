@@ -143,7 +143,7 @@
             print "<td style=\"vertical-align:middle;\">". $row['box_office'] . "</td>" ;
             $imgName = $row['picture'];
 	    print "<td> <img src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";
-            print "<td style=\"vertical-align:middle;\"><div class='row'>";
+            //print "<td style=\"vertical-align:middle;\"><div class='row'>";
 	//	print "</div></td></tr>\n";
 		print "</tr>\n";
 
