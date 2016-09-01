@@ -140,7 +140,7 @@
             print "<td style=\"vertical-align:middle;\">". $row['movie_title'] . "</td>" ;
             print "<td style=\"vertical-align:middle;\">". $row['studio'] . "</td>" ;
             print "<td style=\"vertical-align:middle;\">". $row['year'] . "</td>" ;
-            print "<td style=\"vertical-align:middle;\">". $row['box_office'] . "</td>" ;
+           // print "<td style=\"vertical-align:middle;\">". $row['box_office'] . "</td>" ;
             $imgName = $row['picture'];
             
             if ($imgName !== ''){
