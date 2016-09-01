@@ -142,13 +142,29 @@
             print "<td style=\"vertical-align:middle;\">". $row['year'] . "</td>" ;
             print "<td style=\"vertical-align:middle;\">". $row['box_office'] . "</td>" ;
             $imgName = $row['picture'];
+            
+            if ($imgName !== ''){
 	    print "<td> <img src=\"../CRUD/images/$imgName\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";
-            //print "<td style=\"vertical-align:middle;\"><div class='row'>";
-	//	print "</div></td></tr>\n";
-		print "</tr>\n";
+	  }
+	    else{
+	  print "<td> <img src=\"../CRUD/images/noimage.png\" height=\"150\" width=\"100\" alt=\"No Image\"> </td>";	
+	  }
+            
+            print "<td style=\"vertical-align:middle;\"><div class='row'>";
+
+            
+
+            print "<div class='col-sm-6'><form action='delete.php' method='POST' class='form-horizontal'><input type='hidden' name='movie_id' value='".$row['movie_id']."'><div class='form-group'><button type='submit' class='btn btn-default' name='action' value='delete'>
+  <span class='glyphicon glyphicon-trash'></span></button></div></form></div>";
+
+	print "</div></td></tr>\n";
 
       }
-    } 
+    } else {
+            print "<tr><td colspan='4'>No Rows</td></tr>";
+    }
+
+
 	print "</table>";
 	$start_Val = $offset + 1;
 	$end_val = $rec_limit * ($page + 1);
@@ -167,7 +183,44 @@
 
 <div style="border:dashed 2px black; font-size:1.5em; text-align:center">
 
+<?PHP
+	// Prints first page
+	if($page == 0){
+	print "First	";
+	}
 
+	else{
+	print "<a href=\"$_PHP_SELF?rec_limit=$rec_limit&sort=$sort&invert=$invert\">First	</a>";
+	}
+
+	// Prints previous page
+	if($page < 1){
+	print "Previous	";
+	}
+
+	else{
+	print "<a href=\"$_PHP_SELF?page=$prev_page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Previous </a>";
+	}
+
+	// Prints next page
+	if($page > $last_page){
+	print "	Next	";
+	}
+
+	else{
+	print "<a href=\"$_PHP_SELF?page=$page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Next </a>";
+	}
+
+	// Prints last page
+	if($page > $last_page){
+	print "	Last";
+	}
+
+	else{
+	print "<a href=\"$_PHP_SELF?page=$last_page&rec_limit=$rec_limit&sort=$sort&invert=$invert\">Last </a>";
+	}
+
+?>
 </div>
 <br><br>
 <form action="edit.php" method="POST">
